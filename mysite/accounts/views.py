@@ -8,5 +8,5 @@ def index(request):
     return HttpResponse("Hello, world. You're at the accounts index.")
 
 
-def test(request, id):
-    return HttpResponse("Argument is: " + id)
+def test(request, test_id):
+    return HttpResponse("Argument is: " + test_id)
