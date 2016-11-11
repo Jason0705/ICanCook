@@ -18,8 +18,6 @@ def login_page(request):
 
 
 def login_user(request):
-    username = password = ''
-
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
