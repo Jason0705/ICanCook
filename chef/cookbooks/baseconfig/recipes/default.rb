@@ -25,6 +25,18 @@ execute 'install_django' do
   command 'pip install Django==1.10.3'
 end
 
+# install mysql
+package "libmysqlclient-dev"
+execute 'install_mysql' do
+  command 'pip install mysql'
+end
+
+# django migrate
+execute 'django_migrate' do
+  cwd '/home/ubuntu/project/mysite'
+  command 'python ./manage.py migrate'
+end
+
 # deploy mysite
 execute 'deploy_mysite' do
   cwd '/home/ubuntu/project/mysite'
