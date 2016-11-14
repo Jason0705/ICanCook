@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -10,7 +10,9 @@ LOGIN_URL = 'login/'
 
 @login_required()
 def index(request):
-    return render(request, 'accounts/manage.html')
+    username = request.user.username
+    c = {'username': username}
+    return render(request, 'accounts/manage.html', c)
 
 
 def login_page(request):
@@ -24,6 +26,11 @@ def test(request):
     return render(request, 'accounts/test.html')
 
 
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect('/user/')
+
+
 def login_user(request):
     if request.POST:
         username = request.POST['username']
@@ -35,7 +42,6 @@ def login_user(request):
             if user.is_active:
                 login(request, user)
 
-                print(url_next)
                 return HttpResponseRedirect(url_next)
 
     return HttpResponseRedirect(LOGIN_URL)
