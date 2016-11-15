@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+<img src="{% static "home/breakfast3.jpg" %}" alt="Banner"/>
+
+<body>
+
+<h1>Website Name</h1>
+<form type="get" action="." style="margin: 0">
+    <input  id="search_box" type="text" name="search_box"  placeholder="Search recipes" >
+    <button id="search_submit" type="submit" >Search</button>
+</form>
+
+<p>
+<a href="">Popular</a>
+<a href="">Explore</a>
+<a href="">Categories</a>
+<a href="{% url 'user:index' %}">My Account</a>
+</p>
+
+<p>Featured Recipes here</p>
+
+</body>
+</html>
+
