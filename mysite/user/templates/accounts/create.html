@@ -1,0 +1,59 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<h1>Sign Up</h1>
+
+ <div id="create-account-form">
+     <div class="row">
+         <div class="col-md-1">
+             <label for="firstname"> First Name </label>
+         </div>
+         <div class="col-md-1">
+             <input type="text" id="firstname" name="firstname">
+         </div>
+     </div>
+
+     <div class="row">
+         <div class="col-md-1">
+             <label for="lastname"> Last Name </label>
+         </div>
+         <div class="col-md-1">
+             <input type="text" id="lastname" name="lastname">
+         </div>
+     </div>
+
+     <div class="row">
+         <div class="col-md-1">
+             <label for="username"> Username </label>
+         </div>
+         <div class="col-md-1">
+             <input type="text" id="username" name="username">
+         </div>
+     </div>
+
+     <div class="row">
+         <div class="col-md-1">
+             <label for="email"> Email </label>
+         </div>
+         <div class="col-md-1">
+             <input type="email" id="email" name="email">
+         </div>
+     </div>
+
+     <div class="row">
+         <div class="col-md-1">
+             <label for="password"> Password </label>
+         </div>
+         <div class="col-md-1">
+             <input type="password" id="password" name="password">
+         </div>
+     </div>
+
+     <div class="row">
+         <div class="col-md-1">
+             <button type="submit" class="button">Create Account</button>
+         </div>
+     </div>
+
+ </div>
+{% endblock %}

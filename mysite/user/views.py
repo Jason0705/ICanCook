@@ -21,6 +21,9 @@ def login_page(request):
     return render(request, 'accounts/login.html', context)
 
 
+def signup(request):
+    return render(request, 'accounts/create.html')
+
 @login_required()
 def test(request):
     return render(request, 'accounts/test.html')
