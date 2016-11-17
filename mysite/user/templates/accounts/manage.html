@@ -1,26 +1,39 @@
 {% extends "accounts/manage_base.html" %}
 
 {% block content %}
-<div class="card">
-    <h1>Manage Account</h1>
-    <p>Welcome {{ username }}</p>
-    <form name="LogoutForm" action="/user/logout_user/" method="post">{% csrf_token %}
-        <button type="submit" class="btn">logout</button>
-    </form>
+    <div class="card container">
+        <h1>Manage Account</h1>
+        <p>Welcome {{ username }}</p>
+        <form name="LogoutForm" action="/user/logout_user/" method="post">{% csrf_token %}
+            <button type="submit" class="btn">logout</button>
+        </form>
 
-
-    <dl class="dl-horizontal">
-        <dt>Username:</dt>
-        <dd>{{ user.username }}</dd>
-
-        <dt>First Name:</dt>
-        <dd>{{ user.first_name }}</dd>
-
-        <dt>Last Name:</dt>
-        <dd>{{ user.last_name }}</dd>
-
-        <dt>Email:</dt>
-        <dd>{{ user.email }}</dd>
-    </dl>
-</div>
+        <div class="row">
+            <div class="col-md-6">
+                <form name="LoginForm" action="/user/update_user/" method="post">{% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input class="form-control" type="text" id="username" name="username" value="{{ user.username }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">First Name</label>
+                        <input class="form-control" type="text" id="firstname" name="firstname" value="{{ user.first_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Last Name</label>
+                        <input class="form-control" type="text" name="lastname" id="lastname" value="{{ user.last_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Email</label>
+                        <input class="form-control" type="email" name="email" id="email" value="{{ user.email }}">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="link-btn pull-right">Save</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+    </div>
 {% endblock %}

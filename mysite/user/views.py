@@ -25,6 +25,32 @@ def test(request):
     return render(request, 'accounts/test.html')
 
 
+@login_required()
+def update_user(request):
+    current_user = request.user
+
+    first_name = request.POST.get('firstname', current_user.first_name)
+    last_name = request.POST.get('lastname', current_user.last_name)
+    email = request.POST.get('email', current_user.email)
+
+    if not first_name:
+        pass  # Return empty first name error
+
+    if not last_name:
+        pass  # Return empty last name error
+
+    if not email:
+        pass  # Return empty email error
+
+    current_user.first_name = first_name
+    current_user.last_name = last_name
+    current_user.email = email
+    current_user.save()
+
+    c = {'user': current_user}
+    return render(request, 'accounts/manage.html', c)
+
+
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect('/user/')
