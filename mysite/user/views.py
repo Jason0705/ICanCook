@@ -34,8 +34,6 @@ def signup(request):
     else:
         return render(request, 'accounts/create.html')
 
-    return render(request, 'accounts/create.html')
-
 
 @login_required()
 def test(request):

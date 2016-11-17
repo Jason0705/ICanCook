@@ -1,45 +1,33 @@
-{% extends "accounts/base.html" %}
+{% extends "accounts/manage_base.html" %}
 
 {% block content %}
 <h1>Sign Up</h1>
 
- <div id="UserForm">
-<form name="UserForm" action="/user/signup/" method="post" enctype="multipart/form-data"> {% csrf_token %}
+<div id="UserForm">
+    <form name="UserForm" action="/user/signup/" method="post" enctype="multipart/form-data"> {% csrf_token %}
 
-     <div class="row">
-         <div class="col-md-1">
-             <label for="username"> Username </label>
-         </div>
-         <div class="col-md-1">
-             <input type="text" id="username" name="username">
-         </div>
-     </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" type="text" id="username" name="username" placeholder="Username">
+        </div>
 
-     <div class="row">
-         <div class="col-md-1">
-             <label for="email"> Email </label>
-         </div>
-         <div class="col-md-1">
-             <input type="email" id="email" name="email">
-         </div>
-     </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email" placeholder="Email">
+        </div>
 
-     <div class="row">
-         <div class="col-md-1">
-             <label for="password"> Password </label>
-         </div>
-         <div class="col-md-1">
-             <input type="password" id="password" name="password">
-         </div>
-     </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="text" id="password" name="password" placeholder="Password">
+        </div>
 
-     <div class="row">
-         <div class="col-md-1">
-             <button type="submit" class="button">Create Account</button>
-         </div>
-     </div>
-</form>
- </div>
+        <div class="row">
+            <div class="col-md-1">
+                <button type="submit" class="btn">Create Account</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}
 
