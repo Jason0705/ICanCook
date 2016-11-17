@@ -4,9 +4,6 @@
     <div class="card container">
         <h1>Manage Account</h1>
         <p>Welcome {{ username }}</p>
-        <form name="LogoutForm" action="/user/logout_user/" method="post">{% csrf_token %}
-            <button type="submit" class="btn">logout</button>
-        </form>
 
         <div class="row">
             <div class="col-md-6">
