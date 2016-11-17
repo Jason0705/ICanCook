@@ -3,24 +3,8 @@
 {% block content %}
 <h1>Sign Up</h1>
 
- <div id="create-account-form">
-     <div class="row">
-         <div class="col-md-1">
-             <label for="firstname"> First Name </label>
-         </div>
-         <div class="col-md-1">
-             <input type="text" id="firstname" name="firstname">
-         </div>
-     </div>
-
-     <div class="row">
-         <div class="col-md-1">
-             <label for="lastname"> Last Name </label>
-         </div>
-         <div class="col-md-1">
-             <input type="text" id="lastname" name="lastname">
-         </div>
-     </div>
+ <div id="UserForm">
+<form name="UserForm" action="/user/signup/" method="post" enctype="multipart/form-data">
 
      <div class="row">
          <div class="col-md-1">
@@ -54,6 +38,8 @@
              <button type="submit" class="button">Create Account</button>
          </div>
      </div>
-
+</form>
  </div>
+
 {% endblock %}
+
