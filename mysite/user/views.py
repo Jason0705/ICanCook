@@ -11,8 +11,7 @@ LOGIN_URL = 'login/'
 
 @login_required()
 def index(request):
-    username = request.user.username
-    c = {'username': username}
+    c = {'user': request.user}
     return render(request, 'accounts/manage.html', c)
 
 

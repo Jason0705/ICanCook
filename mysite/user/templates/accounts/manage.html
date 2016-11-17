@@ -1,14 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Manage Account</h1>
-<p>Welcome {{ username }}</p>
-<form name="LogoutForm" action="/user/logout_user/" method="post">{% csrf_token %}
-    <button type="submit" class="btn">logout</button>
-</form>
-</body>
-</html>
+{% extends "accounts/manage_base.html" %}
+
+{% block content %}
+<div class="card">
+    <h1>Manage Account</h1>
+    <p>Welcome {{ username }}</p>
+    <form name="LogoutForm" action="/user/logout_user/" method="post">{% csrf_token %}
+        <button type="submit" class="btn">logout</button>
+    </form>
+
+
+    <dl class="dl-horizontal">
+        <dt>Username:</dt>
+        <dd>{{ user.username }}</dd>
+
+        <dt>First Name:</dt>
+        <dd>{{ user.first_name }}</dd>
+
+        <dt>Last Name:</dt>
+        <dd>{{ user.last_name }}</dd>
+
+        <dt>Email:</dt>
+        <dd>{{ user.email }}</dd>
+    </dl>
+</div>
+{% endblock %}
