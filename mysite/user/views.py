@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from mysite.user.forms import UserForm
 
 # Create your views her.
 
@@ -25,16 +24,18 @@ def login_page(request):
 
 def signup(request):
     if request.POST:
-        form = UserForm(request.POST)
-        if form.is_valid():
-            user = User.objects.create_user(**form.cleaned_data)
-            user.set_password(user.password)
-            user.save()
-            return HttpResponseRedirect('accounts/test.html')
-    else:
-        form = UserForm()
+        username = request.POST['username']
+        userpass = request.POST['password']
+        usermail = request.POST['email']
 
-    return render(request, 'accounts/create.html', {'form': form})
+        user = User.objects.create_user(username, userpass, usermail)
+        user.set_password(user.password)
+        user.save()
+        return HttpResponseRedirect('/user/login')
+    else:
+        return render(request, 'accounts/create.html')
+
+    return render(request, 'accounts/create.html')
 
 
 @login_required()

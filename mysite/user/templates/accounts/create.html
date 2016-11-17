@@ -4,7 +4,7 @@
 <h1>Sign Up</h1>
 
  <div id="UserForm">
-<form name="UserForm" action="/user/signup/" method="post" enctype="multipart/form-data">
+<form name="UserForm" action="/user/signup/" method="post" enctype="multipart/form-data"> {% csrf_token %}
 
      <div class="row">
          <div class="col-md-1">
