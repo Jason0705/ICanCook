@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 # Create your views her.
 
@@ -18,6 +19,22 @@ def login_page(request):
     next_url = request.GET.get('next', '/user/')
     context = {'next': next_url}
     return render(request, 'accounts/login.html', context)
+
+
+def signup(request):
+    if request.POST:
+        username = request.POST['username']
+        userpass = request.POST['password']
+        usermail = request.POST['email']
+
+        user = User.objects.create_user(username, userpass, usermail)
+        user.set_password(user.password)
+        user.save()
+        return HttpResponseRedirect('/user/login')
+    else:
+        return render(request, 'accounts/create.html')
+
+    return render(request, 'accounts/create.html')
 
 
 @login_required()
