@@ -1,10 +1,11 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login as dlogin, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
 
 # Create your views her.
+from user.forms import LoginForm
 
 LOGIN_URL = 'login/'
 
@@ -15,10 +16,28 @@ def index(request):
     return render(request, 'accounts/manage.html', c)
 
 
-def login_page(request):
-    next_url = request.GET.get('next', '/user/')
-    context = {'next': next_url}
-    return render(request, 'accounts/login.html', context)
+def login(request):
+    if request.POST:
+        form = LoginForm(request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            url_next = form.cleaned_data['next']
+
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    dlogin(request, user)
+                    return HttpResponseRedirect(url_next)
+            else:
+                form.add_error(None, "The username and password are not valid.")
+
+    else:
+        next_url = request.GET.get('next', '/user/')
+        form = LoginForm(initial={'next': next_url})
+
+    return render(request, 'accounts/login.html', {'form': form})
 
 
 def signup(request):
@@ -78,15 +97,19 @@ def logout_user(request):
 
 def login_user(request):
     if request.POST:
-        username = request.POST['username']
-        password = request.POST['password']
-        url_next = request.POST.get('next', '/user/')
 
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
+        form = LoginForm(request.POST)
 
-                return HttpResponseRedirect(url_next)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            url_next = form.cleaned_data['next']
+
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+
+                    return HttpResponseRedirect(url_next)
 
     return HttpResponseRedirect('/user/login/')

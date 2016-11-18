@@ -20,9 +20,8 @@ body {
 }
 
 #login-form {
-    width: 200px;
+    width: 250px;
     margin: auto;
-
 }
 
 .card {
@@ -40,4 +39,9 @@ body {
     /*border is optional*/
     border-bottom: 1px solid #444;
     cursor: pointer;
+}
+
+.form-error {
+    color: red;
+    font-weight: bold;
 }
