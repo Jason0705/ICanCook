@@ -895,3 +895,77 @@ Traceback (most recent call last):
     (bit, current))  # missing attribute
 VariableDoesNotExist: Failed lookup for key [next] in u"[{'False': False, 'None': None, 'True': True}, {u'csrf_token': <SimpleLazyObject: u'4Yz19sjl7J93wXcfz7BqcRBsbchlreXSbfYYojRrhoCAv3aU41wQvsPjur9oxIS6'>, 'user': <SimpleLazyObject: <function <lambda> at 0x7fb199e4d1b8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x7fb19aedec50>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'WARNING': 30, 'SUCCESS': 25, 'ERROR': 40}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x7fb199e47bd0>, u'request': <WSGIRequest: GET '/user/login/?next=/user/'>}, {}]"
 "GET /user/login/?next=/user/ HTTP/1.1" 200 987
+(0.085) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.071) SELECT VERSION(); args=None
+(0.079) SHOW FULL TABLES; args=None
+(0.074) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'home.urls' from '/home/ubuntu/project/mysite/home/urls.py'> (None:home) ^home/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'user.urls' from '/home/ubuntu/project/mysite/user/urls.py'> (None:user) ^user/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'user.urls' from '/home/ubuntu/project/mysite/user/urls.py'> (None:user) ^login/>"
+Not Found: /
+"GET / HTTP/1.1" 404 2222
+"GET /user/ HTTP/1.1" 302 0
+"GET /user/login/?next=/user/ HTTP/1.1" 200 2006
+"GET /static/site.css HTTP/1.1" 200 712
+(0.072) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.073) SELECT VERSION(); args=None
+(0.072) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'jitind'; args=(u'jitind',)
+(0.072) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'e8ubzpe3jyg4j16ql1479dgp1ccf65fe' LIMIT 1; args=(u'e8ubzpe3jyg4j16ql1479dgp1ccf65fe',)
+(0.073) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('e8ubzpe3jyg4j16ql1479dgp1ccf65fe', 'MzExMDFiNzUzM2IyZDBjMmIwYjJiZDg1YjE2MjhhZDI1MzE4MDNmNDp7fQ==', '2016-12-02 00:00:19'); args=(u'e8ubzpe3jyg4j16ql1479dgp1ccf65fe', u'MzExMDFiNzUzM2IyZDBjMmIwYjJiZDg1YjE2MjhhZDI1MzE4MDNmNDp7fQ==', u'2016-12-02 00:00:19')
+(0.073) UPDATE `auth_user` SET `last_login` = '2016-11-18 00:00:20' WHERE `auth_user`.`id` = 1; args=(u'2016-11-18 00:00:20', 1)
+(0.076) UPDATE `django_session` SET `session_data` = 'Y2FkNzljYWI3ZmJlYjg5OTg3Njg4MTk0NjJkZWNhMjU1Y2FjY2YxMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjI4ODVmN2U0YmMyNzFlODNjMzU1YzJiMDdhMWI5NjY1YTEzMjdkN2QiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', `expire_date` = '2016-12-02 00:00:20' WHERE `django_session`.`session_key` = 'e8ubzpe3jyg4j16ql1479dgp1ccf65fe'; args=(u'Y2FkNzljYWI3ZmJlYjg5OTg3Njg4MTk0NjJkZWNhMjU1Y2FjY2YxMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjI4ODVmN2U0YmMyNzFlODNjMzU1YzJiMDdhMWI5NjY1YTEzMjdkN2QiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', u'2016-12-02 00:00:20', u'e8ubzpe3jyg4j16ql1479dgp1ccf65fe')
+"POST /user/login_user/ HTTP/1.1" 302 0
+(0.073) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.072) SELECT VERSION(); args=None
+(0.073) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'e8ubzpe3jyg4j16ql1479dgp1ccf65fe' AND `django_session`.`expire_date` > '2016-11-18 00:00:20'); args=('e8ubzpe3jyg4j16ql1479dgp1ccf65fe', u'2016-11-18 00:00:20')
+(0.073) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'username' in template 'accounts/manage.html'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [username] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: <function _get_val at 0x7f1f64e97320>>, \'user\': <SimpleLazyObject: <User: jitind>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x7f1f64eb8c90>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x7f1f64e9cad0>, u\'request\': <WSGIRequest: GET \'/user/\'>}, {}, {\'user\': <SimpleLazyObject: <User: jitind>>}, {\'block\': <Block Node: page. Contents: [<TextNode: u\'\\n    <nav class="navbar n\'>, <Block Node: content. Contents: []>, <TextNode: u\'\\n        </div>\\n    </div\'>]>}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n    <div class="card con\'>, <Variable Node: username>, <TextNode: u\'</p>\\n\\n        <div class=\'>, <django.template.defaulttags.CsrfTokenNode object at 0x7f1f64eb87d0>, <TextNode: u\'\\n                    <div\'>, <Variable Node: user.username>, <TextNode: u\'" readonly>\\n             \'>, <Variable Node: user.first_name>, <TextNode: u\'">\\n                    </\'>, <Variable Node: user.last_name>, <TextNode: u\'">\\n                    </\'>, <Variable Node: user.email>, <TextNode: u\'">\\n                    </\'>]>}]'
+"GET /user/ HTTP/1.1" 200 4633
+(0.088) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.082) SELECT VERSION(); args=None
+(0.086) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'e8ubzpe3jyg4j16ql1479dgp1ccf65fe' AND `django_session`.`expire_date` > '2016-11-18 00:00:26'); args=('e8ubzpe3jyg4j16ql1479dgp1ccf65fe', u'2016-11-18 00:00:26')
+(0.085) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.085) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = 'e8ubzpe3jyg4j16ql1479dgp1ccf65fe'; args=('e8ubzpe3jyg4j16ql1479dgp1ccf65fe',)
+(0.084) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('e8ubzpe3jyg4j16ql1479dgp1ccf65fe'); args=(u'e8ubzpe3jyg4j16ql1479dgp1ccf65fe',)
+"GET /user/logout_user/ HTTP/1.1" 302 0
+"GET /user/ HTTP/1.1" 302 0
+"GET /user/login/?next=/user/ HTTP/1.1" 200 2006
+(0.078) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.082) SELECT VERSION(); args=None
+(0.084) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'jitind'; args=(u'jitind',)
+(0.095) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'mmi4fp24w5in96fv5ucc21i6hcg3e24x' LIMIT 1; args=(u'mmi4fp24w5in96fv5ucc21i6hcg3e24x',)
+(0.083) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('mmi4fp24w5in96fv5ucc21i6hcg3e24x', 'MzExMDFiNzUzM2IyZDBjMmIwYjJiZDg1YjE2MjhhZDI1MzE4MDNmNDp7fQ==', '2016-12-02 00:00:40'); args=(u'mmi4fp24w5in96fv5ucc21i6hcg3e24x', u'MzExMDFiNzUzM2IyZDBjMmIwYjJiZDg1YjE2MjhhZDI1MzE4MDNmNDp7fQ==', u'2016-12-02 00:00:40')
+(0.071) UPDATE `auth_user` SET `last_login` = '2016-11-18 00:00:40' WHERE `auth_user`.`id` = 1; args=(u'2016-11-18 00:00:40', 1)
+(0.079) UPDATE `django_session` SET `session_data` = 'Y2FkNzljYWI3ZmJlYjg5OTg3Njg4MTk0NjJkZWNhMjU1Y2FjY2YxMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjI4ODVmN2U0YmMyNzFlODNjMzU1YzJiMDdhMWI5NjY1YTEzMjdkN2QiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', `expire_date` = '2016-12-02 00:00:40' WHERE `django_session`.`session_key` = 'mmi4fp24w5in96fv5ucc21i6hcg3e24x'; args=(u'Y2FkNzljYWI3ZmJlYjg5OTg3Njg4MTk0NjJkZWNhMjU1Y2FjY2YxMzp7Il9hdXRoX3VzZXJfaGFzaCI6IjI4ODVmN2U0YmMyNzFlODNjMzU1YzJiMDdhMWI5NjY1YTEzMjdkN2QiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', u'2016-12-02 00:00:40', u'mmi4fp24w5in96fv5ucc21i6hcg3e24x')
+"POST /user/login_user/ HTTP/1.1" 302 0
+(0.088) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.103) SELECT VERSION(); args=None
+(0.091) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mmi4fp24w5in96fv5ucc21i6hcg3e24x' AND `django_session`.`expire_date` > '2016-11-18 00:00:41'); args=('mmi4fp24w5in96fv5ucc21i6hcg3e24x', u'2016-11-18 00:00:41')
+(0.092) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'username' in template 'accounts/manage.html'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [username] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'csrf_token\': <SimpleLazyObject: <function _get_val at 0x7f1f64e97b18>>, \'user\': <SimpleLazyObject: <User: jitind>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x7f1f64652d10>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'WARNING\': 30, \'SUCCESS\': 25, \'ERROR\': 40}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x7f1f64642a90>, u\'request\': <WSGIRequest: GET \'/user/\'>}, {}, {\'user\': <SimpleLazyObject: <User: jitind>>}, {\'block\': <Block Node: page. Contents: [<TextNode: u\'\\n    <nav class="navbar n\'>, <Block Node: content. Contents: []>, <TextNode: u\'\\n        </div>\\n    </div\'>]>}, {\'block\': <Block Node: content. Contents: [<TextNode: u\'\\n    <div class="card con\'>, <Variable Node: username>, <TextNode: u\'</p>\\n\\n        <div class=\'>, <django.template.defaulttags.CsrfTokenNode object at 0x7f1f64652850>, <TextNode: u\'\\n                    <div\'>, <Variable Node: user.username>, <TextNode: u\'" readonly>\\n             \'>, <Variable Node: user.first_name>, <TextNode: u\'">\\n                    </\'>, <Variable Node: user.last_name>, <TextNode: u\'">\\n                    </\'>, <Variable Node: user.email>, <TextNode: u\'">\\n                    </\'>]>}]'
+"GET /user/ HTTP/1.1" 200 4633

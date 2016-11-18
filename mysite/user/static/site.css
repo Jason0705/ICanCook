@@ -15,7 +15,7 @@ body {
     transform: translateY(-50%);
 }
 
-#login-container h1{
+#login-container h1 {
     text-align: center;
 }
 
@@ -33,11 +33,11 @@ body {
 }
 
 .link-btn {
-     background:none!important;
-     border:none;
-     padding:0!important;
-     font: inherit;
-     /*border is optional*/
-     border-bottom:1px solid #444;
-     cursor: pointer;
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    /*border is optional*/
+    border-bottom: 1px solid #444;
+    cursor: pointer;
 }
