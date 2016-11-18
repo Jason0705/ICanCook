@@ -1,0 +1,43 @@
+html {
+    /*height: 100%;*/
+    /*background-color: deepskyblue;*/
+}
+
+body {
+    /*height: 100%;*/
+}
+
+#login-container {
+    width: 500px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#login-container h1 {
+    text-align: center;
+}
+
+#login-form {
+    width: 200px;
+    margin: auto;
+
+}
+
+.card {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 5px #666;
+    border-radius: 0.25em;
+    padding: 10px 15px 10px 15px;
+}
+
+.link-btn {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    /*border is optional*/
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+}
