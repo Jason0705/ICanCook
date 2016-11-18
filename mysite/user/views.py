@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login as dlogin, logout
+from django.contrib.auth import authenticate, login as dlogin, logout as dlogout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -6,8 +6,6 @@ from django.contrib.auth.models import User
 
 # Create your views her.
 from user.forms import LoginForm
-
-LOGIN_URL = 'login/'
 
 
 @login_required()
@@ -90,26 +88,6 @@ def update_user(request):
     return render(request, 'accounts/manage.html', c)
 
 
-def logout_user(request):
-    logout(request)
+def logout(request):
+    dlogout(request)
     return HttpResponseRedirect('/user/')
-
-
-def login_user(request):
-    if request.POST:
-
-        form = LoginForm(request.POST)
-
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            url_next = form.cleaned_data['next']
-
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-
-                    return HttpResponseRedirect(url_next)
-
-    return HttpResponseRedirect('/user/login/')
