@@ -24,10 +24,15 @@ def login_page(request):
 def signup(request):
     if request.POST:
         username = request.POST['username']
-        userpass = request.POST['password']
-        usermail = request.POST['email']
+        pass_word = request.POST['password']
+        email = request.POST['email']
 
-        user = User.objects.create_user(username, userpass, usermail)
+        first_name = request.POST.get('firstname')
+        last_name = request.POST.get('lastname')
+
+        user = User.objects.create_user(username, pass_word, email)
+        user.first_name = first_name
+        user.last_name = last_name
         user.set_password(user.password)
         user.save()
         return HttpResponseRedirect('/user/login')
