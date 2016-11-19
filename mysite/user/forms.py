@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 
-from django.forms import ModelForm, CharField, PasswordInput, HiddenInput, Form, TextInput
+from django.forms import ModelForm, CharField, PasswordInput, HiddenInput, Form, TextInput, EmailField
 
 BOOTSTRAP_TEXT_INPUT = TextInput(attrs={'class': 'form-control'})
 BOOTSTRAP_PASS_INPUT = PasswordInput(attrs={'class': 'form-control'})
@@ -18,3 +18,9 @@ class LoginForm(Form):
     next = CharField(widget=HiddenInput(), max_length=128)
     username = CharField(widget=BOOTSTRAP_TEXT_INPUT, label='Username', max_length=32, required=True)
     password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Password', max_length=32, required=True)
+
+
+class UpdateUserForm(Form):
+    first_name = CharField(widget=BOOTSTRAP_TEXT_INPUT, label='First Name', max_length=32, required=True)
+    last_name = CharField(widget=BOOTSTRAP_TEXT_INPUT, label='Last Name', max_length=32, required=True)
+    email = EmailField(widget=BOOTSTRAP_TEXT_INPUT, label='Email', max_length=64, required=True)
