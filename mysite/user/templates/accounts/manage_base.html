@@ -1,17 +1,20 @@
 {% extends "accounts/base.html" %}
 
 {% block page %}
+
 <div class="navbar-wrapper">
     <div class="container">
         <nav class="navbar navbar-inverse navbar-static-top">
             <!-- <div class="container"> -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
                 <!--<a class="navbar-brand" href="#">Project name</a> -->
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,7 +54,7 @@
                     </div>
                     <div class="col-md-3 col-md-offset-1">
                         <ul class="nav navbar-nav pull-right">
-                            <li><a href="/user/logout_user/" class="btn btn-danger logout-button"> Logout </a> </li>
+                            <li><a href="/user/logout/" class="btn btn-danger logout-button"> Logout </a> </li>
                         </ul>
                     </div>
                 </div>
@@ -63,9 +66,9 @@
 </div>
 
 
-<div class="container">
-    <div>
-        {% block content %}{% endblock %}
+    <div class="container">
+        <div>
+            {% block content %}{% endblock %}
+        </div>
     </div>
-</div>
 {% endblock %}
