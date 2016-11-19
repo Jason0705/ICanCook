@@ -41,3 +41,10 @@ body {
     border-bottom: 1px solid #444;
     cursor: pointer;
 }
+
+.navbar-inverse .navbar-nav > li > a.btn-danger:hover, .navbar-inverse .navbar-nav > li > a.btn-danger:focus{
+    background-color: #c9302c;
+}
+.navbar-form .form-group{
+    display: block;
+}
