@@ -5,12 +5,17 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 
 # Create your views her.
-from user.forms import LoginForm
+from user.forms import LoginForm, UpdateUserForm
 
 
 @login_required()
 def index(request):
-    c = {'user': request.user}
+    form = UpdateUserForm()
+
+    u = request.user
+    form.initial = {'user': u, 'first_name': u.first_name, 'last_name': u.last_name, 'email': u.email}
+
+    c = {'username': u.username, 'form': form}
     return render(request, 'accounts/manage.html', c)
 
 
@@ -63,29 +68,21 @@ def test(request):
 
 
 @login_required()
-def update_user(request):
-    current_user = request.user
+def update(request):
+    if request.POST:
+        form = UpdateUserForm(request.POST)
 
-    first_name = request.POST.get('firstname', current_user.first_name)
-    last_name = request.POST.get('lastname', current_user.last_name)
-    email = request.POST.get('email', current_user.email)
+        if form.is_valid():
+            current_user = request.user
 
-    if not first_name:
-        pass  # Return empty first name error
+            current_user.first_name = form.cleaned_data['first_name']
+            current_user.last_name = form.cleaned_data['last_name']
+            current_user.email = form.cleaned_data['email']
+            current_user.save()
+        else:
+            return render(request, 'accounts/manage.html', {'user': request.user, 'form': form})
 
-    if not last_name:
-        pass  # Return empty last name error
-
-    if not email:
-        pass  # Return empty email error
-
-    current_user.first_name = first_name
-    current_user.last_name = last_name
-    current_user.email = email
-    current_user.save()
-
-    c = {'user': current_user}
-    return render(request, 'accounts/manage.html', c)
+    return HttpResponseRedirect('/user/')
 
 
 def logout(request):

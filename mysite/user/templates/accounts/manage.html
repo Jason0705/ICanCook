@@ -1,38 +1,33 @@
 {% extends "accounts/manage_base.html" %}
 
 {% block content %}
-<div class="card container">
-    <h1>Manage Account</h1>
-    <p>Welcome {{ username }}</p>
+    <div class="card container">
+        <h1>Manage Account</h1>
+        <p>Welcome {{ username }}</p>
 
-    <div class="row">
-        <div class="col-md-6">
-            <form name="LoginForm" action="/user/update_user/" method="post">{% csrf_token %}
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input class="form-control" type="text" id="username" name="username" value="{{ user.username }}"
-                           readonly>
-                </div>
-                <div class="form-group">
-                    <label for="username">First Name</label>
-                    <input class="form-control" type="text" id="firstname" name="firstname"
-                           value="{{ user.first_name }}">
-                </div>
-                <div class="form-group">
-                    <label for="password">Last Name</label>
-                    <input class="form-control" type="text" name="lastname" id="lastname" value="{{ user.last_name }}">
-                </div>
-                <div class="form-group">
-                    <label for="password">Email</label>
-                    <input class="form-control" type="email" name="email" id="email" value="{{ user.email }}">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="link-btn pull-right">Save</button>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <form name="LoginForm" action="/user/update/" method="post">{% csrf_token %}
+                    <div class="form-group">
+                        {{ form.first_name.label_tag }} {{ form.first_name.errors }}
+                        {{ form.first_name }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.last_name.label_tag }} {{ form.last_name.errors }}
+                        {{ form.last_name }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label_tag }} {{ form.email.errors }}
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="link-btn pull-right">Save</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                .
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

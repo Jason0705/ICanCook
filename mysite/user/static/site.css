@@ -41,13 +41,18 @@ body {
     cursor: pointer;
 }
 
+ul.errorlist {
+    color: red;
+}
 
-.navbar-inverse .navbar-nav > li > a.btn-danger:hover, .navbar-inverse .navbar-nav > li > a.btn-danger:focus{
+.navbar-inverse .navbar-nav > li > a.btn-danger:hover, .navbar-inverse .navbar-nav > li > a.btn-danger:focus {
     background-color: #c9302c;
 }
-.navbar-form .form-group{
+
+.navbar-form .form-group {
     display: block;
 }
+
 .form-error {
     color: red;
     font-weight: bold;
