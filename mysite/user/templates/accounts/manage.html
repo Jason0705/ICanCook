@@ -7,17 +7,17 @@
 
         <div class="row">
             <div class="col-md-6">
-                <form name="LoginForm" action="/user/update_user/" method="post">{% csrf_token %}
+                <form name="LoginForm" action="/user/update/" method="post">{% csrf_token %}
                     <div class="form-group">
-                        {{ form.first_name.label_tag }}
+                        {{ form.first_name.label_tag }} {{ form.first_name.errors }}
                         {{ form.first_name }}
                     </div>
                     <div class="form-group">
-                        {{ form.last_name.label_tag }}
+                        {{ form.last_name.label_tag }} {{ form.last_name.errors }}
                         {{ form.last_name }}
                     </div>
                     <div class="form-group">
-                        {{ form.email.label_tag }}
+                        {{ form.email.label_tag }} {{ form.email.errors }}
                         {{ form.email }}
                     </div>
                     <div class="form-group">
@@ -26,7 +26,7 @@
                 </form>
             </div>
             <div class="col-md-6">
-                {{ form.errors }}
+                .
             </div>
         </div>
     </div>

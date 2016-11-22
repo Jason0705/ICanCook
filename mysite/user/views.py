@@ -68,7 +68,7 @@ def test(request):
 
 
 @login_required()
-def update_user(request):
+def update(request):
     if request.POST:
         form = UpdateUserForm(request.POST)
 
