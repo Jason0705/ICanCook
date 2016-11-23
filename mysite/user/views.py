@@ -5,18 +5,27 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 
 # Create your views her.
-from user.forms import LoginForm, UpdateUserForm
+from user.forms import LoginForm, UpdateUserForm, UpdatePasswordForm
+
+PASSWORD_FORM = 'password_form'
+
+INFO_FORM = 'info_form'
+
+
+def get_index_base_context(request):
+    u = request.user
+    info_form = UpdateUserForm()
+    info_form.initial = {'user': u, 'first_name': u.first_name, 'last_name': u.last_name, 'email': u.email}
+
+    password_form = UpdatePasswordForm(username=request.user.username)
+
+    c = {'username': u.username, INFO_FORM: info_form, PASSWORD_FORM: password_form}
+    return c
 
 
 @login_required()
 def index(request):
-    form = UpdateUserForm()
-
-    u = request.user
-    form.initial = {'user': u, 'first_name': u.first_name, 'last_name': u.last_name, 'email': u.email}
-
-    c = {'username': u.username, 'form': form}
-    return render(request, 'accounts/manage.html', c)
+    return render(request, 'accounts/manage.html', get_index_base_context(request))
 
 
 def login(request):
@@ -80,7 +89,26 @@ def update(request):
             current_user.email = form.cleaned_data['email']
             current_user.save()
         else:
-            return render(request, 'accounts/manage.html', {'user': request.user, 'form': form})
+            c = get_index_base_context(request)
+            c[INFO_FORM] = form
+            return render(request, 'accounts/manage.html', c)
+
+    return HttpResponseRedirect('/user/')
+
+
+@login_required()
+def update_password(request):
+    if request.POST:
+        form = UpdatePasswordForm(request.POST, username=request.user.username)
+
+        if form.is_valid():
+            current_user = request.user
+            current_user.set_password(form.cleaned_data['new_password'])
+            current_user.save()
+        else:
+            c = get_index_base_context(request)
+            c[PASSWORD_FORM] = form
+            return render(request, 'accounts/manage.html', c)
 
     return HttpResponseRedirect('/user/')
 
