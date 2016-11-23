@@ -7,26 +7,44 @@
 
         <div class="row">
             <div class="col-md-6">
-                <form name="LoginForm" action="/user/update/" method="post">{% csrf_token %}
+                <h3>Basic Info</h3>
+                <form name="InfoForm" action="/user/update/" method="post">{% csrf_token %}
                     <div class="form-group">
-                        {{ form.first_name.label_tag }} {{ form.first_name.errors }}
-                        {{ form.first_name }}
+                        {{ info_form.first_name.label_tag }} {{ info_form.first_name.errors }}
+                        {{ info_form.first_name }}
                     </div>
                     <div class="form-group">
-                        {{ form.last_name.label_tag }} {{ form.last_name.errors }}
-                        {{ form.last_name }}
+                        {{ info_form.last_name.label_tag }} {{ info_form.last_name.errors }}
+                        {{ info_form.last_name }}
                     </div>
                     <div class="form-group">
-                        {{ form.email.label_tag }} {{ form.email.errors }}
-                        {{ form.email }}
+                        {{ info_form.email.label_tag }} {{ info_form.email.errors }}
+                        {{ info_form.email }}
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="link-btn pull-right">Save</button>
+                        <button type="submit" class="link-btn pull-right">Update</button>
                     </div>
                 </form>
             </div>
             <div class="col-md-6">
-                .
+                <h3>Password</h3>
+                <form name="PasswordForm" action="/user/update-password/" method="post">{% csrf_token %}
+                    <div class="form-group">
+                        {{ password_form.current_password.label_tag }} {{ password_form.current_password.errors }}
+                        {{ password_form.current_password }}
+                    </div>
+                    <div class="form-group">
+                        {{ password_form.new_password.label_tag }} {{ password_form.new_password.errors }}
+                        {{ password_form.new_password }}
+                    </div>
+                    <div class="form-group">
+                        {{ password_form.new_password_confirm.label_tag }} {{ password_form.new_password_confirm.errors }}
+                        {{ password_form.new_password_confirm }}
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="link-btn pull-right">Update</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
