@@ -1,12 +1,21 @@
-<!DOCTYPE html>			
+<!DOCTYPE html>
 <html>
 <body>
-		<form method='POST' action='http://localhost:3000/recipes/'>
-			{% csrf_token %}
-			<h1>Recipe Information</h1>
-			{{ Recipe_Form.as_p }}
-			<button name="submit" input type='submit'>Add Recipe</button>
-		</form>
+<form method='POST' action='http://localhost:3000/recipes/add/'>
+    {% csrf_token %}
+    <h1>Recipe Information</h1>
+    {{ Recipe_Form.as_p }}
+
+    <h3>Ingredients</h3>
+    ---------------------
+    {{ Ingredient_Forms.management_form }}
+    {% for form in Ingredient_Forms %}
+        -*-*-*-*-*-*-*-*-*-*
+        {{ form.as_p }}
+    {% endfor %}
+
+    <button name="submit" type='submit'>Add Recipe</button>
+</form>
 </body>
 </html>
 

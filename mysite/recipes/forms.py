@@ -27,4 +27,5 @@ class QuantityTypeForm(forms.ModelForm):
 class IngredientForm(forms.ModelForm):
     class Meta:
         model = Ingredient
-        exclude = ['rid']
+        exclude = ('rid',)
+        fields = '__all__'

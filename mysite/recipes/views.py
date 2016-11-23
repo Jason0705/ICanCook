@@ -1,3 +1,4 @@
+from django.forms import formset_factory
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import loader, RequestContext
@@ -25,31 +26,25 @@ def details(request, rid):
 
 
 def add_recipe(request):
-    Recipe_Form = RecipeForm(request.POST or None)
-    Step_Form = StepForm(request.POST or None)
-    QuantityType_Form = QuantityTypeForm(request.POST or None)
-    Ingredient_Form = IngredientForm(request.POST or None)
+    recipe_form = RecipeForm()
+    ingredients_formset_factory = formset_factory(IngredientForm, extra=2)
 
-    if Recipe_Form.is_valid():
-        new_recipe = Recipe_Form.save(commit=False)
-        new_recipe.save()
+    if request.POST:
+        recipe_form = RecipeForm(request.POST)
+        ingredients_form_set = ingredients_formset_factory(request.POST)
 
-    if Step_Form.is_valid():
-        new_step = Step_Form.save(commit=False)
-        new_step.save()
+        if recipe_form.is_valid() and ingredients_form_set.is_valid():
+            recipe = recipe_form.save()
 
-    if QuantityType_Form.is_valid():
-        new_QuantityType = QuantityType_Form.save(commit=False)
-        new_QuantityType.save()
+            for ingr_form in ingredients_form_set.forms:
+                ingredient = ingr_form.save(commit=False)
+                ingredient.rid_id = recipe.rid
+                ingredient.save()
 
-    if Ingredient_Form.is_valid():
-        new_ingredient = IngredientForm.save(commit=False)
-        new_ingredient.save()
+            recipe.save()
+            return HttpResponseRedirect('/recipe/' + str(recipe.rid))
 
-    recipe_names = Recipe.objects.order_by('-rid')[:5]
-    context = {'Recipe_Form': Recipe_Form, 'Step_Form': Step_Form, 'QuantityType_Form': QuantityType_Form, 'Ingredient_Form': Ingredient_Form,
-               'recipe_names': recipe_names}
-
+    context = {'Recipe_Form': recipe_form, 'Ingredient_Forms': ingredients_formset_factory}
     return render(request, 'recipes/add.html', context)
 
 
