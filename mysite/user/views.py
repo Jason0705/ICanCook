@@ -5,13 +5,27 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 
 # Create your views her.
-from user.forms import LoginForm
+from user.forms import LoginForm, UpdateUserForm, UpdatePasswordForm
+
+PASSWORD_FORM = 'password_form'
+
+INFO_FORM = 'info_form'
+
+
+def get_index_base_context(request):
+    u = request.user
+    info_form = UpdateUserForm()
+    info_form.initial = {'user': u, 'first_name': u.first_name, 'last_name': u.last_name, 'email': u.email}
+
+    password_form = UpdatePasswordForm(username=request.user.username)
+
+    c = {'username': u.username, INFO_FORM: info_form, PASSWORD_FORM: password_form}
+    return c
 
 
 @login_required()
 def index(request):
-    c = {'user': request.user}
-    return render(request, 'accounts/manage.html', c)
+    return render(request, 'accounts/manage.html', get_index_base_context(request))
 
 
 def login(request):
@@ -63,29 +77,40 @@ def test(request):
 
 
 @login_required()
-def update_user(request):
-    current_user = request.user
+def update(request):
+    if request.POST:
+        form = UpdateUserForm(request.POST)
 
-    first_name = request.POST.get('firstname', current_user.first_name)
-    last_name = request.POST.get('lastname', current_user.last_name)
-    email = request.POST.get('email', current_user.email)
+        if form.is_valid():
+            current_user = request.user
 
-    if not first_name:
-        pass  # Return empty first name error
+            current_user.first_name = form.cleaned_data['first_name']
+            current_user.last_name = form.cleaned_data['last_name']
+            current_user.email = form.cleaned_data['email']
+            current_user.save()
+        else:
+            c = get_index_base_context(request)
+            c[INFO_FORM] = form
+            return render(request, 'accounts/manage.html', c)
 
-    if not last_name:
-        pass  # Return empty last name error
+    return HttpResponseRedirect('/user/')
 
-    if not email:
-        pass  # Return empty email error
 
-    current_user.first_name = first_name
-    current_user.last_name = last_name
-    current_user.email = email
-    current_user.save()
+@login_required()
+def update_password(request):
+    if request.POST:
+        form = UpdatePasswordForm(request.POST, username=request.user.username)
 
-    c = {'user': current_user}
-    return render(request, 'accounts/manage.html', c)
+        if form.is_valid():
+            current_user = request.user
+            current_user.set_password(form.cleaned_data['new_password'])
+            current_user.save()
+        else:
+            c = get_index_base_context(request)
+            c[PASSWORD_FORM] = form
+            return render(request, 'accounts/manage.html', c)
+
+    return HttpResponseRedirect('/user/')
 
 
 def logout(request):
