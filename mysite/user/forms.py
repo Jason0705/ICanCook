@@ -1,6 +1,5 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 
 from django.forms import ModelForm, CharField, PasswordInput, HiddenInput, Form, TextInput, EmailField
 
@@ -29,9 +28,9 @@ class UpdateUserForm(Form):
 
 
 class UpdatePasswordForm(Form):
-    current_password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Current Password', max_length=32, required=True)
-    new_password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='New Password', max_length=32, required=True)
-    new_password_confirm = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Confirm New Password', max_length=32, required=True)
+    current_password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Current Password', max_length=32, min_length=6, required=True)
+    new_password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='New Password', max_length=32, min_length=6, required=True)
+    new_password_confirm = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Confirm New Password', min_length=6, max_length=32, required=True)
     username = ''
 
     def __init__(self, *args, **kwargs):
