@@ -6,7 +6,8 @@ from django.core.urlresolvers import reverse
 
 from .models import Recipe, Step, QuantityType, Ingredient
 from .forms import RecipeForm, StepForm, QuantityTypeForm, IngredientForm
-
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -23,7 +24,7 @@ def details(request, rid):
         raise Http404("Recipe does not exist.")
     return render(request, 'recipes/details.html', {'recipe': recipe})
 
-
+@login_required(login_url='/login/')
 def add_recipe(request):
     recipe_form = RecipeForm()
     ingredients_formset_factory = formset_factory(IngredientForm)
@@ -53,7 +54,7 @@ def add_recipe(request):
     context = {'Recipe_Form': recipe_form, 'Ingredient_Forms': ingredients_formset_factory, 'Step_Forms': steps_formset_factory}
     return render(request, 'recipes/add.html', context)
 
-
+@login_required(login_url='/login/')
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
     
@@ -67,7 +68,7 @@ def edit(request, rid):
         context = {'recipe_form': recipe_form}
     return render(request, 'recipes/edit.html', context)
 
-
+@login_required(login_url='/login/')
 def delete(request, rid):
     delete = Recipe.objects.filter(pk=rid).delete()
     return render(request, 'recipes/delete.html')
