@@ -10591,3 +10591,57 @@ TemplateSyntaxError: Invalid block tag on line 8: 'static', expected 'endblock'.
 "GET /static/site.css HTTP/1.1" 304 0
 "GET /user/signup/ HTTP/1.1" 200 5390
 "GET /static/site.css HTTP/1.1" 304 0
+(0.124) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.116) SELECT VERSION(); args=None
+(0.116) SHOW FULL TABLES; args=None
+(0.117) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.121) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.115) SELECT VERSION(); args=None
+(0.127) SHOW FULL TABLES; args=None
+(0.127) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /home/ HTTP/1.1" 200 12877
+"GET /static/home/css/bootstrap.css HTTP/1.1" 200 146010
+"GET /static/home/js/bootstrap.min.js HTTP/1.1" 200 37045
+"GET /static/home/css/main.css HTTP/1.1" 200 2899
+"GET /static/home/css/carousel.css HTTP/1.1" 200 2538
+"GET /static/home/js/jquery.min.js HTTP/1.1" 200 97163
+"GET /static/home/css/bootstrap-theme.css HTTP/1.1" 200 26132
+"GET /static/home/images/ginger.jpg HTTP/1.1" 200 158551
+"GET /static/home/images/tips.jpg HTTP/1.1" 200 4422
+"GET /static/home/images/breakfast.jpg HTTP/1.1" 200 79631
+"GET /static/home/images/hourglass.jpg HTTP/1.1" 200 70845
+"GET /static/home/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+"GET /static/home/images/apple.jpg HTTP/1.1" 200 46677
+"GET /static/home/images/cookbook.jpg HTTP/1.1" 200 436574
+"GET /static/home/images/holiday.jpg HTTP/1.1" 200 2047715
+"GET /static/home/images/healthy.jpg HTTP/1.1" 200 11127869
+"GET /home/?q=asdf HTTP/1.1" 200 12877
+"GET /static/home/css/bootstrap.css HTTP/1.1" 304 0
+"GET /static/home/css/carousel.css HTTP/1.1" 304 0
+"GET /static/home/css/bootstrap-theme.css HTTP/1.1" 304 0
+"GET /static/home/css/main.css HTTP/1.1" 304 0
+"GET /static/home/js/jquery.min.js HTTP/1.1" 304 0
+"GET /static/home/js/bootstrap.min.js HTTP/1.1" 304 0
+"GET /static/home/images/ginger.jpg HTTP/1.1" 304 0
+"GET /static/home/images/healthy.jpg HTTP/1.1" 304 0
+"GET /static/home/images/breakfast.jpg HTTP/1.1" 304 0
+"GET /static/home/images/hourglass.jpg HTTP/1.1" 304 0
+"GET /static/home/images/tips.jpg HTTP/1.1" 304 0
+"GET /static/home/images/apple.jpg HTTP/1.1" 304 0
+"GET /static/home/images/holiday.jpg HTTP/1.1" 304 0
+"GET /static/home/images/cookbook.jpg HTTP/1.1" 304 0
+(0.147) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.132) SELECT VERSION(); args=None
+(0.111) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'nq8zsrehm13f9iv7kka81ilh4lgu53w0' AND `django_session`.`expire_date` > '2016-11-24 05:51:26'); args=('nq8zsrehm13f9iv7kka81ilh4lgu53w0', u'2016-11-24 05:51:26')
+(0.109) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 9; args=(9,)
+"GET /user/ HTTP/1.1" 200 7226
+"GET /static/site.css HTTP/1.1" 200 955
+(0.309) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.204) SELECT VERSION(); args=None
+(0.195) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'nq8zsrehm13f9iv7kka81ilh4lgu53w0' AND `django_session`.`expire_date` > '2016-11-24 05:51:33'); args=('nq8zsrehm13f9iv7kka81ilh4lgu53w0', u'2016-11-24 05:51:33')
+(0.203) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 9; args=(9,)
+(0.202) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = 'nq8zsrehm13f9iv7kka81ilh4lgu53w0'; args=('nq8zsrehm13f9iv7kka81ilh4lgu53w0',)
+(0.209) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('nq8zsrehm13f9iv7kka81ilh4lgu53w0'); args=(u'nq8zsrehm13f9iv7kka81ilh4lgu53w0',)
+"GET /user/logout/ HTTP/1.1" 302 0
+"GET /user/ HTTP/1.1" 302 0
+"GET /user/login/?next=/user/ HTTP/1.1" 200 2160
