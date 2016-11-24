@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<p>Page is under construction.</p>
+	{% if recipe_names %}
+		<h1>Recipes</h1>
+		<ul>
+			{% for recipe_name in recipe_names %}
+				<li><a href="/recipes/{{ recipe_name.rid }}/">{{ recipe_name.title }}</a></li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>No recipes are available.</p>
+	{% endif %}
+	
+	<p><a href="/recipes/add/">Add a new recipe</a></p>
+</body>
+</html>
