@@ -7,10 +7,14 @@
     {{ Recipe_Form.as_p }}
 
     <h3>Ingredients</h3>
-    ---------------------
     {{ Ingredient_Forms.management_form }}
     {% for form in Ingredient_Forms %}
-        -*-*-*-*-*-*-*-*-*-*
+        {{ form.as_p }}
+    {% endfor %}
+
+    <h3>Steps</h3>
+    {{ Step_Forms.management_form }}
+    {% for form in Step_Forms %}
         {{ form.as_p }}
     {% endfor %}
 

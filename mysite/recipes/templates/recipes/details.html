@@ -7,7 +7,8 @@
 <p>User ID: {{ recipe.userid }}</p>
 <p>Prep Time: {{ recipe.prep_time }}</p>
 
-<p>Ingredients: {% for ingredient in recipe.ingredient_set.all %} {{ ingredient.name }} {% endfor %}</p>
+<p>Ingredients: {% for ingredient in recipe.ingredient_set.all %} <ul><li>{{ ingredient.name }}</li></ul> {% endfor %}</p>
+<p>Steps: {% for step in recipe.step_set.all %} <ul><li>{{ step.description }} </ul></li> {% endfor %}</p>
 
 <p><a href="./edit">edit recipe</a></p>
 <p><a href="./delete">delete recipe</a></p>

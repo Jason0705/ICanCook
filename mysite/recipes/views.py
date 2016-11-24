@@ -16,7 +16,6 @@ def index(request):
 
     return render(request, 'recipes/index.html', context)
 
-
 def details(request, rid):
     try:
         recipe = Recipe.objects.get(pk=rid)
@@ -27,13 +26,15 @@ def details(request, rid):
 
 def add_recipe(request):
     recipe_form = RecipeForm()
-    ingredients_formset_factory = formset_factory(IngredientForm, extra=2)
+    ingredients_formset_factory = formset_factory(IngredientForm)
+    steps_formset_factory = formset_factory(StepForm)
 
     if request.POST:
         recipe_form = RecipeForm(request.POST)
         ingredients_form_set = ingredients_formset_factory(request.POST)
+	step_form_set = steps_formset_factory(request.POST)
 
-        if recipe_form.is_valid() and ingredients_form_set.is_valid():
+        if recipe_form.is_valid() and ingredients_form_set.is_valid() and step_form_set.is_valid():
             recipe = recipe_form.save()
 
             for ingr_form in ingredients_form_set.forms:
@@ -41,15 +42,21 @@ def add_recipe(request):
                 ingredient.rid_id = recipe.rid
                 ingredient.save()
 
-            recipe.save()
-            return HttpResponseRedirect('/recipe/' + str(recipe.rid))
+	    for stp_form in step_form_set.forms:
+		step = stp_form.save(commit=False)
+		step.rid_id = recipe.rid
+		step.save()	
 
-    context = {'Recipe_Form': recipe_form, 'Ingredient_Forms': ingredients_formset_factory}
+            recipe.save()
+            return HttpResponseRedirect('/recipes/' + str(recipe.rid))
+
+    context = {'Recipe_Form': recipe_form, 'Ingredient_Forms': ingredients_formset_factory, 'Step_Forms': steps_formset_factory}
     return render(request, 'recipes/add.html', context)
 
 
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
+    
     if request.POST:
         recipe_form = RecipeForm(request.POST, instance=edit_recipe)
         context = {'recipe_form': recipe_form}
