@@ -60,16 +60,12 @@ def edit(request, rid):
     
     if request.POST:
         recipe_form = RecipeForm(request.POST, instance=edit_recipe)
-        ingredient_form = IngredientForm(instance=edit_recipe)
-        step_form = StepForm(instance=edit_recipe)
-        context = {'recipe_form': recipe_form, 'ingredient_form': ingredient_form, 'step_form': step_form, 'recipe': edit_recipe}
+        context = {'recipe_form': recipe_form}
         if recipe_form.is_valid():
             recipe_form.save()
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
-        ingredient_form = IngredientForm(instance=edit_recipe)
-        step_form = StepForm(instance=edit_recipe)
-        context = {'recipe_form': recipe_form, 'ingredient_form': ingredient_form, 'step_form': step_form, 'recipe': edit_recipe}
+        context = {'recipe_form': recipe_form}
     return render(request, 'recipes/edit.html', context)
 
 @login_required(login_url='/login/')

@@ -5912,3 +5912,49 @@ VariableDoesNotExist: Failed lookup for key [as_p] in u'DESCRIPTION: Transfer to
 (0.116) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype`; args=()
 (0.115) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
 "GET /recipes/10/edit/ HTTP/1.1" 200 3583
+(0.115) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.114) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.117) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.115) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.116) SELECT VERSION(); args=None
+(0.116) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.113) SELECT VERSION(); args=None
+(0.117) SELECT VERSION(); args=None
+(0.113) SELECT VERSION(); args=None
+(0.117) SELECT VERSION(); args=None
+(0.129) SHOW FULL TABLES; args=None
+(0.117) SHOW FULL TABLES; args=None
+(0.124) SHOW FULL TABLES; args=None
+(0.114) SHOW FULL TABLES; args=None
+(0.125) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.117) SHOW FULL TABLES; args=None
+(0.116) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.125) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.115) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.116) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.118) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.114) SELECT VERSION(); args=None
+(0.117) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.113) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.115) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.116) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.116) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 4; args=(4,)
+(0.115) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.112) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.116) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 2; args=(2,)
+(0.121) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.117) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 8; args=(8,)
+(0.127) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.115) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.116) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.115) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.119) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 2288
+(0.115) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.116) SELECT VERSION(); args=None
+(0.126) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '3qfzrcs6dl00e1dhkuht0c5csa9ueuhh' AND `django_session`.`expire_date` > '2016-11-25 10:37:35'); args=('3qfzrcs6dl00e1dhkuht0c5csa9ueuhh', u'2016-11-25 10:37:35')
+(0.127) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 9; args=(9,)
+(0.126) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+"GET /recipes/10/edit/ HTTP/1.1" 200 1061
