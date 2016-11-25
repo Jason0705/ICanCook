@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html>
-<body>
-	<h1>Edit Recipe</h1>
-		<form method='POST' action='/recipes/'>
-			{% csrf_token %}
-			<h2>Edit Recipe</h2>
-			{{ recipe_form.as_p}}
+{% extends "recipes/base.html" %}
 
-			<input type='submit'>
-		</form>
-</body>
-</html>
+{% block head_title %}
+Edit Recipe
+{% endblock head_title %}
+
+{% block content %}
+<div class='col-sm-6 col-sm-offset-3'>
+<h1>Edit Recipe</h1>
+	<form method='POST' action='/recipes/'>
+		{% csrf_token %}
+		{{ recipe_form.as_p}}
+
+		<input type='submit' class="btn btn-default">
+	</form>
+</div>
+{% endblock content %}

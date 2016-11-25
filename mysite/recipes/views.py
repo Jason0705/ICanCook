@@ -1,8 +1,10 @@
+from urllib import quote_plus
 from django.forms import formset_factory
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import loader, RequestContext
 from django.core.urlresolvers import reverse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Recipe, Step, QuantityType, Ingredient
 from .forms import RecipeForm, StepForm, QuantityTypeForm, IngredientForm
@@ -12,7 +14,20 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
-    recipe_names = Recipe.objects.order_by('-title')
+    recipe_names_list = Recipe.objects.all() # .order_by('-created')
+
+    paginator = Paginator(recipe_names_list, 10) # Show 10 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        recipe_names = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        recipe_names = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        recipe_names = paginator.page(paginator.num_pages)
+
     context = {'recipe_names': recipe_names}
 
     return render(request, 'recipes/index.html', context)
@@ -20,9 +35,15 @@ def index(request):
 def details(request, rid):
     try:
         recipe = Recipe.objects.get(pk=rid)
+        share_string = quote_plus(recipe.description)
     except Recipe.DoesNotExist:
         raise Http404("Recipe does not exist.")
-    return render(request, 'recipes/details.html', {'recipe': recipe})
+
+    context = {
+      'recipe': recipe,
+      'share_string': share_string
+    }
+    return render(request, 'recipes/details.html', context)
 
 @login_required(login_url='/login/')
 def add_recipe(request):
@@ -46,7 +67,7 @@ def add_recipe(request):
 	    for stp_form in step_form_set.forms:
 		step = stp_form.save(commit=False)
 		step.rid_id = recipe.rid
-		step.save()	
+		step.save()
 
             recipe.save()
             return HttpResponseRedirect('/recipes/' + str(recipe.rid))
@@ -57,7 +78,7 @@ def add_recipe(request):
 @login_required(login_url='/login/')
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
-    
+
     if request.POST:
         recipe_form = RecipeForm(request.POST, instance=edit_recipe)
         context = {'recipe_form': recipe_form}

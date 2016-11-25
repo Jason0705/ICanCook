@@ -1,18 +1,58 @@
-<!DOCTYPE html>
-<html>
-<body>
-	<p>Page is under construction.</p>
-	{% if recipe_names %}
-		<h1>Recipes</h1>
-		<ul>
-			{% for recipe_name in recipe_names %}
-				<li><a href="/recipes/{{ recipe_name.rid }}/">{{ recipe_name.title }}</a></li>
-			{% endfor %}
-		</ul>
-	{% else %}
-		<p>No recipes are available.</p>
-	{% endif %}
-	
+{% extends "recipes/base.html" %}
+
+{% block head_title %}
+Recipes
+{% endblock head_title %}
+
+{% block content %}
+
+<div class="col-sm-8 col-sm-offset-2">
+
+{% if recipe_names %}
+	<h1>Recipes</h1>
 	<p><a href="/recipes/add/">Add a new recipe</a></p>
-</body>
-</html>
+	<br/>
+	<br/>
+	<ul>
+		<div class="row">
+		{% for recipe_name in recipe_names %}
+
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <!-- <img src="..." alt="..."> -->
+        <div class="caption">
+          <h3><a href="{{ recipe_name.get_absolute_url }}">{{ recipe_name.title }}</a></h3>
+					<h5><small>Posted {{ recipe_name.created|timesince }} ago</small><h5>
+          <p>{{ recipe_name.description|linebreaks|truncatechars:50 }}</p>
+          <p><a href="{{ recipe_name.get_absolute_url }}" class="btn btn-default" role="button">View</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- {% cycle "" "</div><div class='row'>" %} -->
+		{% endfor %}
+		</div>
+	</ul>
+{% else %}
+	<p>No recipes are available.</p>
+{% endif %}
+
+<div class="pagination">
+	 <span class="step-links">
+			 {% if recipe_names.has_previous %}
+					 <a href="?page={{ recipe_names.previous_page_number }}"><<</a>
+			 {% endif %}
+
+			 <span class="current">
+					 Page {{ recipe_names.number }} of {{ recipe_names.paginator.num_pages }}
+			 </span>
+
+			 {% if recipe_names.has_next %}
+					 <a href="?page={{ recipe_names.next_page_number }}">>></a>
+			 {% endif %}
+	 </span>
+</div>
+
+</div>
+
+{% endblock content %}

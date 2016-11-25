@@ -1,9 +1,14 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "recipes/base.html" %}
+
+{% block head_title %}
+New Recipe
+{% endblock head_title %}
+
+{% block content %}
+<div class='col-sm-6 col-sm-offset-3'>
 <form method='POST' action='http://localhost:3000/recipes/add/'>
     {% csrf_token %}
-    <h1>Recipe Information</h1>
+    <h1>New Recipe</h1>
     {{ Recipe_Form.as_p }}
 
     <h3>Ingredients</h3>
@@ -18,9 +23,7 @@
         {{ form.as_p }}
     {% endfor %}
 
-    <button name="submit" type='submit'>Add Recipe</button>
+    <button name="submit" type='submit' class="btn btn-default">Add Recipe</button>
 </form>
-</body>
-</html>
-
-
+</div>
+{% endblock content %}
