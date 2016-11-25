@@ -10,7 +10,7 @@ class Recipe(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     userid = models.IntegerField()
-    prep_time = models.IntegerField()
+    prep_time = models.FloatField()
 
     def __str__(self):
         return "RID: %i, TITLE: %s" % (self.rid, self.title)
@@ -27,7 +27,7 @@ class Step(models.Model):
 
 class QuantityType(models.Model):
     qid = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=25)
+    name = models.CharField(blank=True, max_length=25)
 
     def __str__(self):
         return "QID: %i, NAME: %s" % (self.qid, self.name)
@@ -35,7 +35,7 @@ class QuantityType(models.Model):
 
 class Ingredient(models.Model):
     rid = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    name = models.CharField(max_length=25)
+    name = models.CharField(max_length=100)
     quantity = models.FloatField()
     quantity_type = models.ForeignKey(QuantityType)
 

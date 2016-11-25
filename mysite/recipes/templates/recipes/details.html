@@ -5,10 +5,10 @@
 <p>Recipe ID: {{ recipe.rid }}</p>
 <p>Description: {{ recipe.description }}</p>
 <p>User ID: {{ recipe.userid }}</p>
-<p>Prep Time: {{ recipe.prep_time }}</p>
+<p>Prep Time: {{ recipe.prep_time }} hours</p>
 
-<p>Ingredients: {% for ingredient in recipe.ingredient_set.all %} <ul><li>{{ ingredient.name }}</li></ul> {% endfor %}</p>
-<p>Steps: {% for step in recipe.step_set.all %} <ul><li>{{ step.description }} </ul></li> {% endfor %}</p>
+<p>Ingredients: {% for ingredient in recipe.ingredient_set.all %} <ul><li>{{ ingredient.quantity }} {{ ingredient.quantity_type.name }} {{ ingredient.name }}</li></ul> {% endfor %}</p>
+<p>Steps: <ol> {% for step in recipe.step_set.all %} <li>{{ step.description }} </li> {% endfor %}</ol></p>
 
 <p><a href="./edit">edit recipe</a></p>
 <p><a href="./delete">delete recipe</a></p>

@@ -6,7 +6,13 @@
 			{% csrf_token %}
 			<h2>Edit Recipe</h2>
 			{{ recipe_form.as_p}}
-
+			<h2>Edit Ingredients</h2>
+			{{ ingredient_form.as_p}}
+			<h2>Edit Steps</h2>
+			{{ step_form.as_p}}
+			<h2>test</h2>
+			{{ recipe.title }}
+			<p>Steps: <ol> {% for step in recipe.step_set.all %} <li>{{ step.description }} </li> {% endfor %}</ol></p>
 			<input type='submit'>
 		</form>
 </body>
