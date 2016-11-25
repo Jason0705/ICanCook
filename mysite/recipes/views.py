@@ -67,9 +67,11 @@ def edit(request, rid):
         context = {'recipe_form': recipe_form}
         if recipe_form.is_valid():
             recipe_form.save()
+            return HttpResponseRedirect('/recipes/' + str(rid))
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
         context = {'recipe_form': recipe_form, 'rid': rid}
+    #return HttpResponseRedirect(reverse('recipes:edit', args=(edit_recipe.rid,)))
     return render(request, 'recipes/edit.html', context)
 
 
