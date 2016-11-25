@@ -5,8 +5,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 
-
 # Create your views her.
+from recipes.models import Recipe
 from user.forms import LoginForm, UpdateUserForm, UpdatePasswordForm
 
 PASSWORD_FORM = 'password_form'
@@ -77,8 +77,10 @@ def signup(request):
 
 
 @login_required()
-def test(request):
-    return render(request, 'accounts/test.html')
+def recipes(request):
+    user_id = request.user.id
+    my_recipes = Recipe.objects.filter(userid=user_id)
+    return render(request, 'accounts/my_recipes.html', {'recipes': my_recipes})
 
 
 @login_required()
