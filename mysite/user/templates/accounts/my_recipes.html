@@ -1,0 +1,9 @@
+{% extends "accounts/manage_base.html" %}
+
+{% block content %}
+    <ul>
+        {% for recipe in recipes %}
+            <li><a href="/recipes/{{ recipe.rid }}">{{ recipe.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
