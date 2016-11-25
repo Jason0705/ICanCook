@@ -36,7 +36,7 @@ class QuantityType(models.Model):
 class Ingredient(models.Model):
     rid = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
-    quantity = models.IntegerField()
+    quantity = models.FloatField()
     quantity_type = models.ForeignKey(QuantityType)
 
     def __str__(self):
