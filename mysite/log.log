@@ -1,0 +1,276 @@
+(0.114) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.113) SELECT @@sql_mode; args=None
+(0.113) SELECT VERSION(); args=None
+(0.116) SHOW FULL TABLES; args=None
+(0.118) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.116) SHOW FULL TABLES; args=None
+(0.117) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.115) SHOW FULL TABLES; args=None
+(0.113) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.113) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'ingredient' AND `django_content_type`.`app_label` = 'recipes'); args=('ingredient', u'recipes')
+(0.115) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'recipe' AND `django_content_type`.`app_label` = 'recipes'); args=('recipe', u'recipes')
+(0.113) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'step' AND `django_content_type`.`app_label` = 'recipes'); args=('step', u'recipes')
+(0.116) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'quantitytype' AND `django_content_type`.`app_label` = 'recipes'); args=('quantitytype', u'recipes')
+(0.115) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8, 11, 12, 13) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 11, 12, 13)
+(0.117) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'recipes'; args=(u'recipes',)
+(0.115) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'logentry' AND `django_content_type`.`app_label` = 'admin'); args=('logentry', 'admin')
+(0.125) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
+(0.114) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'; args=('admin',)
+(0.115) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'group' AND `django_content_type`.`app_label` = 'auth'); args=('group', 'auth')
+(0.114) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'permission' AND `django_content_type`.`app_label` = 'auth'); args=('permission', 'auth')
+(0.113) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'user' AND `django_content_type`.`app_label` = 'auth'); args=('user', 'auth')
+(0.114) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (2, 3, 4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2, 3, 4)
+(0.113) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'; args=('auth',)
+(0.113) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'contenttype' AND `django_content_type`.`app_label` = 'contenttypes'); args=('contenttype', 'contenttypes')
+(0.114) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+(0.115) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'; args=('contenttypes',)
+(0.114) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'session' AND `django_content_type`.`app_label` = 'sessions'); args=('session', 'sessions')
+(0.114) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.115) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'; args=('sessions',)
+(0.125) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.124) SELECT VERSION(); args=None
+(0.119) SHOW FULL TABLES; args=None
+(0.116) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'home.urls' from '/home/ubuntu/project/mysite/home/urls.pyc'> (None:home) ^home/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'user.urls' from '/home/ubuntu/project/mysite/user/urls.pyc'> (None:user) ^user/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'user.urls' from '/home/ubuntu/project/mysite/user/urls.pyc'> (None:user) ^login/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'recipes.urls' from '/home/ubuntu/project/mysite/recipes/urls.pyc'> (None:user) ^recipes/>"
+Not Found: /
+"GET / HTTP/1.1" 404 2331
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'home.urls' from '/home/ubuntu/project/mysite/home/urls.pyc'> (None:home) ^home/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'user.urls' from '/home/ubuntu/project/mysite/user/urls.pyc'> (None:user) ^user/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'user.urls' from '/home/ubuntu/project/mysite/user/urls.pyc'> (None:user) ^login/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'recipes.urls' from '/home/ubuntu/project/mysite/recipes/urls.pyc'> (None:user) ^recipes/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2364
+"GET /home HTTP/1.1" 301 0
+"GET /home/ HTTP/1.1" 200 12877
+"GET /static/home/css/bootstrap.css HTTP/1.1" 200 146010
+"GET /static/home/css/bootstrap-theme.css HTTP/1.1" 200 26132
+"GET /static/home/js/jquery.min.js HTTP/1.1" 200 97163
+"GET /static/home/css/carousel.css HTTP/1.1" 200 2538
+"GET /static/home/css/main.css HTTP/1.1" 200 2899
+"GET /static/home/images/breakfast.jpg HTTP/1.1" 200 79631
+"GET /static/home/images/ginger.jpg HTTP/1.1" 200 158551
+"GET /static/home/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+"GET /static/home/js/bootstrap.min.js HTTP/1.1" 200 37045
+"GET /static/home/images/hourglass.jpg HTTP/1.1" 200 70845
+"GET /static/home/images/tips.jpg HTTP/1.1" 200 4422
+"GET /static/home/images/apple.jpg HTTP/1.1" 200 46677
+"GET /static/home/images/healthy.jpg HTTP/1.1" 200 11127869
+"GET /static/home/images/cookbook.jpg HTTP/1.1" 200 436574
+"GET /static/home/images/holiday.jpg HTTP/1.1" 200 2047715
+"GET /home/?q=sdd HTTP/1.1" 200 12877
+"GET /home/?q=test HTTP/1.1" 200 12877
+"GET /home/?q= HTTP/1.1" 200 12877
+"GET /home/?q= HTTP/1.1" 200 12877
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'home.urls' from '/home/ubuntu/project/mysite/home/urls.pyc'> (None:home) ^home/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'user.urls' from '/home/ubuntu/project/mysite/user/urls.pyc'> (None:user) ^user/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'user.urls' from '/home/ubuntu/project/mysite/user/urls.pyc'> (None:user) ^login/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'recipes.urls' from '/home/ubuntu/project/mysite/recipes/urls.pyc'> (None:user) ^recipes/>"
+Not Found: /
+"GET / HTTP/1.1" 404 2331
+"GET /recipes HTTP/1.1" 301 0
+(0.125) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.125) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`title` DESC; args=()
+"GET /recipes/ HTTP/1.1" 200 273
+(0.106) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.107) SELECT VERSION(); args=None
+(0.122) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 6; args=(6,)
+(0.118) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 6; args=(6,)
+(0.116) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 6; args=(6,)
+"GET /recipes/6/ HTTP/1.1" 200 310
+(0.113) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.114) SELECT VERSION(); args=None
+"GET /recipes/add/ HTTP/1.1" 302 0
+"GET /login/?next=/recipes/add/ HTTP/1.1" 302 0
+(0.116) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 5; args=(5,)
+(0.115) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 5; args=(5,)
+"GET /user/login/?next=/login/%3Fnext%3D/recipes/add/ HTTP/1.1" 200 2180
+(0.116) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 5; args=(5,)
+"GET /recipes/5/ HTTP/1.1" 200 310
+"GET /static/site.css HTTP/1.1" 200 955
+"GET /user/signup HTTP/1.1" 301 0
+"GET /user/signup/ HTTP/1.1" 200 5835
+(0.124) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.124) SELECT VERSION(); args=None
+(0.124) INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$30000$OFK2i4oVmlS7$ARZlcjen8QmTgtaIwqGmGYQ0rM9bWWSjGd0oLjplWYE=', NULL, 0, 'pslam', '', '', 'pslam@sfu.ca', 0, 1, '2016-11-24 23:55:58'); args=[u'pbkdf2_sha256$30000$OFK2i4oVmlS7$ARZlcjen8QmTgtaIwqGmGYQ0rM9bWWSjGd0oLjplWYE=', None, False, u'pslam', u'', u'', u'pslam@sfu.ca', False, True, u'2016-11-24 23:55:58']
+Internal Server Error: /user/signup/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ubuntu/project/mysite/user/views.py", line 64, in signup
+    user = User.objects.create_user(username, email, password)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/models.py", line 157, in create_user
+    return self._create_user(username, email, password, **extra_fields)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/models.py", line 151, in _create_user
+    user.save(using=self._db)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/base_user.py", line 80, in save
+    super(AbstractBaseUser, self).save(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 796, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 824, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 908, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 947, in _do_insert
+    using=using, raw=raw)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 1045, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 1054, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/backends/mysql/base.py", line 110, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/local/lib/python2.7/dist-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+IntegrityError: (1062, "Duplicate entry 'pslam' for key 'username'")
+(0.128) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` LIMIT 21; args=()
+"POST /user/signup/ HTTP/1.1" 500 149782
+(0.115) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.116) SELECT VERSION(); args=None
+(0.115) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'pslam'; args=(u'pslam',)
+"POST /user/login/ HTTP/1.1" 200 2350
+"GET /static/site.css HTTP/1.1" 304 0
+(0.123) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.123) SELECT VERSION(); args=None
+(0.130) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'pslam'; args=(u'pslam',)
+"POST /user/login/ HTTP/1.1" 200 2350
+"GET /user/signup/ HTTP/1.1" 200 5835
+(0.116) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.116) SELECT VERSION(); args=None
+(0.115) INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$30000$aSnQKyUV3K8e$vzfPvEdfAYQYu/wgbc0ynT4eNjovCcnRECMp5pg1LUw=', NULL, 0, 'acc1', '', '', 'acc1@mailinator.com', 0, 1, '2016-11-24 23:58:44'); args=[u'pbkdf2_sha256$30000$aSnQKyUV3K8e$vzfPvEdfAYQYu/wgbc0ynT4eNjovCcnRECMp5pg1LUw=', None, False, u'acc1', u'', u'', u'acc1@mailinator.com', False, True, u'2016-11-24 23:58:44']
+(0.120) UPDATE `auth_user` SET `password` = 'pbkdf2_sha256$30000$MdF5to8PBqb7$QFihysZel0qkMICoQRC+XIP8zfoaVpYqMCdJy5IYiOM=', `last_login` = NULL, `is_superuser` = 0, `username` = 'acc1', `first_name` = 'account1', `last_name` = 'test', `email` = 'acc1@mailinator.com', `is_staff` = 0, `is_active` = 1, `date_joined` = '2016-11-24 23:58:44' WHERE `auth_user`.`id` = 14; args=(u'pbkdf2_sha256$30000$MdF5to8PBqb7$QFihysZel0qkMICoQRC+XIP8zfoaVpYqMCdJy5IYiOM=', False, u'acc1', u'account1', u'test', u'acc1@mailinator.com', False, True, u'2016-11-24 23:58:44', 14)
+"POST /user/signup/ HTTP/1.1" 302 0
+"GET /user/login HTTP/1.1" 301 0
+"GET /user/login/ HTTP/1.1" 200 2160
+(0.125) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.126) SELECT VERSION(); args=None
+(0.117) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'acc1'; args=(u'acc1',)
+"POST /user/login/ HTTP/1.1" 200 2329
+(0.125) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.126) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`title` DESC; args=()
+"GET /recipes/ HTTP/1.1" 200 329
+"GET /recipes/add/ HTTP/1.1" 302 0
+"GET /login/?next=/recipes/add/ HTTP/1.1" 302 0
+"GET /user/login/?next=/login/%3Fnext%3D/recipes/add/ HTTP/1.1" 200 2180
+"GET /static/site.css HTTP/1.1" 304 0
+(0.126) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.127) SELECT VERSION(); args=None
+(0.135) SHOW FULL TABLES; args=None
+(0.124) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.123) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.125) SELECT VERSION(); args=None
+(0.113) SHOW FULL TABLES; args=None
+(0.123) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.124) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.124) SELECT @@sql_mode; args=None
+(0.123) SELECT VERSION(); args=None
+(0.123) SHOW FULL TABLES; args=None
+(0.125) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.124) SHOW FULL TABLES; args=None
+(0.123) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+ALTER TABLE `recipes_step` MODIFY `order` integer NOT NULL; (params [])
+(0.135) ALTER TABLE `recipes_step` MODIFY `order` integer NOT NULL; args=[]
+(0.123) SHOW FULL TABLES; args=None
+(0.126) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('recipes', '0008_auto_20161125_0004', '2016-11-25 00:04:43'); args=[u'recipes', u'0008_auto_20161125_0004', u'2016-11-25 00:04:43']
+(0.124) SHOW FULL TABLES; args=None
+(0.126) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.123) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'ingredient' AND `django_content_type`.`app_label` = 'recipes'); args=('ingredient', u'recipes')
+(0.123) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'quantitytype' AND `django_content_type`.`app_label` = 'recipes'); args=('quantitytype', u'recipes')
+(0.123) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'recipe' AND `django_content_type`.`app_label` = 'recipes'); args=('recipe', u'recipes')
+(0.123) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'step' AND `django_content_type`.`app_label` = 'recipes'); args=('step', u'recipes')
+(0.123) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8, 11, 12, 13) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 11, 12, 13)
+(0.124) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'recipes'; args=(u'recipes',)
+(0.125) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'logentry' AND `django_content_type`.`app_label` = 'admin'); args=('logentry', 'admin')
+(0.128) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
+(0.124) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'; args=('admin',)
+(0.123) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'group' AND `django_content_type`.`app_label` = 'auth'); args=('group', 'auth')
+(0.123) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'permission' AND `django_content_type`.`app_label` = 'auth'); args=('permission', 'auth')
+(0.125) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'user' AND `django_content_type`.`app_label` = 'auth'); args=('user', 'auth')
+(0.123) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (2, 3, 4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2, 3, 4)
+(0.126) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'; args=('auth',)
+(0.122) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'contenttype' AND `django_content_type`.`app_label` = 'contenttypes'); args=('contenttype', 'contenttypes')
+(0.124) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+(0.124) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'; args=('contenttypes',)
+(0.123) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'session' AND `django_content_type`.`app_label` = 'sessions'); args=('session', 'sessions')
+(0.123) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.123) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'; args=('sessions',)

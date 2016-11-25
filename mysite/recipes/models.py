@@ -19,7 +19,7 @@ class Recipe(models.Model):
 class Step(models.Model):
     rid = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     description = models.CharField(max_length=1000)
-    order = models.CharField(max_length=25)
+    order = models.IntegerField()
 
     def __str__(self):
         return "DESCRIPTION: %s, ORDER: %s" % (self.description, self.order)
