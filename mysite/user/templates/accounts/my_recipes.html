@@ -1,9 +1,25 @@
 {% extends "accounts/manage_base.html" %}
 
 {% block content %}
-    <ul>
-        {% for recipe in recipes %}
-            <li><a href="/recipes/{{ recipe.rid }}">{{ recipe.title }}</a></li>
-        {% endfor %}
-    </ul>
+    <h1>My Recipes</h1>
+    <hr>
+    {% for recipe in recipes %}
+        <div class="media media-recipe">
+            <div class="media-left">
+                <a href="/recipes/{{ recipe.rid }}">
+                    <img class="media-object" src="http://placehold.it/150x150" alt="placeholder">
+                </a>
+            </div>
+            <div class="media-body recipe-media-body">
+                <h4 class="media-heading"><a href="/recipes/{{ recipe.rid }}">{{ recipe.title }}</a></h4>
+                {{ recipe.description }}
+            </div>
+        </div>
+        <div class="recipe-actions">
+            <a href="/recipes/{{ recipe.rid }}">View</a> |
+            <a href="/recipes/{{ recipe.rid }}/edit/">Edit</a> |
+            <a href="/recipes/{{ recipe.rid }}/delete/" class="delete">Delete</a>
+        </div>
+        <hr class="recipe-divider">
+    {% endfor %}
 {% endblock %}
