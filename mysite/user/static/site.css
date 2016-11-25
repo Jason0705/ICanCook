@@ -58,3 +58,26 @@ ul.errorlist {
     font-weight: bold;
 
 }
+
+.recipe-media-body {
+    position: relative;
+}
+
+.recipe-media-btn-bar {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+}
+
+.delete {
+    color: red;
+}
+
+.recipe-actions {
+    width: 150px;
+    text-align: center;
+}
+
+.recipe-divider {
+    margin-bottom: 25px;
+}

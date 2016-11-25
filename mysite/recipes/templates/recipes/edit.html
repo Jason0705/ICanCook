@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<h1>Edit Recipe</h1>
-		<form method='POST' action='/recipes/'>
-			{% csrf_token %}
-			<h2>Edit Recipe</h2>
-			{{ recipe_form.as_p}}
+<h1>Edit Recipe</h1>
+<form method='POST' action='/recipes/{{ rid }}/edit/'>
+    {% csrf_token %}
+    <h2>Edit Recipe</h2>
+    {{ recipe_form.as_p }}
 
-			<input type='submit'>
-		</form>
+    <input type='submit'>
+</form>
 </body>
 </html>

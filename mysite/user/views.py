@@ -3,8 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.db import IntegrityError
 
 # Create your views her.
+from recipes.models import Recipe
 from user.forms import LoginForm, UpdateUserForm, UpdatePasswordForm
 
 PASSWORD_FORM = 'password_form'
@@ -54,26 +56,31 @@ def login(request):
 
 def signup(request):
     if request.POST:
-        username = request.POST['username']
-        password = request.POST['password']
-        email = request.POST['email']
+        try:
+            username = request.POST['username']
+            password = request.POST['password']
+            email = request.POST['email']
 
-        first_name = request.POST.get('firstname')
-        last_name = request.POST.get('lastname')
+            first_name = request.POST.get('firstname')
+            last_name = request.POST.get('lastname')
 
-        user = User.objects.create_user(username, email, password)
-        user.first_name = first_name
-        user.last_name = last_name
-        user.set_password(user.password)
-        user.save()
+            user = User.objects.create_user(username, email, password)
+            user.first_name = first_name
+            user.last_name = last_name
+            user.set_password(user.password)
+            user.save()
+        except IntegrityError:
+            return render(request, 'accounts/create.html')
         return HttpResponseRedirect('/user/login')
     else:
         return render(request, 'accounts/create.html')
 
 
 @login_required()
-def test(request):
-    return render(request, 'accounts/test.html')
+def recipes(request):
+    user_id = request.user.id
+    my_recipes = Recipe.objects.filter(userid=user_id)
+    return render(request, 'accounts/my_recipes.html', {'recipes': my_recipes})
 
 
 @login_required()
