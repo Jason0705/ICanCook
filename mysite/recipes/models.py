@@ -8,13 +8,21 @@ from django.db import models
 class Recipe(models.Model):
     rid = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
+    description = models.TextField(max_length=500)
     userid = models.IntegerField()
     prep_time = models.FloatField()
     recipe_pic = models.FileField(upload_to='recipes/static/recipes/images/', null=True, blank=True)
+    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+    created = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
         return "RID: %i, TITLE: %s" % (self.rid, self.title)
+
+    def get_absolute_url(self):
+        return "/recipes/%s/" % (self.rid)
+
+    class Meta:
+        ordering = ["-created", "-updated"]
 
 
 class Step(models.Model):

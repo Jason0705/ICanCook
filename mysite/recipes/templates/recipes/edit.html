@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Edit Recipe</h1>
-<form method='POST' action='/recipes/{{ rid }}/edit/'>
-    {% csrf_token %}
-    <h2>Edit Recipe</h2>
-    {{ recipe_form.as_p }}
-	<h2>Edit Ingredients</h2>
-	   <table>
-         {% for form in formset %}
-           {{ form.as_p }}
-		   <br>
-         {% endfor %}
-       </table>
-	<h2>test</h2>
-   
-    <input type='submit'>
-</form>
-</body>
-</html>
+{% extends "recipes/base.html" %}
+
+{% block head_title %}
+    Edit Recipe
+{% endblock head_title %}
+
+{% block content %}
+	<div class='col-sm-6 col-sm-offset-3'>
+		<h1>Edit Recipe</h1>
+		<form method='POST' action='/recipes/{{ rid }}/edit/'>
+			{% csrf_token %}
+			<h2>Edit Recipe</h2>
+			{{ recipe_form.as_p }}
+			<h2>Edit Ingredients</h2>
+			   <table>
+				 {% for form in formset %}
+				   {{ form.as_p }}
+				   <br>
+				 {% endfor %}
+			   </table>
+			<h2>test</h2>
+			<input type='submit'>
+		</form>
+	</div>
+{% endblock content %}
