@@ -121,5 +121,7 @@ def update_password(request):
 
 
 def logout(request):
+    next_url = request.GET.get('next', '/user/')
+
     dlogout(request)
-    return HttpResponseRedirect('/user/')
+    return HttpResponseRedirect(next_url)
