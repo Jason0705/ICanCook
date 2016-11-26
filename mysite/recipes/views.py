@@ -8,6 +8,7 @@ from .models import Recipe, Step, QuantityType, Ingredient
 from .forms import RecipeForm, StepForm, QuantityTypeForm, IngredientForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.forms import modelformset_factory
 
 
 # Create your views here.
@@ -61,17 +62,18 @@ def add_recipe(request):
 @login_required(login_url='/login/')
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
+    IngredientFormSet = modelformset_factory(Ingredient, form=IngredientForm)
+    formset=IngredientFormSet(queryset=Ingredient.objects.filter(rid=rid))
 
     if request.POST:
         recipe_form = RecipeForm(request.POST, instance=edit_recipe)
-        context = {'recipe_form': recipe_form}
+        context = {'recipe_form': recipe_form,}
         if recipe_form.is_valid():
             recipe_form.save()
             return HttpResponseRedirect('/recipes/' + str(rid))
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
-        context = {'recipe_form': recipe_form, 'rid': rid}
-    #return HttpResponseRedirect(reverse('recipes:edit', args=(edit_recipe.rid,)))
+        context = {'recipe_form': recipe_form, 'rid':rid, 'formset': formset}
     return render(request, 'recipes/edit.html', context)
 
 
