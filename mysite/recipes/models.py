@@ -11,6 +11,7 @@ class Recipe(models.Model):
     description = models.CharField(max_length=500)
     userid = models.IntegerField()
     prep_time = models.FloatField()
+    recipe_pic = models.FileField(upload_to='recipes/static/recipes/images/', null=True, blank=True)
 
     def __str__(self):
         return "RID: %i, TITLE: %s" % (self.rid, self.title)

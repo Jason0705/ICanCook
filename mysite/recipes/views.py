@@ -5,10 +5,11 @@ from django.template import loader, RequestContext
 from django.core.urlresolvers import reverse
 
 from .models import Recipe, Step, QuantityType, Ingredient
-from .forms import RecipeForm, StepForm, QuantityTypeForm, IngredientForm
+from .forms import RecipeForm, StepForm, QuantityTypeForm, IngredientForm, ImageUploadForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.forms import modelformset_factory
+
 
 
 # Create your views here.
@@ -39,8 +40,8 @@ def add_recipe(request):
         ingredients_form_set = ingredients_formset_factory(request.POST)
         step_form_set = steps_formset_factory(request.POST)
 
-        if recipe_form.is_valid() and ingredients_form_set.is_valid() and step_form_set.is_valid():
-            recipe = recipe_form.save()
+        if recipe_form.is_valid() and ingredients_form_set.is_valid() and step_form_set.is_valid() and image_form.is_valid():
+	    recipe = recipe_form.save()
 
             for ingr_form in ingredients_form_set.forms:
                 ingredient = ingr_form.save(commit=False)
