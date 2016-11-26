@@ -24131,3 +24131,851 @@ VariableDoesNotExist: Failed lookup for key [image] in u'RID: 12, TITLE: test Re
 (0.118) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
 (0.108) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 8; args=()
 "GET /recipes/ HTTP/1.1" 200 5283
+(0.128) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.127) SELECT VERSION(); args=None
+(0.129) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.128) SELECT VERSION(); args=None
+(0.129) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.130) SELECT VERSION(); args=None
+(0.131) SHOW FULL TABLES; args=None
+(0.130) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.129) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.128) SELECT VERSION(); args=None
+(0.150) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 21:58:20' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 21:58:20', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.130) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+"GET /user/ HTTP/1.1" 200 7924
+"GET /static/site.css HTTP/1.1" 200 1311
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\urls\resolvers.py", line 300, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\home\\urls.py'> (None:home) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\home\\urls.py'> (None:home) ^home/>], [<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\user\\urls.py'> (None:user) ^login/>], [<RegexURLResolver <module 'recipes.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\recipes\\urls.py'> (None:user) ^recipes/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\urls\resolvers.py", line 300, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\home\\urls.py'> (None:home) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\home\\urls.py'> (None:home) ^home/>], [<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\user\\urls.py'> (None:user) ^login/>], [<RegexURLResolver <module 'recipes.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\recipes\\urls.py'> (None:user) ^recipes/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\\\home\\\\urls.py'> (None:home) ^home/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\urls\resolvers.py", line 300, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\home\\urls.py'> (None:home) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\home\\urls.py'> (None:home) ^home/>], [<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\user\\urls.py'> (None:user) ^login/>], [<RegexURLResolver <module 'recipes.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\recipes\\urls.py'> (None:user) ^recipes/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\\\user\\\\urls.py'> (None:user) ^user/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\urls\resolvers.py", line 300, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\home\\urls.py'> (None:home) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\home\\urls.py'> (None:home) ^home/>], [<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\user\\urls.py'> (None:user) ^login/>], [<RegexURLResolver <module 'recipes.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\recipes\\urls.py'> (None:user) ^recipes/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\\\user\\\\urls.py'> (None:user) ^login/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\urls\resolvers.py", line 300, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\home\\urls.py'> (None:home) >, <RegexURLPattern index ^$>], [<RegexURLResolver <module 'home.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\home\\urls.py'> (None:home) ^home/>], [<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\user\\urls.py'> (None:user) ^user/>], [<RegexURLResolver <module 'user.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\user\\urls.py'> (None:user) ^login/>], [<RegexURLResolver <module 'recipes.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\recipes\\urls.py'> (None:user) ^recipes/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'recipes.urls' from 'C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\\\\recipes\\\\urls.py'> (None:user) ^recipes/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2527
+(0.110) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.110) SELECT VERSION(); args=None
+(0.119) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 21:58:32' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 21:58:32', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.123) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+"GET /home/ HTTP/1.1" 200 14309
+"GET /static/home/css/carousel.css HTTP/1.1" 304 0
+"GET /static/home/css/main.css HTTP/1.1" 304 0
+"GET /static/home/images/ginger.jpg HTTP/1.1" 304 0
+"GET /static/home/images/healthy.jpg HTTP/1.1" 304 0
+"GET /static/home/images/breakfast.jpg HTTP/1.1" 304 0
+"GET /static/home/images/hourglass.jpg HTTP/1.1" 304 0
+"GET /static/home/images/tips.jpg HTTP/1.1" 304 0
+"GET /static/home/images/apple.jpg HTTP/1.1" 304 0
+"GET /static/home/images/holiday.jpg HTTP/1.1" 304 0
+"GET /static/home/images/cookbook.jpg HTTP/1.1" 304 0
+(0.130) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.130) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.130) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 2522
+"GET /static/css/base.css HTTP/1.1" 200 28
+(0.131) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.133) SELECT VERSION(); args=None
+(0.129) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+Internal Server Error: /recipes/10/
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:/Users/jitin/Desktop/Developer Stuff/SFU/CMPT 470/group-13/mysite\recipes\views.py", line 34, in details
+    share_string = quote_plus(recipe.description)
+NameError: name 'quote_plus' is not defined
+(0.129) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 21:59:35' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 21:59:35', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.130) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+"GET /recipes/10/ HTTP/1.1" 500 70544
+(0.240) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.123) SELECT VERSION(); args=None
+(0.122) SHOW FULL TABLES; args=None
+(0.120) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.120) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.120) SELECT VERSION(); args=None
+(0.110) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+(0.110) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.110) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 4790
+"GET /static/css/base.css HTTP/1.1" 304 0
+(0.118) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.119) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.119) SELECT VERSION(); args=None
+(0.120) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:06:58' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:06:58', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.122) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.120) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 6820
+"GET /static/site.css HTTP/1.1" 304 0
+(0.119) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.119) SELECT VERSION(); args=None
+(0.131) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.309) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:09:19' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:09:19', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.122) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+(0.126) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.124) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 10100
+"GET /static/site.css HTTP/1.1" 304 0
+"GET /recipes/10/edit HTTP/1.1" 301 0
+(0.131) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.130) SELECT VERSION(); args=None
+(0.132) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:09:44' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:09:44', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.132) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.134) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+"GET /recipes/10/edit/ HTTP/1.1" 200 6672
+(0.138) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.130) SELECT VERSION(); args=None
+(0.132) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:09:52' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:09:52', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.133) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+"GET /home/ HTTP/1.1" 200 14309
+(0.118) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.116) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.325) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.309) SELECT VERSION(); args=None
+(0.119) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:16:39' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:16:39', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.121) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.119) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.119) SELECT VERSION(); args=None
+(0.118) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 6820
+(0.119) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:16:40' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:16:40', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+"GET /recipes/ HTTP/1.1" 500 59
+(0.123) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.121) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 6820
+"GET /static/site.css HTTP/1.1" 304 0
+(0.130) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.131) SELECT VERSION(); args=None
+(0.128) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.129) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:16:44' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:16:44', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.129) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+(0.129) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.129) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 10100
+(0.118) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.118) SELECT VERSION(); args=None
+(0.121) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:17:05' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:17:05', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.119) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+"GET /home/ HTTP/1.1" 200 14309
+(0.120) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.120) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.120) SELECT VERSION(); args=None
+(0.121) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:17:14' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:17:14', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.121) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.130) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.121) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 6820
+"GET /recipes/ HTTP/1.1" 500 59
+(0.129) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.129) SELECT VERSION(); args=None
+(0.309) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:17:15' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:17:15', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.128) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.129) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 6820
+(0.125) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.119) SELECT VERSION(); args=None
+(0.118) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.119) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:17:23' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:17:23', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.118) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+(0.120) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.127) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 10100
+(0.121) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.120) SELECT VERSION(); args=None
+(0.130) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:17:30' AND `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('2016-11-26 22:17:30', '9rbg224bvd2t6pf2ufbjilnu4iiutd2p')
+(0.130) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.129) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = '9rbg224bvd2t6pf2ufbjilnu4iiutd2p'; args=('9rbg224bvd2t6pf2ufbjilnu4iiutd2p',)
+(0.130) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('9rbg224bvd2t6pf2ufbjilnu4iiutd2p'); args=('9rbg224bvd2t6pf2ufbjilnu4iiutd2p',)
+"GET /user/logout/?next=/recipes/10/ HTTP/1.1" 302 0
+(0.118) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.117) SELECT VERSION(); args=None
+(0.119) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+(0.119) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.122) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 9392
+"GET /recipes/10/edit/ HTTP/1.1" 302 0
+"GET /login/?next=/recipes/10/edit/ HTTP/1.1" 302 0
+"GET /user/login/?next=/login/%3Fnext%3D/recipes/10/edit/ HTTP/1.1" 200 2184
+(0.130) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.130) SELECT VERSION(); args=None
+(0.130) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'jitind'; args=('jitind',)
+(0.134) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7' LIMIT 1; args=('7ti8c0ahfzsrxceqlpah887ktzb5djq7',)
+(0.129) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('7ti8c0ahfzsrxceqlpah887ktzb5djq7', 'MzExMDFiNzUzM2IyZDBjMmIwYjJiZDg1YjE2MjhhZDI1MzE4MDNmNDp7fQ==', '2016-12-10 22:17:51'); args=('7ti8c0ahfzsrxceqlpah887ktzb5djq7', 'MzExMDFiNzUzM2IyZDBjMmIwYjJiZDg1YjE2MjhhZDI1MzE4MDNmNDp7fQ==', '2016-12-10 22:17:51')
+(0.129) UPDATE `auth_user` SET `last_login` = '2016-11-26 22:17:52' WHERE `auth_user`.`id` = 1; args=('2016-11-26 22:17:52', 1)
+(0.131) UPDATE `django_session` SET `session_data` = 'MTg5ZTQzMjRmZjBlM2EwNTcwZmQzNWNmYTQ1MjA1ODY5MTVlOTAwOTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiYTEwMjE4NGU0YjViNDg4MzFlNmE5MjQ1ZmE0Mzg5NTY2NDBhYWE5ZSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=', `expire_date` = '2016-12-10 22:17:52' WHERE `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'; args=('MTg5ZTQzMjRmZjBlM2EwNTcwZmQzNWNmYTQ1MjA1ODY5MTVlOTAwOTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9oYXNoIjoiYTEwMjE4NGU0YjViNDg4MzFlNmE5MjQ1ZmE0Mzg5NTY2NDBhYWE5ZSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=', '2016-12-10 22:17:52', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+"POST /user/login/ HTTP/1.1" 302 0
+(0.118) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.118) SELECT VERSION(); args=None
+(0.109) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:17:53' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:17:53', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.110) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+"GET /login/?next=/recipes/10/edit/ HTTP/1.1" 200 7925
+(0.119) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.119) SELECT VERSION(); args=None
+(0.119) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:17:57' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:17:57', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.119) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+"GET /home/ HTTP/1.1" 200 14309
+(0.127) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.131) SELECT VERSION(); args=None
+(0.129) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:18:03' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:18:03', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.132) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+"GET /home/ HTTP/1.1" 200 14309
+(0.121) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.120) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.119) SELECT VERSION(); args=None
+(0.119) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:18:11' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:18:11', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.120) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.119) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 6820
+"GET /recipes/ HTTP/1.1" 500 59
+(0.120) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.119) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.119) SELECT VERSION(); args=None
+(0.123) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:18:12' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:18:12', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.121) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.121) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 6820
+(0.127) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.128) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.127) SELECT VERSION(); args=None
+(0.131) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:20:09' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:20:09', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.129) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.129) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 7613
+"GET /static/site.css HTTP/1.1" 304 0
+(0.112) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.110) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.111) SELECT VERSION(); args=None
+(0.116) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:21:44' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:21:44', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.114) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.114) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 7613
+(0.129) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.129) SELECT VERSION(); args=None
+(0.132) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.133) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:21:48' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:21:48', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.133) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+(0.134) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.132) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 10151
+(0.130) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.131) SELECT VERSION(); args=None
+(0.131) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.132) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:22:11' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:22:11', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.133) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+(0.132) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.132) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 10126
+(0.129) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.129) SELECT COUNT(*) AS `__count` FROM `recipes_recipe`; args=()
+(0.130) SELECT VERSION(); args=None
+(0.130) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:27:26' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:27:26', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.132) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+(0.133) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`created` DESC, `recipes_recipe`.`updated` DESC LIMIT 2; args=()
+"GET /recipes/ HTTP/1.1" 200 7657
+"GET /static/site.css HTTP/1.1" 304 0
+"GET /static/css/base.css HTTP/1.1" 304 0
+(0.122) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.120) SELECT VERSION(); args=None
+(0.115) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time`, `recipes_recipe`.`updated`, `recipes_recipe`.`created` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.112) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2016-11-26 22:27:32' AND `django_session`.`session_key` = '7ti8c0ahfzsrxceqlpah887ktzb5djq7'); args=('2016-11-26 22:27:32', '7ti8c0ahfzsrxceqlpah887ktzb5djq7')
+(0.112) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1; args=(1,)
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+Exception while resolving variable 'image' in template 'recipes/details.html'.
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 885, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Recipe' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Recipe' object has no attribute 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jitin\AppData\Local\Programs\Python\Python35-32\lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [image] in 'RID: 10, TITLE: Chicken Pot Pie'
+(0.110) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.110) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 10189
