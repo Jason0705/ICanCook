@@ -22441,3 +22441,140 @@ NameError: global name 'recipe' is not defined
 (0.124) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
 (0.124) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
 "GET /recipes/10/ HTTP/1.1" 200 2289
+(0.113) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.105) SELECT VERSION(); args=None
+(0.114) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '3qfzrcs6dl00e1dhkuht0c5csa9ueuhh' AND `django_session`.`expire_date` > '2016-11-25 23:52:38'); args=('3qfzrcs6dl00e1dhkuht0c5csa9ueuhh', u'2016-11-25 23:52:38')
+(0.121) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 9; args=(9,)
+(0.113) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+"GET /recipes/10/edit/ HTTP/1.1" 200 1069
+(0.125) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.125) SELECT VERSION(); args=None
+(0.128) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '3qfzrcs6dl00e1dhkuht0c5csa9ueuhh' AND `django_session`.`expire_date` > '2016-11-25 23:52:43'); args=('3qfzrcs6dl00e1dhkuht0c5csa9ueuhh', u'2016-11-25 23:52:43')
+(0.124) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 9; args=(9,)
+(0.124) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.126) UPDATE `recipes_recipe` SET `title` = 'Chicken Pot Pie', `description` = 'Barley, brimming with protein and minerals, and whole-wheat phyllo dough make this a low-glycemic fiber powerhouse. A pleasingly nutty taste and a lush texture make you swear you\'re gobbling heavy cream.', `userid` = 1, `prep_time` = 2 WHERE `recipes_recipe`.`rid` = 10; args=(u'Chicken Pot Pie', u"Barley, brimming with protein and minerals, and whole-wheat phyllo dough make this a low-glycemic fiber powerhouse. A pleasingly nutty taste and a lush texture make you swear you're gobbling heavy cream.", 1, 2.0, 10)
+"POST /recipes/10/edit/ HTTP/1.1" 302 0
+"GET /recipes/10 HTTP/1.1" 301 0
+(0.122) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.115) SELECT VERSION(); args=None
+(0.115) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.115) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.116) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 4; args=(4,)
+(0.117) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.118) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.115) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 2; args=(2,)
+(0.115) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.115) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 8; args=(8,)
+(0.113) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.118) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.113) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.115) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 2288
+(0.124) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.131) SELECT VERSION(); args=None
+(0.115) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.114) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.113) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 4; args=(4,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.127) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.113) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.113) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 2; args=(2,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.115) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 8; args=(8,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.112) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.115) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 2330
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'home.urls' from '/home/ubuntu/project/mysite/home/urls.pyc'> (None:home) ^home/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'user.urls' from '/home/ubuntu/project/mysite/user/urls.pyc'> (None:user) ^user/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'user.urls' from '/home/ubuntu/project/mysite/user/urls.pyc'> (None:user) ^login/>"
+Not Found: /recipes/10/index
+"GET /recipes/10/index HTTP/1.1" 404 3209
+(0.124) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.124) SELECT VERSION(); args=None
+(0.125) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.126) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.125) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.127) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.128) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 4; args=(4,)
+(0.128) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.128) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.127) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.125) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.127) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 2; args=(2,)
+(0.125) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.128) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 8; args=(8,)
+(0.125) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.127) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.125) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.126) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.127) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 2332
+(0.127) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.125) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`title` DESC; args=()
+"GET /recipes/ HTTP/1.1" 200 551
+(0.121) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.116) SELECT VERSION(); args=None
+(0.124) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` WHERE `recipes_recipe`.`rid` = 10; args=(10,)
+(0.124) SELECT `recipes_ingredient`.`id`, `recipes_ingredient`.`rid_id`, `recipes_ingredient`.`name`, `recipes_ingredient`.`quantity`, `recipes_ingredient`.`quantity_type_id` FROM `recipes_ingredient` WHERE `recipes_ingredient`.`rid_id` = 10; args=(10,)
+(0.123) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.126) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.123) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 4; args=(4,)
+(0.123) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.123) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.125) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.125) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.125) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 2; args=(2,)
+(0.125) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.123) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 8; args=(8,)
+(0.123) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 3; args=(3,)
+(0.125) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.123) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.123) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype` WHERE `recipes_quantitytype`.`qid` = 0; args=(0,)
+(0.123) SELECT `recipes_step`.`id`, `recipes_step`.`rid_id`, `recipes_step`.`description`, `recipes_step`.`order` FROM `recipes_step` WHERE `recipes_step`.`rid_id` = 10; args=(10,)
+"GET /recipes/10/ HTTP/1.1" 200 2332
+(0.124) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.125) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`title` DESC; args=()
+"GET /recipes/ HTTP/1.1" 200 551
+(0.114) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.114) SELECT VERSION(); args=None
+(0.116) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '3qfzrcs6dl00e1dhkuht0c5csa9ueuhh' AND `django_session`.`expire_date` > '2016-11-26 00:00:08'); args=('3qfzrcs6dl00e1dhkuht0c5csa9ueuhh', u'2016-11-26 00:00:08')
+(0.117) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 9; args=(9,)
+(0.114) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype`; args=()
+"GET /recipes/add/ HTTP/1.1" 200 2754
+(0.123) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.123) SELECT VERSION(); args=None
+(0.127) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '3qfzrcs6dl00e1dhkuht0c5csa9ueuhh' AND `django_session`.`expire_date` > '2016-11-26 00:01:02'); args=('3qfzrcs6dl00e1dhkuht0c5csa9ueuhh', u'2016-11-26 00:01:02')
+(0.126) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 9; args=(9,)
+(0.127) SELECT `recipes_quantitytype`.`qid`, `recipes_quantitytype`.`name` FROM `recipes_quantitytype`; args=()
+"GET /recipes/add/ HTTP/1.1" 200 2793
+(0.114) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.120) SELECT `recipes_recipe`.`rid`, `recipes_recipe`.`title`, `recipes_recipe`.`description`, `recipes_recipe`.`userid`, `recipes_recipe`.`prep_time` FROM `recipes_recipe` ORDER BY `recipes_recipe`.`title` DESC; args=()
+"GET /recipes/ HTTP/1.1" 200 551
