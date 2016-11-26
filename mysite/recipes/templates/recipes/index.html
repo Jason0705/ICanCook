@@ -5,9 +5,7 @@
 {% endblock head_title %}
 
 {% block content %}
-
     <div class="col-sm-8 col-sm-offset-2">
-
         {% if recipe_names %}
             <h1>Recipes</h1>
             <p><a href="/recipes/add/">Add a new recipe</a></p>
@@ -15,7 +13,6 @@
             <br/>
             <div class="row">
                 {% for recipe_name in recipe_names %}
-
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
                             <!-- <img src="..." alt="..."> -->
@@ -38,21 +35,20 @@
         {% endif %}
 
         <div class="pagination">
-	 <span class="step-links">
+            <span class="step-links">
 			 {% if recipe_names.has_previous %}
                  <a href="?page={{ recipe_names.previous_page_number }}"><<</a>
              {% endif %}
-
-         <span class="current">
+            </span>
+            <span class="current">
 					 Page {{ recipe_names.number }} of {{ recipe_names.paginator.num_pages }}
 			 </span>
-
-         {% if recipe_names.has_next %}
-             <a href="?page={{ recipe_names.next_page_number }}">>></a>
-         {% endif %}
-	 </span>
+            </span>
+            {% if recipe_names.has_next %}
+                <a href="?page={{ recipe_names.next_page_number }}">>></a>
+            {% endif %}
+            </span>
         </div>
-
     </div>
 
 {% endblock content %}

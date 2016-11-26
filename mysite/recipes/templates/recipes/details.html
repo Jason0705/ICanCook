@@ -17,25 +17,28 @@
         <p>User ID: {{ recipe.userid }}</p>
         <p>Prep Time: {{ recipe.prep_time }}</p>
 
-        <p>Ingredients: {% for ingredient in recipe.ingredient_set.all %}
-            <ul>
+        <p>Ingredients:</p>
+        <ul>
+            {% for ingredient in recipe.ingredient_set.all %}
                 <li>{{ ingredient.name }}</li>
-            </ul> {% endfor %}</p>
-        <p>Steps: {% for step in recipe.step_set.all %}
-            <ul>
-                <li>{{ step.description|linebreaks }}
-            </ul></li> {% endfor %}</p>
+            {% endfor %}
+        </ul>
 
-        <p><a href="./edit" class="btn btn-default">edit recipe</a></p>
-        <p><a href="./delete" class="btn btn-default">delete recipe</a></p>
+        <p>Steps:</p>
+        <ul>
+            {% for step in recipe.step_set.all %}
+                <li>{{ step.description|linebreaks }}</li>
+            {% endfor %}
+        </ul>
+
+        <p><a href="./edit/" class="btn btn-default">edit recipe</a></p>
+        <p><a href="./delete/" class="btn btn-default">delete recipe</a></p>
         <p><a href="/recipes/" class="btn btn-default">Back</a></p>
 
         <hr/>
 
-        <p>
         <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true"
              data-share="true"></div>
-        </p>
 
         <p>
             |<a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}">
