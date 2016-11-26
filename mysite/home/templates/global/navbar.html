@@ -67,7 +67,7 @@
                             </ul>
                         {% else %}
                             <ul class="nav navbar-nav pull-right">
-                                <li><a href="/user/login/">Login</a></li>
+                                <li><a href="/user/login/?next={{ request.path }}">Login</a></li>
                             </ul>
                         {% endif %}
 
