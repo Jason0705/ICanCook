@@ -31,8 +31,10 @@
             {% endfor %}
         </ul>
 
-        <p><a href="./edit/" class="btn btn-default">edit recipe</a></p>
-        <p><a href="./delete/" class="btn btn-default">delete recipe</a></p>
+        {% if user.is_authenticated and user.id == recipe.userid %}
+            <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
+            <p><a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-default">delete recipe</a></p>
+        {% endif %}
         <p><a href="/recipes/" class="btn btn-default">Back</a></p>
 
         <hr/>
