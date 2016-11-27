@@ -1,3 +1,16 @@
 h1 {
-  color: #777777;
+    color: #777777;
+}
+
+.ingredient-container{
+    margin-bottom: 10px;
+}
+
+.ingredient-field {
+    display: inline-block;
+    width: 100px;
+}
+
+.ingredient-field input{
+    width: 100%;
 }

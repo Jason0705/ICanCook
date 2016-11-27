@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import BaseFormSet
+from django.forms import BaseFormSet, TextInput
 
 from .models import Recipe
 from .models import Step
@@ -27,6 +27,12 @@ class QuantityTypeForm(forms.ModelForm):
 
 
 class IngredientForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(IngredientForm, self).__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs = {'class': 'form-control'}
+        self.fields['quantity'].widget.attrs = {'class': 'form-control'}
+        self.fields['quantity_type'].widget.attrs = {'class': 'form-control'}
+
     class Meta:
         model = Ingredient
         exclude = ('rid',)

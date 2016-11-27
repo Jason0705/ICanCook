@@ -9,7 +9,7 @@ from django.shortcuts import render
 
 from .forms import RecipeForm, StepForm, IngredientForm, BaseIngredientFormSet
 from .models import Recipe
-from .models import Step, Ingredient
+from .models import Step
 
 
 def index(request):
@@ -92,9 +92,8 @@ def edit(request, rid):
 
     if request.POST:
         recipe_form = RecipeForm(request.POST, instance=edit_recipe)
-        data = {'form-TOTAL_FORMS': '1', 'form-INITIAL_FORMS': '1', 'form-MAX_NUM_FORMS': '', }
 
-        ingredient_formset = IngredientFormSet(request.POST)
+        ingredient_formset = IngredientFormSet(request.POST, prefix='ingr')
         # steps_form = StepFormSet(request.POST, queryset=Step.objects.filter(rid=rid))
 
         if recipe_form.is_valid() and ingredient_formset.is_valid():
@@ -111,9 +110,10 @@ def edit(request, rid):
         return HttpResponseRedirect('/recipes/' + str(rid))
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
-        ingredients_formset = IngredientFormSet(initial=ingredient_data)
+        ingredients_formset = IngredientFormSet(initial=ingredient_data, prefix='ingr')
         steps_form = StepFormSet(queryset=Step.objects.filter(rid=rid))
         context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_formset, 'steps_form': steps_form}
+
     return render(request, 'recipes/edit.html', context)
 
 

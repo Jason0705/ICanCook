@@ -39,7 +39,7 @@ class QuantityType(models.Model):
     name = models.CharField(blank=True, max_length=25)
 
     def __str__(self):
-        return "QID: %i, NAME: %s" % (self.qid, self.name)
+        return self.name
 
 
 class Ingredient(models.Model):
