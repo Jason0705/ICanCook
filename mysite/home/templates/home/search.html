@@ -8,10 +8,14 @@
     <div class="col-sm-8 col-sm-offset-2">
 		<h1>Search Results</h1>
 		
-		{% if queryset_list %}
+		{% if recipes_list %}
 			<ul>
-			{% for q in queryset_list %}
-			<li><a href="/recipes/{{ q.rid }}">{{ q.title }}</a></li>
+			{% for r in recipes_list %}
+				{% for i in ingredients_list %}
+					{% ifequal r.rid i.rid.rid %}
+						<li><a href="/recipes/{{ r.rid }}">{{ r.title }}</a></li>
+					{% endifequal %}
+				{% endfor %}
 			{% endfor %}
 			</ul>
 		{% else %}
@@ -21,7 +25,7 @@
 		{% if ingredients_list %}
 			<ul>
 			{% for i in ingredients_list %}
-			<li><a href="/recipes/{{ i.rid }}">{{ i.name }}</a></li>
+			<li><a href="/recipes/{{ i.rid.rid }}">{{ i.rid.title }}</a></li>
 			{% endfor %}
 			</ul>
 		{% else %}
