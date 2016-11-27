@@ -17,13 +17,13 @@
             <div class="ingredients">
                 {% for form in ingredients_form %}
                     <div class="ingredient-container">
-                        <div class="ingredient-field">
+                        <div class="ingredient-field ingr-name">
                             {{ form.name }}
                         </div>
-                        <div class="ingredient-field">
+                        <div class="ingredient-field ingr-quant">
                             {{ form.quantity }}
                         </div>
-                        <div class="ingredient-field">
+                        <div class="ingredient-field ingr-quant-type">
                             {{ form.quantity_type }}
                         </div>
                         <div>

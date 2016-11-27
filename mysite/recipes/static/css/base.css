@@ -8,9 +8,20 @@ h1 {
 
 .ingredient-field {
     display: inline-block;
-    width: 100px;
 }
 
 .ingredient-field input{
     width: 100%;
+}
+
+.ingr-name{
+    width: 175px;
+}
+
+.ingr-quant{
+    width: 75px;
+}
+
+.ingr-quant-type{
+    width: 150px;
 }

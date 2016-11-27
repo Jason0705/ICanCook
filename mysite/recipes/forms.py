@@ -29,8 +29,8 @@ class QuantityTypeForm(forms.ModelForm):
 class IngredientForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(IngredientForm, self).__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs = {'class': 'form-control'}
-        self.fields['quantity'].widget.attrs = {'class': 'form-control'}
+        self.fields['name'].widget.attrs = {'class': 'form-control', 'placeholder': 'Name'}
+        self.fields['quantity'].widget.attrs = {'class': 'form-control', 'placeholder': 'Quantity'}
         self.fields['quantity_type'].widget.attrs = {'class': 'form-control'}
 
     class Meta:
