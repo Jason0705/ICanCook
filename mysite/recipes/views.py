@@ -1,22 +1,15 @@
-from django.forms import formset_factory
-from django.shortcuts import render, render_to_response, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.template import loader, RequestContext
-from django.core.urlresolvers import reverse
-from django.shortcuts import render
-
-from .models import Recipe, Step, QuantityType, Ingredient
-from .forms import RecipeForm, StepForm, QuantityTypeForm, IngredientForm, ImageUploadForm
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.forms import modelformset_factory
-
 from urllib import quote_plus
+
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.forms import formset_factory
+from django.forms import modelformset_factory
+from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import render
 
 from .forms import RecipeForm, StepForm, IngredientForm
 from .models import Recipe
+from .models import Step, Ingredient
 
 
 def index(request):
@@ -64,8 +57,8 @@ def add_recipe(request):
         ingredients_form_set = ingredients_formset_factory(request.POST)
         step_form_set = steps_formset_factory(request.POST)
 
-        if recipe_form.is_valid() and ingredients_form_set.is_valid() and step_form_set.is_valid() and image_form.is_valid():
-	    recipe = recipe_form.save()
+        if recipe_form.is_valid() and ingredients_form_set.is_valid() and step_form_set.is_valid():
+            recipe = recipe_form.save()
 
             for ingr_form in ingredients_form_set.forms:
                 ingredient = ingr_form.save(commit=False)
@@ -87,29 +80,36 @@ def add_recipe(request):
 @login_required(login_url='/login/')
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
-    IngredientFormSet = modelformset_factory(Ingredient, form=IngredientForm)
+    ingredient_model_factory = modelformset_factory(Ingredient, form=IngredientForm)
     StepFormSet = modelformset_factory(Step, form=StepForm)
     # ingredients_form = IngredientFormSet(queryset=Ingredient.objects.filter(rid=rid))
     # steps_form = StepFormSet(queryset=Step.objects.filter(rid=rid))
 
     if request.POST:
         recipe_form = RecipeForm(request.POST, instance=edit_recipe)
-        data = {'form-TOTAL_FORMS': '1', 'form-INITIAL_FORMS': '0', 'form-MAX_NUM_FORMS': '',}
-        ingredients_form = IngredientFormSet(data, request.POST, queryset=Ingredient.objects.filter(rid=rid))
+        data = {'form-TOTAL_FORMS': '1', 'form-INITIAL_FORMS': '1', 'form-MAX_NUM_FORMS': '', }
+        ingredients_form = ingredient_model_factory(data, request.POST, queryset=Ingredient.objects.filter(rid=rid))
+
         # steps_form = StepFormSet(request.POST, queryset=Step.objects.filter(rid=rid))
-        context = {'recipe_form': recipe_form, 'ingredients_form': ingredients_form}
+
         if recipe_form.is_valid():
-            recipe_form.save()
-        if ingredients_form.is_valid():
-		    ingredients_form.save()
-        # if steps_form.is_valid():
-		    # steps_form.save()
+            recipe = recipe_form.save()
+
+            if ingredients_form.is_valid():
+                recipe.ingredient_set.all().delete()
+
+                for ingr_form in ingredients_form.forms:
+                    ingr = ingr_form.save(commit=False)
+                    ingr.rid_id = recipe.rid
+                    ingr.save()
+                    # if steps_form.is_valid():
+                    # steps_form.save()
         return HttpResponseRedirect('/recipes/' + str(rid))
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
-        ingredients_form = IngredientFormSet(queryset=Ingredient.objects.filter(rid=rid))
+        ingredients_form = ingredient_model_factory(queryset=Ingredient.objects.filter(rid=rid))
         steps_form = StepFormSet(queryset=Step.objects.filter(rid=rid))
-        context = {'recipe_form': recipe_form, 'rid':rid, 'ingredients_form': ingredients_form, 'steps_form': steps_form}
+        context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_form, 'steps_form': steps_form}
     return render(request, 'recipes/edit.html', context)
 
 

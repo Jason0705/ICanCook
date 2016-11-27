@@ -5,31 +5,31 @@
 {% endblock head_title %}
 
 {% block content %}
-	<div class='col-sm-6 col-sm-offset-3'>
-		<h1>Edit Recipe</h1>
-		<form method='POST' action='/recipes/{{ rid }}/edit/'>
-			{% csrf_token %}
-			<h2>Edit Recipe</h2>
-			{{ recipe_form.as_p }}
-			<br>
-			<h2>Edit Ingredients</h2>
-			   <table>
-			     {{ ingredients_form.management_form }}
-				 {% for form in ingredients_form %}
-				   {{ form.as_p }}
-				   <br>
-				 {% endfor %}
-			   </table>
-			   <br>
-			<h2>Edit Steps</h2>
-			   <table>
-				 {% for form in steps_form %}
-				   {{ form.as_p }}
-				   <br>
-				 {% endfor %}
-			   </table>
-			<input type='submit'>
-			<p><a href="/recipes/{{ rid }}">cancel</a></p>
-		</form>
-	</div>
+    <div class='col-sm-6 col-sm-offset-3'>
+        <h1>Edit Recipe</h1>
+        <form method='POST' action='/recipes/{{ rid }}/edit/'>
+            {% csrf_token %}
+            <h2>Edit Recipe</h2>
+            {{ recipe_form.as_p }}
+            <br>
+            <h2>Edit Ingredients</h2>
+            <table>
+                {{ ingredients_form.management_form }}
+                {% for form in ingredients_form %}
+                    {{ form.as_p }}
+                    <br>
+                {% endfor %}
+            </table>
+            <br>
+            <h2>Edit Steps</h2>
+            <table>
+                {% for form in steps_form %}
+                    {{ form.as_p }}
+                    <br>
+                {% endfor %}
+            </table>
+            <input type='submit'>
+            <p><a href="/recipes/{{ rid }}">cancel</a></p>
+        </form>
+    </div>
 {% endblock content %}
