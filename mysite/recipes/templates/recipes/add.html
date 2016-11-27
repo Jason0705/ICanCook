@@ -6,7 +6,7 @@ New Recipe
 
 {% block content %}
 <div class='col-sm-6 col-sm-offset-3'>
-<form method='POST' action='http://localhost:3000/recipes/add/'>
+<form method='POST' action='/recipes/add/'>
     {% csrf_token %}
     <h1>New Recipe</h1>
     {{ Recipe_Form.as_p }}
@@ -24,6 +24,7 @@ New Recipe
     {% endfor %}
 
     <button name="submit" type='submit' class="btn btn-default">Add Recipe</button>
+	<p><a href="/recipes/">cancel</a></p>
 </form>
 </div>
 {% endblock content %}

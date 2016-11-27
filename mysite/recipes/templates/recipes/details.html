@@ -20,7 +20,7 @@
         <p>Ingredients:</p>
         <ul>
             {% for ingredient in recipe.ingredient_set.all %}
-                <li>{{ ingredient.name }}</li>
+                <li>{{ ingredient.quantity }} {{ ingredient.quantity_type.name }} {{ ingredient.name }}</li>
             {% endfor %}
         </ul>
 

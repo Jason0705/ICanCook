@@ -10,7 +10,8 @@ class Recipe(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     userid = models.IntegerField()
-    prep_time = models.IntegerField()
+    prep_time = models.FloatField()
+    recipe_pic = models.FileField(upload_to='recipes/static/recipes/images/', null=True, blank=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
 
@@ -26,8 +27,8 @@ class Recipe(models.Model):
 
 class Step(models.Model):
     rid = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    description = models.TextField(max_length=1000)
-    order = models.CharField(max_length=25)
+    description = models.CharField(max_length=1000)
+    order = models.IntegerField()
 
     def __str__(self):
         return "DESCRIPTION: %s, ORDER: %s" % (self.description, self.order)
@@ -35,7 +36,7 @@ class Step(models.Model):
 
 class QuantityType(models.Model):
     qid = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=25)
+    name = models.CharField(blank=True, max_length=25)
 
     def __str__(self):
         return "QID: %i, NAME: %s" % (self.qid, self.name)
@@ -43,8 +44,8 @@ class QuantityType(models.Model):
 
 class Ingredient(models.Model):
     rid = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    name = models.CharField(max_length=25)
-    quantity = models.IntegerField()
+    name = models.CharField(max_length=100)
+    quantity = models.FloatField()
     quantity_type = models.ForeignKey(QuantityType)
 
     def __str__(self):
