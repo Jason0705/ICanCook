@@ -7,7 +7,7 @@ from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 
-from .forms import RecipeForm, StepForm, IngredientForm
+from .forms import RecipeForm, StepForm, IngredientForm, BaseIngredientFormSet
 from .models import Recipe
 from .models import Step, Ingredient
 
@@ -80,36 +80,40 @@ def add_recipe(request):
 @login_required(login_url='/login/')
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
-    ingredient_model_factory = modelformset_factory(Ingredient, form=IngredientForm)
     StepFormSet = modelformset_factory(Step, form=StepForm)
+
+    IngredientFormSet = formset_factory(IngredientForm, formset=BaseIngredientFormSet)
+
+    ingredients = edit_recipe.ingredient_set.all()
+    ingredient_data = [{'name': i.name, 'quantity_type': i.quantity_type, 'quantity': i.quantity} for i in ingredients]
+
     # ingredients_form = IngredientFormSet(queryset=Ingredient.objects.filter(rid=rid))
     # steps_form = StepFormSet(queryset=Step.objects.filter(rid=rid))
 
     if request.POST:
         recipe_form = RecipeForm(request.POST, instance=edit_recipe)
         data = {'form-TOTAL_FORMS': '1', 'form-INITIAL_FORMS': '1', 'form-MAX_NUM_FORMS': '', }
-        ingredients_form = ingredient_model_factory(data, request.POST, queryset=Ingredient.objects.filter(rid=rid))
 
+        ingredient_formset = IngredientFormSet(request.POST)
         # steps_form = StepFormSet(request.POST, queryset=Step.objects.filter(rid=rid))
 
-        if recipe_form.is_valid():
+        if recipe_form.is_valid() and ingredient_formset.is_valid():
             recipe = recipe_form.save()
 
-            if ingredients_form.is_valid():
-                recipe.ingredient_set.all().delete()
+            recipe.ingredient_set.all().delete()
 
-                for ingr_form in ingredients_form.forms:
-                    ingr = ingr_form.save(commit=False)
-                    ingr.rid_id = recipe.rid
-                    ingr.save()
-                    # if steps_form.is_valid():
-                    # steps_form.save()
+            for ingr_form in ingredient_formset.forms:
+                ingr = ingr_form.save(commit=False)
+                ingr.rid_id = recipe.rid
+                ingr.save()
+                # if steps_form.is_valid():
+                # steps_form.save()
         return HttpResponseRedirect('/recipes/' + str(rid))
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
-        ingredients_form = ingredient_model_factory(queryset=Ingredient.objects.filter(rid=rid))
+        ingredients_formset = IngredientFormSet(initial=ingredient_data)
         steps_form = StepFormSet(queryset=Step.objects.filter(rid=rid))
-        context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_form, 'steps_form': steps_form}
+        context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_formset, 'steps_form': steps_form}
     return render(request, 'recipes/edit.html', context)
 
 
