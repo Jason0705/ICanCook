@@ -31,7 +31,7 @@ class IngredientForm(forms.ModelForm):
         exclude = ('rid',)
         fields = '__all__'
 
-class ImageUploadForm(forms.Form):
-    imagefile = forms.FileField(
-        label='Select a file'
-    )
+#class ImageUploadForm(forms.Form):
+    #imagefile = forms.FileField(
+        #label='Select a file'
+    #)

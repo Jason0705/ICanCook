@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render
 
 from .models import Recipe, Step, QuantityType, Ingredient
-from .forms import RecipeForm, StepForm, QuantityTypeForm, IngredientForm, ImageUploadForm
+from .forms import RecipeForm, StepForm, QuantityTypeForm, IngredientForm#, ImageUploadForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.forms import modelformset_factory
@@ -60,11 +60,11 @@ def add_recipe(request):
     steps_formset_factory = formset_factory(StepForm)
 
     if request.POST:
-        recipe_form = RecipeForm(request.POST)
+        recipe_form = RecipeForm(request.POST, request.FILES or None)
         ingredients_form_set = ingredients_formset_factory(request.POST)
         step_form_set = steps_formset_factory(request.POST)
 
-        if recipe_form.is_valid() and ingredients_form_set.is_valid() and step_form_set.is_valid() and image_form.is_valid():
+        if recipe_form.is_valid() and ingredients_form_set.is_valid() and step_form_set.is_valid(): #and image_form.is_valid():
 	    recipe = recipe_form.save()
 
             for ingr_form in ingredients_form_set.forms:
@@ -87,11 +87,11 @@ def add_recipe(request):
 @login_required(login_url='/login/')
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
-    IngredientFormSet = modelformset_factory(Ingredient, form=IngredientForm)
+    IngredientFormSet = modelformset_factory(Ingredient, request.FILES or None, form=IngredientForm)
     formset=IngredientFormSet(queryset=Ingredient.objects.filter(rid=rid))
 
     if request.POST:
-        recipe_form = RecipeForm(request.POST, instance=edit_recipe)
+        recipe_form = RecipeForm(request.POST,  instance=edit_recipe)
         context = {'recipe_form': recipe_form,}
         if recipe_form.is_valid():
             recipe_form.save()

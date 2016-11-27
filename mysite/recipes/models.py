@@ -11,7 +11,7 @@ class Recipe(models.Model):
     description = models.TextField(max_length=500)
     userid = models.IntegerField()
     prep_time = models.FloatField()
-    recipe_pic = models.FileField(upload_to='recipes/static/recipes/images/', null=True, blank=True)
+    recipe_pic = models.FileField(null=True, blank=True) #upload_to='recipes/static/recipes/images/', 
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
 
