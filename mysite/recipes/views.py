@@ -87,11 +87,11 @@ def add_recipe(request):
 @login_required(login_url='/login/')
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
-    IngredientFormSet = modelformset_factory(Ingredient, request.FILES or None, form=IngredientForm)
+    IngredientFormSet = modelformset_factory(Ingredient, form=IngredientForm)
     formset=IngredientFormSet(queryset=Ingredient.objects.filter(rid=rid))
 
     if request.POST:
-        recipe_form = RecipeForm(request.POST,  instance=edit_recipe)
+        recipe_form = RecipeForm(request.POST, request.FILES or None, instance=edit_recipe)
         context = {'recipe_form': recipe_form,}
         if recipe_form.is_valid():
             recipe_form.save()
