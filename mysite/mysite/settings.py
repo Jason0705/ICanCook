@@ -130,7 +130,7 @@ STATIC_ROOT = '/home/ubuntu/static'
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = '/home/ubuntu/media'
+MEDIA_ROOT = '/home/ubuntu/project/mysite/media'
 
 LOGGING = {
     'version': 1,
