@@ -25,11 +25,11 @@
         </ul>
 
         <p>Steps:</p>
-        <ul>
+        <ol>
             {% for step in recipe.step_set.all %}
                 <li>{{ step.description|linebreaks }}</li>
             {% endfor %}
-        </ul>
+        </ol>
 
         {% if user.is_authenticated and user.id == recipe.userid %}
             <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>

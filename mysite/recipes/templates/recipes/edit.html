@@ -11,15 +11,25 @@
 			{% csrf_token %}
 			<h2>Edit Recipe</h2>
 			{{ recipe_form.as_p }}
+			<br>
 			<h2>Edit Ingredients</h2>
 			   <table>
-				 {% for form in formset %}
+			     {{ ingredients_form.management_form }}
+				 {% for form in ingredients_form %}
 				   {{ form.as_p }}
 				   <br>
 				 {% endfor %}
 			   </table>
-			<h2>test</h2>
+			   <br>
+			<h2>Edit Steps</h2>
+			   <table>
+				 {% for form in steps_form %}
+				   {{ form.as_p }}
+				   <br>
+				 {% endfor %}
+			   </table>
 			<input type='submit'>
+			<p><a href="/recipes/{{ rid }}">cancel</a></p>
 		</form>
 	</div>
 {% endblock content %}

@@ -88,17 +88,28 @@ def add_recipe(request):
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
     IngredientFormSet = modelformset_factory(Ingredient, form=IngredientForm)
-    formset=IngredientFormSet(queryset=Ingredient.objects.filter(rid=rid))
+    StepFormSet = modelformset_factory(Step, form=StepForm)
+    # ingredients_form = IngredientFormSet(queryset=Ingredient.objects.filter(rid=rid))
+    # steps_form = StepFormSet(queryset=Step.objects.filter(rid=rid))
 
     if request.POST:
         recipe_form = RecipeForm(request.POST, instance=edit_recipe)
-        context = {'recipe_form': recipe_form,}
+        data = {'form-TOTAL_FORMS': '1', 'form-INITIAL_FORMS': '0', 'form-MAX_NUM_FORMS': '',}
+        ingredients_form = IngredientFormSet(data, request.POST, queryset=Ingredient.objects.filter(rid=rid))
+        # steps_form = StepFormSet(request.POST, queryset=Step.objects.filter(rid=rid))
+        context = {'recipe_form': recipe_form, 'ingredients_form': ingredients_form}
         if recipe_form.is_valid():
             recipe_form.save()
-            return HttpResponseRedirect('/recipes/' + str(rid))
+        if ingredients_form.is_valid():
+		    ingredients_form.save()
+        # if steps_form.is_valid():
+		    # steps_form.save()
+        return HttpResponseRedirect('/recipes/' + str(rid))
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
-        context = {'recipe_form': recipe_form, 'rid':rid, 'formset': formset}
+        ingredients_form = IngredientFormSet(queryset=Ingredient.objects.filter(rid=rid))
+        steps_form = StepFormSet(queryset=Step.objects.filter(rid=rid))
+        context = {'recipe_form': recipe_form, 'rid':rid, 'ingredients_form': ingredients_form, 'steps_form': steps_form}
     return render(request, 'recipes/edit.html', context)
 
 
