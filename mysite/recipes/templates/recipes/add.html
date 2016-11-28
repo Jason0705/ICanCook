@@ -6,7 +6,7 @@ New Recipe
 
 {% block content %}
 <div class='col-sm-6 col-sm-offset-3'>
-<form method='POST' action='/recipes/add/'>
+<form method='POST' action='/recipes/add/' enctype='multipart/form-data'>
     {% csrf_token %}
     <h1>New Recipe</h1>
     {{ Recipe_Form.as_p }}

@@ -7,11 +7,11 @@
 {% block content %}
     <div class='col-sm-6 col-sm-offset-3'>
 
-        <!-- <img src='{{ recipe.image.url }}' class='img-responsive'/> -->
-
+        {% if recipe.recipe_pic %}
+            <img src={{ recipe.recipe_pic.url }} class='img-responsive'>
+        {% endif %}
         <h1>{{ recipe.title }}<br/></h1>
         <small>{{ recipe.created }}</small>
-        {{ recipe.image }}<br/>
         <p>Recipe ID: {{ recipe.rid }}</p>
         <p>Description: {{ recipe.description|linebreaks }}</p>
         <p>User ID: {{ recipe.userid }}</p>

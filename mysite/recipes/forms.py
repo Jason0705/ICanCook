@@ -77,7 +77,7 @@ class BaseStepsFormSet(BaseFormSet):
             return
 
 
-class ImageUploadForm(forms.Form):
-    imagefile = forms.FileField(
-        label='Select a file'
-    )
+# class ImageUploadForm(forms.Form):
+#     imagefile = forms.FileField(
+#         label='Select a file'
+#     )
