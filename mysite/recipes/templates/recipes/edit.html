@@ -5,21 +5,62 @@
 {% endblock head_title %}
 
 {% block content %}
-	<div class='col-sm-6 col-sm-offset-3'>
-		<h1>Edit Recipe</h1>
-		<form method='POST' action='/recipes/{{ rid }}/edit/'>
-			{% csrf_token %}
-			<h2>Edit Recipe</h2>
-			{{ recipe_form.as_p }}
-			<h2>Edit Ingredients</h2>
-			   <table>
-				 {% for form in formset %}
-				   {{ form.as_p }}
-				   <br>
-				 {% endfor %}
-			   </table>
-			<h2>test</h2>
-			<input type='submit'>
-		</form>
-	</div>
+    <div>
+        <h1>Edit Recipe</h1>
+        <form method='POST' action='/recipes/{{ rid }}/edit/'>
+            {% csrf_token %}
+            <h2>Edit Recipe</h2>
+            {{ recipe_form.as_p }}
+            <br>
+            <h2>Edit Ingredients</h2>
+            {{ ingredients_form.management_form }}
+            <div class="ingredients">
+                {% for form in ingredients_form %}
+                    <div class="ingredient-container">
+                        <div class="ingredient-field ingr-name">
+                            {{ form.name }}
+                        </div>
+                        <div class="ingredient-field ingr-quant">
+                            {{ form.quantity }}
+                        </div>
+                        <div class="ingredient-field ingr-quant-type">
+                            {{ form.quantity_type }}
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <br>
+            <h2>Edit Steps</h2>
+            <div class="steps">
+                {{ steps_formset.management_form }}
+                {% for step_form in steps_formset %}
+                    <div class="step-container">
+                        <div class="step-field step-order">
+                            {{ step_form.order }}
+                        </div>
+                        <div class="step-field step-description">
+                            {{ step_form.description }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <input type='submit'>
+            <p><a href="/recipes/{{ rid }}">cancel</a></p>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.ingredient-container').formset({
+                prefix: '{{ ingredients_form.prefix }}'
+            });
+
+            $('.step-container').formset({
+                prefix: '{{ steps_formset.prefix }}'
+            });
+        });
+    </script>
 {% endblock content %}
