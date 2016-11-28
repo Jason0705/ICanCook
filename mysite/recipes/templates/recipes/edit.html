@@ -9,61 +9,8 @@
         <h1>Edit Recipe</h1>
         <form method='POST' action='/recipes/{{ rid }}/edit/'>
             {% csrf_token %}
-            <div id="recipe-container">
-                <h2>Basic Info</h2>
-                <div class="form-group">
-                    <div id="recipe-title">
-                        {{ recipe_form.title.label_tag }}
-                        {{ recipe_form.title }}
-                    </div>
-                    <div id="recipe-title">
-                        {{ recipe_form.description.label_tag }}
-                        {{ recipe_form.description }}
-                    </div>
-                    <div id="prep-time">
-                        {{ recipe_form.prep_time.label_tag }}
-                        {{ recipe_form.prep_time }}
-                    </div>
-                </div>
-            </div>
 
-            <div id="ingredients-container">
-                <h2>Edit Ingredients</h2>
-                {{ ingredients_form.management_form }}
-                <div class="ingredients">
-                    {% for form in ingredients_form %}
-                        <div class="ingredient-container">
-                            <div class="ingredient-field ingr-name">
-                                {{ form.name }}
-                            </div>
-                            <div class="ingredient-field ingr-quant">
-                                {{ form.quantity }}
-                            </div>
-                            <div class="ingredient-field ingr-quant-type">
-                                {{ form.quantity_type }}
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-
-            <div id="steps-container">
-                <h2>Edit Steps</h2>
-                <div class="steps">
-                    {{ steps_formset.management_form }}
-                    {% for step_form in steps_formset %}
-                        <div class="step-container">
-                            <div class="step-field step-order">
-                                {{ step_form.order }}
-                            </div>
-                            <div class="step-field step-description">
-                                {{ step_form.description }}
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+            {% include 'recipes/recipe_form.html' %}
 
             <input type='submit'>
             <p><a href="/recipes/{{ rid }}">cancel</a></p>
@@ -73,7 +20,7 @@
     <script>
         $(document).ready(function () {
             $('.ingredient-container').formset({
-                prefix: '{{ ingredients_form.prefix }}'
+                prefix: '{{ ingredients_formset.prefix }}'
             });
 
             $('.step-container').formset({
