@@ -28,6 +28,7 @@ h1 {
 
 .step-field {
     display: inline-block;
+    vertical-align: top;
 }
 
 .step-order {
@@ -35,5 +36,14 @@ h1 {
 }
 
 .step-description {
-    width: 200px;
+    width: 400px;
+}
+
+.step-container {
+    margin-bottom: 10px;
+}
+
+#recipe-container {
+    max-width: 750px;
+    margin-bottom: 10px;
 }
