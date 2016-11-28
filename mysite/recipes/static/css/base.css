@@ -2,7 +2,7 @@ h1 {
     color: #777777;
 }
 
-.ingredient-container{
+.ingredient-container {
     margin-bottom: 10px;
 }
 
@@ -10,18 +10,30 @@ h1 {
     display: inline-block;
 }
 
-.ingredient-field input{
+.ingredient-field input {
     width: 100%;
 }
 
-.ingr-name{
+.ingr-name {
     width: 175px;
 }
 
-.ingr-quant{
+.ingr-quant {
     width: 75px;
 }
 
-.ingr-quant-type{
+.ingr-quant-type {
     width: 150px;
+}
+
+.step-field {
+    display: inline-block;
+}
+
+.step-order {
+    width: 100px;
+}
+
+.step-description {
+    width: 200px;
 }

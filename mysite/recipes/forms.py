@@ -15,9 +15,15 @@ class RecipeForm(forms.ModelForm):
 
 
 class StepForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(StepForm, self).__init__(*args, **kwargs)
+        self.fields['description'].widget.attrs = {'class': 'form-control', 'placeholder': 'Description'}
+        self.fields['order'].widget.attrs = {'class': 'form-control'}
+
     class Meta:
         model = Step
-        exclude = ['rid']
+        exclude = ('rid',)
+        fields = '__all__'
 
 
 class QuantityTypeForm(forms.ModelForm):
@@ -63,6 +69,12 @@ class BaseIngredientFormSet(BaseFormSet):
 
                 if 0 < field_count < 3:
                     raise forms.ValidationError('Please fill in all fields.')
+
+
+class BaseStepsFormSet(BaseFormSet):
+    def clean(self):
+        if any(self.errors):
+            return
 
 
 class ImageUploadForm(forms.Form):
