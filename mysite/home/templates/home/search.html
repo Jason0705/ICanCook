@@ -7,27 +7,53 @@
 {% block content %}
     <div class="col-sm-8 col-sm-offset-2">
 		<h1>Search Results</h1>
-		
-		<h3>By Recipe Name </h3>
-		{% if recipes_list %}
-			<ul>
-			{% for r in recipes_list %}
-			<li><a href="/recipes/{{r.rid }}">{{ r.title }}</a></li>
-			{% endfor %}
-			</ul>
-		{% else %}
-			<p>No queries.</p>
-		{% endif %}
-		
-		<h3>By Ingredient Name </h3>
-		{% if ingredients_list %}
-			<ul>
-			{% for i in ingredients_list %}
-				<li><a href="/recipes/{{ i.rid.rid }}">{{ i.rid.title }}</a></li>
-			{% endfor %}
-			</ul>
-		{% else %}
-			<p>No queries.</p>
+		<ul>
+			{% if recipes_list or ingredients_list %}
+			
+			{% if recipes_list %}
+				{% for r in recipes_list %}
+				 <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <!-- <img src="..." alt="..."> -->
+                            <div class="caption">
+                                <h3><a href="/recipes/{{r.rid }}">{{ r.title }}</a></h3>
+								 <h5>
+                                    <small>Posted {{ r.created|timesince }} ago</small>
+                                </h5>
+                                <p>{{ r.description|linebreaks|truncatechars:50 }}</p>
+                                <p><a href="/recipes/{{r.rid }}" class="btn btn-default" role="button">View</a></p>
+                            </div>
+                        </div>
+                    </div>
+				{% endfor %}
+			{% endif %}
+			
+			{% if ingredients_list %}
+				{% for i in ingredients_list %}
+					{% if i.rid in recipes_list %}
+						{# continue #}
+					{% else %}
+						<div class="row">
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<!-- <img src="..." alt="..."> -->
+								<div class="caption">
+									<h3><a href="/recipes/{{i.rid.rid }}">{{ i.rid.title }}</a></h3>
+									 <h5>
+										<small>Posted {{ i.rid.created|timesince }} ago</small>
+									</h5>
+									<p>{{ i.rid.description|linebreaks|truncatechars:50 }}</p>
+									<p><a href="/recipes/{{i.rid.rid }}" class="btn btn-default" role="button">View</a></p>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		</ul>
+			{% else %}
+				<p>No results</p>
 		{% endif %}
 
 		
