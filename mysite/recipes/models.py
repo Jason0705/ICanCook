@@ -3,8 +3,6 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-# Create your models here.
-
 class Recipe(models.Model):
     rid = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
@@ -19,7 +17,7 @@ class Recipe(models.Model):
         return "RID: %i, TITLE: %s" % (self.rid, self.title)
 
     def get_absolute_url(self):
-        return "/recipes/%s/" % (self.rid)
+        return "/recipes/%s/" % self.rid
 
     class Meta:
         ordering = ["-created", "-updated"]
@@ -39,7 +37,7 @@ class QuantityType(models.Model):
     name = models.CharField(blank=True, max_length=25)
 
     def __str__(self):
-        return "QID: %i, NAME: %s" % (self.qid, self.name)
+        return self.name
 
 
 class Ingredient(models.Model):
