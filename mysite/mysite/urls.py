@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('home.urls', namespace="home")),
     url(r'^home/', include('home.urls', namespace="home")),
+    url(r'^search/', include('home.urls', namespace="home")),
     url(r'^user/', include('user.urls', namespace="user")),
     url(r'^login/', include('user.urls', namespace="user")),
     url(r'^recipes/', include('recipes.urls', namespace="recipes")),
