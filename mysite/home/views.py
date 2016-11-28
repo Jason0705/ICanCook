@@ -8,14 +8,13 @@ from recipes.models import Recipe, Ingredient
 
 def index(request):
     query = request.GET.get("q")
-    queryset_list  = Recipe.objects.all()
+    recipes_list  = Recipe.objects.all()
     ingredients_list = Ingredient.objects.all()
     if query and request.GET:
-        queryset_list = queryset_list.filter(
+        recipes_list = recipes_list.filter(
 		    Q(title__icontains=query) | 
 		    Q(description__icontains=query)) 
         ingredients_list = ingredients_list.filter(Q(name__icontains=query))
-			# Still need to add ingredients searching once it can link to recipes through RID
-        context = {'queryset_list': queryset_list, 'ingredients_list': ingredients_list}
+        context = {'recipes_list': recipes_list, 'ingredients_list': ingredients_list}
         return render(request, 'home/search.html', context)
     return render(request, 'home/index.html')

@@ -98,17 +98,17 @@ def edit(request, rid):
     steps_data = [{'description': s.description, 'order': s.order} for s in steps]
 
     if request.POST:
-        recipe_form = RecipeForm(request.POST, instance=edit_recipe)
+        recipe_form = RecipeForm(request.POST, request.FILES, instance=edit_recipe)
 
-        ingredient_formset = IngredientFormSet(request.POST, prefix='ingr')
+        ingredients_formset = IngredientFormSet(request.POST, prefix='ingr')
         steps_formset = StepFormSet(request.POST, prefix='steps')
 
-        if recipe_form.is_valid() and ingredient_formset.is_valid() and steps_formset.is_valid():
+        if recipe_form.is_valid() and ingredients_formset.is_valid() and steps_formset.is_valid():
             recipe = recipe_form.save()
             recipe.ingredient_set.all().delete()
             recipe.step_set.all().delete()
 
-            for ingr_form in ingredient_formset.forms:
+            for ingr_form in ingredients_formset.forms:
                 if ingr_form.is_valid() and ingr_form.has_changed():
                     ingr = ingr_form.save(commit=False)
                     ingr.rid_id = recipe.rid
@@ -120,7 +120,14 @@ def edit(request, rid):
                     step.rid_id = recipe.rid
                     step.save()
 
-        return HttpResponseRedirect('/recipes/' + str(rid))
+            recipe.save()
+
+            return HttpResponseRedirect('/recipes/' + str(rid))
+
+        else:
+            context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_formset, 'steps_formset': steps_formset}
+            return render(request, 'recipes/edit.html', context)
+
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
         ingredients_formset = IngredientFormSet(initial=ingredient_data, prefix='ingr')

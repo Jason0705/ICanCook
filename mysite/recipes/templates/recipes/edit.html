@@ -7,7 +7,7 @@
 {% block content %}
     <div>
         <h1>Edit Recipe</h1>
-        <form method='POST' action='/recipes/{{ rid }}/edit/'>
+        <form method='POST' action='/recipes/{{ rid }}/edit/' enctype="multipart/form-data">
             {% csrf_token %}
 
             {% include 'recipes/recipe_form.html' %}

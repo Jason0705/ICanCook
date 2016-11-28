@@ -15,6 +15,9 @@
                 {% for recipe_name in recipe_names %}
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
+                            {% if recipe_name.recipe_pic %}
+                                <img src={{ recipe_name.recipe_pic.url }} class='img-responsive'>
+                            {% endif %}
                             <!-- <img src="..." alt="..."> -->
                             <div class="caption">
                                 <h3><a href="{{ recipe_name.get_absolute_url }}">{{ recipe_name.title }}</a></h3>
@@ -31,7 +34,9 @@
                 {% endfor %}
             </div>
         {% else %}
+            <h1>Recipes</h1>
             <p>No recipes are available.</p>
+            <p><a href="/recipes/add/">Add a new recipe</a></p>
         {% endif %}
 
         <div class="pagination">
