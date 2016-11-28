@@ -1,0 +1,48 @@
+{% extends "recipes/base.html" %}
+
+{% block head_title %}
+    Search Results
+{% endblock head_title %}
+
+{% block content %}
+    <div class="col-sm-8 col-sm-offset-2">
+		<h1>Search Results</h1>
+		
+		{% if queryset_list %}
+			<ul>
+			{% for q in queryset_list %}
+			<li><a href="/recipes/{{ q.rid }}">{{ q.title }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<p>No queries.</p>
+		{% endif %}
+		
+		{% if ingredients_list %}
+			<ul>
+			{% for i in ingredients_list %}
+			<li><a href="/recipes/{{ i.rid }}">{{ i.name }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<p>No queries.</p>
+		{% endif %}
+		
+        <div class="pagination">
+            <span class="step-links">
+			 {% if recipe_names.has_previous %}
+                 <a href="?page={{ recipe_names.previous_page_number }}"><<</a>
+             {% endif %}
+            </span>
+            <span class="current">
+					 Page {{ recipe_names.number }} of {{ recipe_names.paginator.num_pages }}
+			 </span>
+            </span>
+            {% if recipe_names.has_next %}
+                <a href="?page={{ recipe_names.next_page_number }}">>></a>
+            {% endif %}
+            </span>
+        </div>
+    </div>
+
+{% endblock content %}
