@@ -64,7 +64,7 @@ h1 {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-color: #1b6d85;
+    background-image: url('/static/recipes/images/food-placeholder.png');
 }
 
 .recipe-image {
