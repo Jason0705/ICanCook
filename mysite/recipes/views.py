@@ -2,6 +2,7 @@ from urllib import quote_plus
 
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms import formset_factory
 from django.http import HttpResponseRedirect, Http404
@@ -34,13 +35,20 @@ def index(request):
 def details(request, rid):
     try:
         recipe = Recipe.objects.get(pk=rid)
+        user = User.objects.get(id=recipe.userid)
+
+        name = "{0} {1}".format(user.first_name, user.last_name)
         share_string = quote_plus(recipe.description)
     except Recipe.DoesNotExist:
         raise Http404("Recipe does not exist.")
 
+    if recipe.recipe_pic is None:
+        recipe.recipe_pic = ""
+
     context = {
         'recipe': recipe,
-        'share_string': share_string
+        'share_string': share_string,
+        'user_full_name': name
     }
     return render(request, 'recipes/details.html', context)
 
@@ -125,14 +133,16 @@ def edit(request, rid):
             return HttpResponseRedirect('/recipes/' + str(rid))
 
         else:
-            context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_formset, 'steps_formset': steps_formset}
+            context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_formset,
+                       'steps_formset': steps_formset}
             return render(request, 'recipes/edit.html', context)
 
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
         ingredients_formset = IngredientFormSet(initial=ingredient_data, prefix='ingr')
         steps_formset = StepFormSet(initial=steps_data, prefix='steps')
-        context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_formset': ingredients_formset, 'steps_formset': steps_formset}
+        context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_formset': ingredients_formset,
+                   'steps_formset': steps_formset}
 
     return render(request, 'recipes/edit.html', context)
 

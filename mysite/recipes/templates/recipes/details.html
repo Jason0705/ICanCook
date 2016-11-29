@@ -1,60 +1,69 @@
 {% extends "recipes/base.html" %}
 
 {% block head_title %}
-    {{ recipe.title }} | {{ block.super }}
+{{ recipe.title }} | {{ block.super }}
 {% endblock head_title %}
 
 {% block content %}
-    <div class='col-sm-6 col-sm-offset-3'>
-
-        {% if recipe.recipe_pic %}
-            <img src={{ recipe.recipe_pic.url }} class='img-responsive'>
-        {% endif %}
-        <h1>{{ recipe.title }}<br/></h1>
-        <small>{{ recipe.created }}</small>
-        <p>Recipe ID: {{ recipe.rid }}</p>
-        <p>Description: {{ recipe.description|linebreaks }}</p>
-        <p>User ID: {{ recipe.userid }}</p>
-        <p>Prep Time: {{ recipe.prep_time }}</p>
-
-        <p>Ingredients:</p>
-        <ul>
-            {% for ingredient in recipe.ingredient_set.all %}
-                <li>{{ ingredient.quantity }} {{ ingredient.quantity_type.name }} {{ ingredient.name }}</li>
-            {% endfor %}
-        </ul>
-
-        <p>Steps:</p>
-        <ol>
-            {% for step in recipe.step_set.all %}
-                <li>{{ step.description|linebreaks }}</li>
-            {% endfor %}
-        </ol>
-
-        {% if user.is_authenticated and user.id == recipe.userid %}
-            <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
-            <p><a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-default">delete recipe</a></p>
-        {% endif %}
-        <p><a href="/recipes/" class="btn btn-default">Back</a></p>
-
-        <hr/>
-
-        <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true"
-             data-share="true"></div>
-
-        <p>
-            |<a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}">
-            Share on Twitter
-        </a>|
-
-            <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">
-                Share on Reddit
-            </a>|
-        </p>
-
-        <hr/>
-
-        <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
-
+<div>
+    <div id="recipe-image-container" style="background-image: url('{{ recipe.recipe_pic.url }}')">
+        <div id="recipe-title">
+            <h1>{{recipe.title}}</h1>
+        </div>
     </div>
+
+    <h1>Ingredients</h1>
+    <div id="ingredients-container">
+        {% for ingredient in recipe.ingredient_set.all %}
+        <div class="ingredient-tag">
+            <div class="ingredient-piece">{{ ingredient.name }}</div>
+            <div id="ingredient-qunatity" class="ingredient-piece">
+                {{ ingredient.quantity }} {{ ingredient.quantity_type.name }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id=" description-container">
+        <span>{{recipe.description}}</span>
+    </div>
+
+    <small>{{ recipe.created }} by {{user_full_name}}</small>
+
+    <p>Prep Time: {{ recipe.prep_time }}</p>
+
+    <p>Steps:</p>
+    <ol>
+        {% for step in recipe.step_set.all %}
+        <li>{{ step.description|linebreaks }}</li>
+        {% endfor %}
+    </ol>
+
+    {% if user.is_authenticated and user.id == recipe.userid %}
+    <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
+    <p><a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-default">delete recipe</a></p>
+    {% endif %}
+    <p><a href="/recipes/" class="btn btn-default">Back</a></p>
+
+    <hr/>
+
+    <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like"
+         data-size="small" data-show-faces="true"
+         data-share="true"></div>
+
+    <p>
+        |<a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}">
+        Share on Twitter
+    </a>|
+
+        <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">
+            Share on Reddit
+        </a>|
+    </p>
+
+    <hr/>
+
+    <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+
+</div>
 {% endblock content %}
