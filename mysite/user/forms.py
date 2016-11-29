@@ -12,7 +12,7 @@ class UserForm(ModelForm):
     last_name = CharField(required=False)
     username = CharField(required=True)
     email = EmailField(required=True)
-    password = CharField(widget=PasswordInput, required=True)
+    password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Password', max_length=32, required=True)
 
     class Meta:
         model = User

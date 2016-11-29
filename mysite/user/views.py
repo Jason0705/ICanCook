@@ -56,21 +56,30 @@ def login(request):
 
 def signup(request):
     if request.POST:
-        form = UserForm(request.POST)
+        try:
+            form = UserForm(request.POST)
 
-        if form.is_valid():
-            user = form.save()
-            user.first_name = form.cleaned_data['first_name']
-            user.last_name = form.cleaned_data['last_name']
-            user.username = form.cleaned_data['username']
-            user.email = form.cleaned_data['email']
-            user.password = form.cleaned_data['password']
-            user.set_password(user.password)
-            user.save()
+            if form.is_valid():
+                user = form.save()
+                user.first_name = form.cleaned_data['first_name']
+                user.last_name = form.cleaned_data['last_name']
+                user.username = form.cleaned_data['username']
+                user.email = form.cleaned_data['email']
+                user.password = form.cleaned_data['password']
+                user.set_password(user.password)
+                user.save()
 
-            return HttpResponseRedirect('/user/login')
+                return HttpResponseRedirect('/user/login')
+            else:
+                form.add_error(None, "Please enter all fields correctly")
+                
+        except IntegrityError:
+            form.add_error(None, "Username is already taken")
+            return render(request, 'accounts/create.html', {'form': form})
+    else:
+        form = UserForm()
 
-    return render(request, 'accounts/create.html')
+    return render(request, 'accounts/create.html', {'form': form})
 
 
 @login_required()
