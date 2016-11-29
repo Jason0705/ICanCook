@@ -1,14 +1,18 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-
-from django.forms import ModelForm, CharField, PasswordInput, HiddenInput, Form, TextInput, EmailField
+from django.forms import ModelForm, CharField, PasswordInput, HiddenInput, Form, TextInput, EmailField, forms
 
 BOOTSTRAP_TEXT_INPUT = TextInput(attrs={'class': 'form-control'})
 BOOTSTRAP_PASS_INPUT = PasswordInput(attrs={'class': 'form-control'})
 
 
 class UserForm(ModelForm):
-    password = CharField(widget=PasswordInput)
+
+    first_name = CharField(required=False)
+    last_name = CharField(required=False)
+    username = CharField(required=True)
+    email = EmailField(required=True)
+    password = CharField(widget=PasswordInput, required=True)
 
     class Meta:
         model = User
@@ -28,9 +32,12 @@ class UpdateUserForm(Form):
 
 
 class UpdatePasswordForm(Form):
-    current_password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Current Password', max_length=32, min_length=6, required=True)
-    new_password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='New Password', max_length=32, min_length=6, required=True)
-    new_password_confirm = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Confirm New Password', min_length=6, max_length=32, required=True)
+    current_password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Current Password', max_length=32, min_length=6,
+                                 required=True)
+    new_password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='New Password', max_length=32, min_length=6,
+                             required=True)
+    new_password_confirm = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Confirm New Password', min_length=6,
+                                     max_length=32, required=True)
     username = ''
 
     def __init__(self, *args, **kwargs):

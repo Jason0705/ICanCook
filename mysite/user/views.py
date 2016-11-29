@@ -7,7 +7,7 @@ from django.db import IntegrityError
 
 # Create your views her.
 from recipes.models import Recipe
-from user.forms import LoginForm, UpdateUserForm, UpdatePasswordForm
+from user.forms import LoginForm, UpdateUserForm, UpdatePasswordForm, UserForm
 
 PASSWORD_FORM = 'password_form'
 
@@ -56,24 +56,21 @@ def login(request):
 
 def signup(request):
     if request.POST:
-        try:
-            username = request.POST['username']
-            password = request.POST['password']
-            email = request.POST['email']
+        form = UserForm(request.POST)
 
-            first_name = request.POST.get('firstname')
-            last_name = request.POST.get('lastname')
-
-            user = User.objects.create_user(username, email, password)
-            user.first_name = first_name
-            user.last_name = last_name
+        if form.is_valid():
+            user = form.save()
+            user.first_name = form.cleaned_data['first_name']
+            user.last_name = form.cleaned_data['last_name']
+            user.username = form.cleaned_data['username']
+            user.email = form.cleaned_data['email']
+            user.password = form.cleaned_data['password']
             user.set_password(user.password)
             user.save()
-        except IntegrityError:
-            return render(request, 'accounts/create.html')
-        return HttpResponseRedirect('/user/login')
-    else:
-        return render(request, 'accounts/create.html')
+
+            return HttpResponseRedirect('/user/login')
+
+    return render(request, 'accounts/create.html')
 
 
 @login_required()
