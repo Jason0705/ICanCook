@@ -11,6 +11,9 @@
 
         <h1>{{ recipe.title }}<br/></h1>
         <small>{{ recipe.created }}</small>
+		{% if user.is_authenticated %}
+			<p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
+		{% endif %}
         {{ recipe.image }}<br/>
         <p>Recipe ID: {{ recipe.rid }}</p>
         <p>Description: {{ recipe.description|linebreaks }}</p>

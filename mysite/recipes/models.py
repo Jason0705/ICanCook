@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Recipe(models.Model):
@@ -8,6 +9,7 @@ class Recipe(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     userid = models.IntegerField()
+    favourites = models.ManyToManyField(User)
     prep_time = models.FloatField()
     recipe_pic = models.FileField(upload_to='recipes/static/recipes/images/', null=True, blank=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
@@ -48,3 +50,12 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return "NAME: %s, QUANTITY: %s" % (self.name, self.quantity)
+		
+class Category(models.Model):
+    rid = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    breakfast = models.BooleanField()
+    lunch = models.BooleanField()
+    dinner = models.BooleanField()
+
+    def __str__(self):
+        return "BREAKFAST: %s, LUNCH: %s, DINNER: %s" % (self.breakfast, self.lunch, self.dinner)

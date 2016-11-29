@@ -125,3 +125,22 @@ def edit(request, rid):
 def delete(request, rid):
     delete = Recipe.objects.filter(pk=rid).delete()
     return render(request, 'recipes/delete.html')
+	
+@login_required(login_url='/login/')
+def remove(request, rid):
+    current_user = request.user
+    user_id = current_user.id
+    favourited_recipe = Recipe.objects.filter(favourites=user_id, pk=rid)
+    for recipe in favourited_recipe:
+		recipe.favourites.remove(current_user)
+    return render(request, 'recipes/remove.html')
+	
+@login_required(login_url='/login/')
+def favourite(request, rid):
+    current_user = request.user
+    user_id = current_user.id
+    favourited_recipe = Recipe.objects.filter(pk=rid)
+    for recipe in favourited_recipe:
+		recipe.favourites.add(current_user)
+    return render(request, 'recipes/favourite.html')
+	
