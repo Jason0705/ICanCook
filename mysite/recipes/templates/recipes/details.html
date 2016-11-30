@@ -5,12 +5,38 @@
 {% endblock head_title %}
 
 {% block content %}
-    <div class='col-sm-6 col-sm-offset-3'>
+    <div>
+        <div id="recipe-image-container" {% if recipe.recipe_pic %} style="background-image: url('{{ recipe.recipe_pic.url }}')" {% endif %}>
+            <div id="recipe-title">
+                <h1>{{ recipe.title }}</h1>
+            </div>
+        </div>
 
-        <!-- <img src='{{ recipe.image.url }}' class='img-responsive'/> -->
+        <h1>Ingredients</h1>
+        <div id="ingredients-container">
+            {% for ingredient in recipe.ingredient_set.all %}
+                <div class="ingredient-wrap">
+                    <div class="ingredient-tag">
+                        <div class="ingredient-piece">{{ ingredient.name }}</div>
+                    </div>
 
-        <h1>{{ recipe.title }}<br/></h1>
-        <small>{{ recipe.created }}</small>
+                    <div id="ingredient-quantity" class="ingredient-piece">
+                        {% load recipe_filters %}
+                        {{ ingredient|format_quantity }} {{ ingredient.quantity_type.short_name }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div style="clear: both"></div>
+
+        <div id="description-container">
+            <span>{{ recipe.description }}</span>
+        </div>
+
+        <small>{{ recipe.created }} by {{ user_full_name }}</small>
+
+        <p>Prep Time: {{ recipe.prep_time }}</p>
+		
 		{% if user.is_authenticated %}
 			{% if favourited %}
 				<p><a href="/recipes/{{ recipe.rid }}/remove" class="btn btn-default">remove from favourites</a></p>
@@ -18,18 +44,6 @@
 				<p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
 			{% endif %}
 		{% endif %}
-        {{ recipe.image }}<br/>
-        <p>Recipe ID: {{ recipe.rid }}</p>
-        <p>Description: {{ recipe.description|linebreaks }}</p>
-        <p>User ID: {{ recipe.userid }}</p>
-        <p>Prep Time: {{ recipe.prep_time }}</p>
-
-        <p>Ingredients:</p>
-        <ul>
-            {% for ingredient in recipe.ingredient_set.all %}
-                <li>{{ ingredient.quantity }} {{ ingredient.quantity_type.name }} {{ ingredient.name }}</li>
-            {% endfor %}
-        </ul>
 
         <p>Steps:</p>
         <ol>
@@ -46,7 +60,8 @@
 
         <hr/>
 
-        <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true"
+        <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like"
+             data-size="small" data-show-faces="true"
              data-share="true"></div>
 
         <p>
@@ -62,6 +77,12 @@
         <hr/>
 
         <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
-
     </div>
+    <script>
+        $(document).ready(function () {
+            $('.ingredient-wrap:nth-child(3n+1)').each(function () {
+                $(this).add($(this).next().next().addBack()).wrapAll('<div style="float:left"></div>');
+            });
+        })
+    </script>
 {% endblock content %}

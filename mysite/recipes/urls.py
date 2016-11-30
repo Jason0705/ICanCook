@@ -14,4 +14,4 @@ urlpatterns = [
     url(r'(?P<rid>[0-9]+)/remove/$', views.remove, name='remove'),
     url(r'(?P<rid>[0-9]+)/favourite/$', views.favourite, name='favourite'),
     url(r'(?P<rid>[0-9]+)/$', views.details, name='details'),
-]
+] 

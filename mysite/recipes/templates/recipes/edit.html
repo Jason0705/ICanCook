@@ -7,46 +7,11 @@
 {% block content %}
     <div>
         <h1>Edit Recipe</h1>
-        <form method='POST' action='/recipes/{{ rid }}/edit/'>
+        <form method='POST' action='/recipes/{{ rid }}/edit/' enctype="multipart/form-data">
             {% csrf_token %}
-            <h2>Edit Recipe</h2>
-            {{ recipe_form.as_p }}
-            <br>
-            <h2>Edit Ingredients</h2>
-            {{ ingredients_form.management_form }}
-            <div class="ingredients">
-                {% for form in ingredients_form %}
-                    <div class="ingredient-container">
-                        <div class="ingredient-field ingr-name">
-                            {{ form.name }}
-                        </div>
-                        <div class="ingredient-field ingr-quant">
-                            {{ form.quantity }}
-                        </div>
-                        <div class="ingredient-field ingr-quant-type">
-                            {{ form.quantity_type }}
-                        </div>
-                        <div>
 
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <br>
-            <h2>Edit Steps</h2>
-            <div class="steps">
-                {{ steps_formset.management_form }}
-                {% for step_form in steps_formset %}
-                    <div class="step-container">
-                        <div class="step-field step-order">
-                            {{ step_form.order }}
-                        </div>
-                        <div class="step-field step-description">
-                            {{ step_form.description }}
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+            {% include 'recipes/recipe_form.html' %}
+
             <input type='submit'>
             <p><a href="/recipes/{{ rid }}">cancel</a></p>
         </form>
@@ -55,7 +20,7 @@
     <script>
         $(document).ready(function () {
             $('.ingredient-container').formset({
-                prefix: '{{ ingredients_form.prefix }}'
+                prefix: '{{ ingredients_formset.prefix }}'
             });
 
             $('.step-container').formset({

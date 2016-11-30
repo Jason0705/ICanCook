@@ -1,6 +1,8 @@
 from urllib import quote_plus
 
+from datetime import datetime
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms import formset_factory
 from django.http import HttpResponseRedirect, Http404
@@ -36,46 +38,61 @@ def details(request, rid):
         current_user = request.user
         user_id = current_user.id
         favourited = Recipe.objects.filter(favourites=user_id, pk=rid)
+        user = User.objects.get(id=recipe.userid)
+
+        name = "{0} {1}".format(user.first_name, user.last_name)
         share_string = quote_plus(recipe.description)
     except Recipe.DoesNotExist:
         raise Http404("Recipe does not exist.")
 
+    if recipe.recipe_pic is None:
+        recipe.recipe_pic = ""
+
     context = {
         'recipe': recipe,
         'share_string': share_string,
-        'favourited': favourited
+        'favourited': favourited,
+        'user_full_name': name
     }
     return render(request, 'recipes/details.html', context)
 
 
 @login_required(login_url='/login/')
 def add_recipe(request):
-    recipe_form = RecipeForm()
-    ingredients_formset_factory = formset_factory(IngredientForm)
-    steps_formset_factory = formset_factory(StepForm)
+    StepFormSet = formset_factory(StepForm, formset=BaseStepsFormSet)
+    IngredientFormSet = formset_factory(IngredientForm, formset=BaseIngredientFormSet)
 
     if request.POST:
         recipe_form = RecipeForm(request.POST)
-        ingredients_form_set = ingredients_formset_factory(request.POST)
-        step_form_set = steps_formset_factory(request.POST)
 
-        if recipe_form.is_valid() and ingredients_form_set.is_valid() and step_form_set.is_valid():
-            recipe = recipe_form.save()
+        ingredient_formset = IngredientFormSet(request.POST, prefix='ingr')
+        steps_formset = StepFormSet(request.POST, prefix='steps')
 
-            for ingr_form in ingredients_form_set.forms:
-                ingredient = ingr_form.save(commit=False)
-                ingredient.rid_id = recipe.rid
-                ingredient.save()
-
-            for stp_form in step_form_set.forms:
-                step = stp_form.save(commit=False)
-                step.rid_id = recipe.rid
-                step.save()
-
+        if recipe_form.is_valid() and ingredient_formset.is_valid() and steps_formset.is_valid():
+            recipe = recipe_form.save(commit=False)
+            recipe.userid = request.user.id
+            recipe.created = datetime.now()
             recipe.save()
+
+            for ingr_form in ingredient_formset.forms:
+                if ingr_form.is_valid() and ingr_form.has_changed():
+                    ingr = ingr_form.save(commit=False)
+                    ingr.rid_id = recipe.rid
+                    ingr.save()
+
+            for steps_form in steps_formset.forms:
+                if steps_form.is_valid() and steps_form.has_changed():
+                    step = steps_form.save(commit=False)
+                    step.rid_id = recipe.rid
+                    step.save()
+
             return HttpResponseRedirect('/recipes/' + str(recipe.rid))
 
-    context = {'Recipe_Form': recipe_form, 'Ingredient_Forms': ingredients_formset_factory, 'Step_Forms': steps_formset_factory}
+    recipe_form = RecipeForm()
+    ingredients_formset = IngredientFormSet(prefix='ingr')
+    steps_formset = StepFormSet(prefix='steps')
+
+    context = {'recipe_form': recipe_form, 'ingredients_formset': ingredients_formset, 'steps_formset': steps_formset}
     return render(request, 'recipes/add.html', context)
 
 
@@ -93,17 +110,17 @@ def edit(request, rid):
     steps_data = [{'description': s.description, 'order': s.order} for s in steps]
 
     if request.POST:
-        recipe_form = RecipeForm(request.POST, instance=edit_recipe)
+        recipe_form = RecipeForm(request.POST, request.FILES, instance=edit_recipe)
 
-        ingredient_formset = IngredientFormSet(request.POST, prefix='ingr')
+        ingredients_formset = IngredientFormSet(request.POST, prefix='ingr')
         steps_formset = StepFormSet(request.POST, prefix='steps')
 
-        if recipe_form.is_valid() and ingredient_formset.is_valid() and steps_formset.is_valid():
+        if recipe_form.is_valid() and ingredients_formset.is_valid() and steps_formset.is_valid():
             recipe = recipe_form.save()
             recipe.ingredient_set.all().delete()
             recipe.step_set.all().delete()
 
-            for ingr_form in ingredient_formset.forms:
+            for ingr_form in ingredients_formset.forms:
                 if ingr_form.is_valid() and ingr_form.has_changed():
                     ingr = ingr_form.save(commit=False)
                     ingr.rid_id = recipe.rid
@@ -115,12 +132,21 @@ def edit(request, rid):
                     step.rid_id = recipe.rid
                     step.save()
 
-        return HttpResponseRedirect('/recipes/' + str(rid))
+            recipe.save()
+
+            return HttpResponseRedirect('/recipes/' + str(rid))
+
+        else:
+            context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_formset,
+                       'steps_formset': steps_formset}
+            return render(request, 'recipes/edit.html', context)
+
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
         ingredients_formset = IngredientFormSet(initial=ingredient_data, prefix='ingr')
         steps_formset = StepFormSet(initial=steps_data, prefix='steps')
-        context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_formset, 'steps_formset': steps_formset}
+        context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_formset': ingredients_formset,
+                   'steps_formset': steps_formset}
 
     return render(request, 'recipes/edit.html', context)
 
