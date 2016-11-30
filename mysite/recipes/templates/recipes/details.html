@@ -15,16 +15,21 @@
         <h1>Ingredients</h1>
         <div id="ingredients-container">
             {% for ingredient in recipe.ingredient_set.all %}
-                <div class="ingredient-tag">
-                    <div class="ingredient-piece">{{ ingredient.name }}</div>
-                    <div id="ingredient-qunatity" class="ingredient-piece">
-                        {{ ingredient.quantity }} {{ ingredient.quantity_type.name }}
+                <div class="ingredient-wrap">
+                    <div class="ingredient-tag">
+                        <div class="ingredient-piece">{{ ingredient.name }}</div>
+                    </div>
+
+                    <div id="ingredient-quantity" class="ingredient-piece">
+                        {% load custom_filterz %}
+                        {{ ingredient|trim_zeros }} {{ ingredient.quantity_type.short_name }}
                     </div>
                 </div>
             {% endfor %}
         </div>
+        <div style="clear: both"></div>
 
-        <div id=" description-container">
+        <div id="description-container">
             <span>{{ recipe.description }}</span>
         </div>
 
@@ -64,6 +69,12 @@
         <hr/>
 
         <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
-
     </div>
+    <script>
+        $(document).ready(function () {
+            $('.ingredient-wrap:nth-child(3n+1)').each(function () {
+                $(this).add($(this).next().next().addBack()).wrapAll('<div style="float:left"></div>');
+            });
+        })
+    </script>
 {% endblock content %}
