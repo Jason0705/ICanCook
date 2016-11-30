@@ -12,7 +12,11 @@
         <h1>{{ recipe.title }}<br/></h1>
         <small>{{ recipe.created }}</small>
 		{% if user.is_authenticated %}
-			<p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
+			{% if favourited %}
+				<p><a href="/recipes/{{ recipe.rid }}/remove" class="btn btn-default">remove from favourites</a></p>
+			{% else %}
+				<p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
+			{% endif %}
 		{% endif %}
         {{ recipe.image }}<br/>
         <p>Recipe ID: {{ recipe.rid }}</p>

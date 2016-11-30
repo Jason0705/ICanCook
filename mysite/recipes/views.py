@@ -33,13 +33,17 @@ def index(request):
 def details(request, rid):
     try:
         recipe = Recipe.objects.get(pk=rid)
+        current_user = request.user
+        user_id = current_user.id
+        favourited = Recipe.objects.filter(favourites=user_id, pk=rid)
         share_string = quote_plus(recipe.description)
     except Recipe.DoesNotExist:
         raise Http404("Recipe does not exist.")
 
     context = {
         'recipe': recipe,
-        'share_string': share_string
+        'share_string': share_string,
+        'favourited': favourited
     }
     return render(request, 'recipes/details.html', context)
 
@@ -133,7 +137,8 @@ def remove(request, rid):
     favourited_recipe = Recipe.objects.filter(favourites=user_id, pk=rid)
     for recipe in favourited_recipe:
 		recipe.favourites.remove(current_user)
-    return render(request, 'recipes/remove.html')
+    context = {'rid': rid}
+    return render(request, 'recipes/remove.html', context)
 	
 @login_required(login_url='/login/')
 def favourite(request, rid):
@@ -142,5 +147,6 @@ def favourite(request, rid):
     favourited_recipe = Recipe.objects.filter(pk=rid)
     for recipe in favourited_recipe:
 		recipe.favourites.add(current_user)
-    return render(request, 'recipes/favourite.html')
+    context = {'rid': rid}
+    return render(request, 'recipes/favourite.html', context)
 	
