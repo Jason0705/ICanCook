@@ -43,6 +43,14 @@
         <small>{{ recipe.created }} by {{ user_full_name }}</small>
 
         <p>Prep Time: {{ recipe.prep_time }}</p>
+		
+		{% if user.is_authenticated %}
+			{% if favourited %}
+				<p><a href="/recipes/{{ recipe.rid }}/remove" class="btn btn-default">remove from favourites</a></p>
+			{% else %}
+				<p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
+			{% endif %}
+		{% endif %}
 
         <p>Steps:</p>
         <ol>

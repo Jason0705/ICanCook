@@ -1,0 +1,10 @@
+{% extends "recipes/base.html" %}
+
+{% block head_title %}
+    Favourite
+{% endblock head_title %}
+
+{% block content %}
+    <p>Recipe favourited</p>
+	<p><a href="/recipes/{{ rid }}">Recipe</a> | <a href="/user/favourites">Favourites</a></p>
+{% endblock content %}
