@@ -21,8 +21,8 @@
                     </div>
 
                     <div id="ingredient-quantity" class="ingredient-piece">
-                        {% load custom_filterz %}
-                        {{ ingredient|trim_zeros }} {{ ingredient.quantity_type.short_name }}
+                        {% load recipe_filters %}
+                        {{ ingredient|format_quantity }} {{ ingredient.quantity_type.short_name }}
                     </div>
                 </div>
             {% endfor %}

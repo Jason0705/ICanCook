@@ -8,8 +8,8 @@ from django.utils.safestring import mark_safe
 register = template.Library()
 
 
-@register.filter(name='trim_zeros')
-def trim_zeros(value):
+@register.filter(name='format_quantity')
+def format_quantity(value):
     quan = value.quantity
 
     if value.quantity_type.use_fraction:
