@@ -97,6 +97,7 @@ h1 {
     width: 275px;
     float: left;
     clear: left;
+    margin-right: 15px;
 }
 
 .ingredient-tag {
@@ -115,4 +116,6 @@ h1 {
 
 #ingredient-quantity {
     font-family: Consolas;
+    min-width: 50px;
+    text-align: right;
 }

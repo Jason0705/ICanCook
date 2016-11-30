@@ -21,10 +21,15 @@ def format_quantity(value):
 
         fraction = Fraction(decimal)
 
+        output = ""
+
+        if whole > 0:
+            output += s
+
         if fraction.numerator > 0:
-            return mark_safe("{0}<sup>{1}</sup>/<sub>{2}</sub>".format(s, fraction.numerator, fraction.denominator))
-        else:
-            return s
+            output += ("<sup>{0}</sup>/<sub>{1}</sub>".format(fraction.numerator, fraction.denominator))
+
+        return mark_safe(output)
     else:
         # http://stackoverflow.com/questions/11227620/drop-trailing-zeros-from-decimal
         s = str(Decimal(quan))
