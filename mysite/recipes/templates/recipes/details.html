@@ -1,69 +1,80 @@
 {% extends "recipes/base.html" %}
 
 {% block head_title %}
-{{ recipe.title }} | {{ block.super }}
+    {{ recipe.title }} | {{ block.super }}
 {% endblock head_title %}
 
 {% block content %}
-<div>
-    <div id="recipe-image-container" style="background-image: url('{{ recipe.recipe_pic.url }}')">
-        <div id="recipe-title">
-            <h1>{{recipe.title}}</h1>
-        </div>
-    </div>
-
-    <h1>Ingredients</h1>
-    <div id="ingredients-container">
-        {% for ingredient in recipe.ingredient_set.all %}
-        <div class="ingredient-tag">
-            <div class="ingredient-piece">{{ ingredient.name }}</div>
-            <div id="ingredient-qunatity" class="ingredient-piece">
-                {{ ingredient.quantity }} {{ ingredient.quantity_type.name }}
+    <div>
+        <div id="recipe-image-container" {% if recipe.recipe_pic %} style="background-image: url('{{ recipe.recipe_pic.url }}')" {% endif %}>
+            <div id="recipe-title">
+                <h1>{{ recipe.title }}</h1>
             </div>
         </div>
-        {% endfor %}
-    </div>
 
-    <div id=" description-container">
-        <span>{{recipe.description}}</span>
-    </div>
+        <h1>Ingredients</h1>
+        <div id="ingredients-container">
+            {% for ingredient in recipe.ingredient_set.all %}
+                <div class="ingredient-wrap">
+                    <div class="ingredient-tag">
+                        <div class="ingredient-piece">{{ ingredient.name }}</div>
+                    </div>
 
-    <small>{{ recipe.created }} by {{user_full_name}}</small>
+                    <div id="ingredient-quantity" class="ingredient-piece">
+                        {% load recipe_filters %}
+                        {{ ingredient|format_quantity }} {{ ingredient.quantity_type.short_name }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div style="clear: both"></div>
 
-    <p>Prep Time: {{ recipe.prep_time }}</p>
+        <div id="description-container">
+            <span>{{ recipe.description }}</span>
+        </div>
 
-    <p>Steps:</p>
-    <ol>
-        {% for step in recipe.step_set.all %}
-        <li>{{ step.description|linebreaks }}</li>
-        {% endfor %}
-    </ol>
+        <small>{{ recipe.created }} by {{ user_full_name }}</small>
 
-    {% if user.is_authenticated and user.id == recipe.userid %}
-    <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
-    <p><a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-default">delete recipe</a></p>
-    {% endif %}
-    <p><a href="/recipes/" class="btn btn-default">Back</a></p>
+        <p>Prep Time: {{ recipe.prep_time }}</p>
 
-    <hr/>
+        <p>Steps:</p>
+        <ol>
+            {% for step in recipe.step_set.all %}
+                <li>{{ step.description|linebreaks }}</li>
+            {% endfor %}
+        </ol>
 
-    <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like"
-         data-size="small" data-show-faces="true"
-         data-share="true"></div>
+        {% if user.is_authenticated and user.id == recipe.userid %}
+            <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
+            <p><a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-default">delete recipe</a></p>
+        {% endif %}
+        <p><a href="/recipes/" class="btn btn-default">Back</a></p>
 
-    <p>
-        |<a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}">
-        Share on Twitter
-    </a>|
+        <hr/>
 
-        <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">
-            Share on Reddit
+        <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like"
+             data-size="small" data-show-faces="true"
+             data-share="true"></div>
+
+        <p>
+            |<a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}">
+            Share on Twitter
         </a>|
-    </p>
 
-    <hr/>
+            <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">
+                Share on Reddit
+            </a>|
+        </p>
 
-    <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+        <hr/>
 
-</div>
+        <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.ingredient-wrap:nth-child(3n+1)').each(function () {
+                $(this).add($(this).next().next().addBack()).wrapAll('<div style="float:left"></div>');
+            });
+        })
+    </script>
 {% endblock content %}

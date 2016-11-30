@@ -44,6 +44,8 @@ class Step(models.Model):
 class QuantityType(models.Model):
     qid = models.IntegerField(primary_key=True)
     name = models.CharField(blank=True, max_length=25)
+    short_name = models.CharField(blank=True, max_length=5)
+    use_fraction = models.BooleanField(blank=True, default=False)
 
     def __str__(self):
         return self.name
