@@ -16,14 +16,21 @@
         <div id="ingredients-container">
             {% for ingredient in recipe.ingredient_set.all %}
                 <div class="ingredient-wrap">
-                    <div class="ingredient-tag">
-                        <div class="ingredient-piece">{{ ingredient.name }}</div>
-                    </div>
-
-                    <div id="ingredient-quantity" class="ingredient-piece">
-                        {% load recipe_filters %}
-                        {{ ingredient|format_quantity }} {{ ingredient.quantity_type.short_name }}
-                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="ingredient-tag">
+                                    <div class="ingredient-piece">{{ ingredient.name }}</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id="ingredient-quantity" class="ingredient-piece">
+                                    {% load recipe_filters %}
+                                    {{ ingredient|format_quantity }} {{ ingredient.quantity_type.short_name }}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             {% endfor %}
         </div>
