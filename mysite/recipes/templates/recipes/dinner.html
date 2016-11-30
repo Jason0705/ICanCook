@@ -1,0 +1,60 @@
+{% extends "recipes/base.html" %}
+
+{% block head_title %}
+		Dinner
+{% endblock head_title %}
+
+{% block content %}
+
+    <div class="col-sm-8 col-sm-offset-2">
+        {% if recipe_names %}
+            <h1>Recipes</h1>
+            <p><a href="/recipes/add/">Add a new recipe</a></p>
+            <br/>
+            <br/>
+            <div class="row">
+                {% for recipe in recipe_names %}
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            {% if recipe.rid.recipe_pic %}
+                                <img src={{ recipe.rid.recipe_pic.url }} class='img-responsive'>
+                            {% endif %}
+                            <!-- <img src="..." alt="..."> -->
+                            <div class="caption">
+                                <h3><a href="{{ recipe.rid.get_absolute_url }}">{{ recipe.rid.title }}</a></h3>
+                                <h5>
+                                    <small>Posted {{ recipe.rid.created|timesince }} ago</small>
+                                </h5>
+                                <p>{{ recipe.rid.description|linebreaks|truncatechars:50 }}</p>
+                                <p><a href="{{ recipe.rid.get_absolute_url }}" class="btn btn-default" role="button">View</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- {% cycle "" "</div><div class='row'>" %} -->
+                {% endfor %}
+            </div>
+        {% else %}
+            <h1>Recipes</h1>
+            <p>No recipes are available.</p>
+            <p><a href="/recipes/add/">Add a new recipe</a></p>
+        {% endif %}
+
+        <div class="pagination">
+            <span class="step-links">
+			 {% if recipe_names.has_previous %}
+                 <a href="?page={{ recipe_names.previous_page_number }}"><<</a>
+             {% endif %}
+            </span>
+            <span class="current">
+					 Page {{ recipe_names.number }} of {{ recipe_names.paginator.num_pages }}
+			 </span>
+            </span>
+            {% if recipe_names.has_next %}
+                <a href="?page={{ recipe_names.next_page_number }}">>></a>
+            {% endif %}
+            </span>
+        </div>
+    </div>
+	
+{% endblock content %}

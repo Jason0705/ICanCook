@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 
 from .forms import RecipeForm, StepForm, IngredientForm, BaseIngredientFormSet, BaseStepsFormSet
-from .models import Recipe
+from .models import Recipe, Category
 
 
 def index(request):
@@ -31,7 +31,63 @@ def index(request):
 
     return render(request, 'recipes/index.html', context)
 
+def breakfast(request):
+    breakfast_recipes = Category.objects.filter(breakfast=True)
 
+    paginator = Paginator(breakfast_recipes, 10)  # Show 10 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        recipe_names = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        recipe_names = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        recipe_names = paginator.page(paginator.num_pages)
+
+    context = {'recipe_names': recipe_names}
+
+    return render(request, 'recipes/breakfast.html', context)
+
+def lunch(request):
+    lunch_recipes = Category.objects.filter(lunch=True)
+
+    paginator = Paginator(lunch_recipes, 10)  # Show 10 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        recipe_names = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        recipe_names = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        recipe_names = paginator.page(paginator.num_pages)
+
+    context = {'recipe_names': recipe_names}
+
+    return render(request, 'recipes/lunch.html', context)
+	
+def dinner(request):
+    dinner_recipes = Category.objects.filter(dinner=True)
+
+    paginator = Paginator(dinner_recipes, 10)  # Show 10 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        recipe_names = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        recipe_names = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        recipe_names = paginator.page(paginator.num_pages)
+
+    context = {'recipe_names': recipe_names}
+
+    return render(request, 'recipes/dinner.html', context)
+	
 def details(request, rid):
     try:
         recipe = Recipe.objects.get(pk=rid)
