@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^update/$', views.update, name='update'),
     url(r'^update-password/$', views.update_password, name='update-password'),
     url(r'^recipes/$', views.recipes, name='recipes'),
-    url(r'^signup/$', views.signup, name='signup')
+    url(r'^signup/$', views.signup, name='signup'),
+    url(r'^favourites/$', views.favourites, name='recipes'),
 ]

@@ -87,6 +87,12 @@ def recipes(request):
     user_id = request.user.id
     my_recipes = Recipe.objects.filter(userid=user_id)
     return render(request, 'accounts/my_recipes.html', {'recipes': my_recipes})
+	
+@login_required()
+def favourites(request):
+    user_id = request.user.id
+    favourited_recipes = Recipe.objects.filter(favourites=user_id)
+    return render(request, 'accounts/favourites.html', {'recipes': favourited_recipes})
 
 
 @login_required()
