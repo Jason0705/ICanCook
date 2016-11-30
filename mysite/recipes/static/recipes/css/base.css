@@ -91,6 +91,7 @@ h1 {
     list-style-type: none;
 }
 
+/*http://stackoverflow.com/questions/20743434/how-to-wrap-a-div-vertically-and-then-horizontally*/
 .ingredient-wrap {
     max-width: 250px;
     float: left;

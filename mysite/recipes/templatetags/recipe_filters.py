@@ -26,6 +26,7 @@ def format_quantity(value):
         else:
             return s
     else:
+        # http://stackoverflow.com/questions/11227620/drop-trailing-zeros-from-decimal
         s = str(Decimal(quan))
         s.rstrip('0').rstrip('.') if '.' in s else s
 
