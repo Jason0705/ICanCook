@@ -8,7 +8,7 @@ from django.forms import formset_factory
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 
-from .forms import RecipeForm, StepForm, IngredientForm, BaseIngredientFormSet, BaseStepsFormSet
+from .forms import RecipeForm, CategoryForm, StepForm, IngredientForm, BaseIngredientFormSet, BaseStepsFormSet
 from .models import Recipe, Category
 
 
@@ -120,6 +120,7 @@ def add_recipe(request):
 
     if request.POST:
         recipe_form = RecipeForm(request.POST)
+        category_form = CategoryForm(request.POST)
 
         ingredient_formset = IngredientFormSet(request.POST, prefix='ingr')
         steps_formset = StepFormSet(request.POST, prefix='steps')
@@ -129,6 +130,10 @@ def add_recipe(request):
             recipe.userid = request.user.id
             recipe.created = datetime.now()
             recipe.save()
+			
+            category = category_form.save(commit=False)
+            catergory.rid_id = recipe.rid
+            category.save()
 
             for ingr_form in ingredient_formset.forms:
                 if ingr_form.is_valid() and ingr_form.has_changed():
@@ -145,10 +150,11 @@ def add_recipe(request):
             return HttpResponseRedirect('/recipes/' + str(recipe.rid))
 
     recipe_form = RecipeForm()
+    category_form = CategoryForm()
     ingredients_formset = IngredientFormSet(prefix='ingr')
     steps_formset = StepFormSet(prefix='steps')
 
-    context = {'recipe_form': recipe_form, 'ingredients_formset': ingredients_formset, 'steps_formset': steps_formset}
+    context = {'recipe_form': recipe_form, 'category_form': category_form, 'ingredients_formset': ingredients_formset, 'steps_formset': steps_formset}
     return render(request, 'recipes/add.html', context)
 
 
