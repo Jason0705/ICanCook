@@ -46,7 +46,7 @@ class IngredientForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(IngredientForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs = {'class': 'form-control', 'placeholder': 'Name'}
-        self.fields['quantity'].widget.attrs = {'class': 'form-control', 'placeholder': 'Quantity'}
+        self.fields['quantity'].widget.attrs = {'class': 'form-control', 'placeholder': 'Quantity', 'step': '0.25'}
         self.fields['quantity_type'].widget.attrs = {'class': 'form-control'}
 
     class Meta:
@@ -85,7 +85,6 @@ class BaseStepsFormSet(BaseFormSet):
     def clean(self):
         if any(self.errors):
             return
-
 
 # class ImageUploadForm(forms.Form):
 #     imagefile = forms.FileField(

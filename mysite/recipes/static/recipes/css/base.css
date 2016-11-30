@@ -64,7 +64,7 @@ h1 {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-color: #1b6d85;
+    background-image: url('/static/recipes/images/food-placeholder.png');
 }
 
 .recipe-image {
@@ -88,6 +88,16 @@ h1 {
 #ingredients-container {
     margin-top: 15px;
     margin-bottom: 15px;
+    list-style-type: none;
+}
+
+/*http://stackoverflow.com/questions/20743434/how-to-wrap-a-div-vertically-and-then-horizontally*/
+.ingredient-wrap {
+    vertical-align: top;
+    width: 275px;
+    float: left;
+    clear: left;
+    margin-right: 15px;
 }
 
 .ingredient-tag {
@@ -96,11 +106,7 @@ h1 {
     color: #39739d;
     background-color: #E1ECF4;
     padding: 4px 6px 4px 6px;
-    font-family: Arial;
-}
-
-.ingredient-tag:first-of-type {
-    margin-left: 0;
+    font-family: Arial, serif;
 }
 
 .ingredient-piece {
@@ -108,6 +114,8 @@ h1 {
     text-transform: lowercase;
 }
 
-.ingredient-quantity {
-    border-left: solid black 1px;
+#ingredient-quantity {
+    font-family: Consolas;
+    min-width: 50px;
+    text-align: right;
 }
