@@ -8,6 +8,7 @@ h1 {
 
 .ingredient-field {
     display: inline-block;
+    vertical-align: top;
 }
 
 .ingredient-field input {
@@ -118,4 +119,8 @@ h1 {
     font-family: Consolas;
     min-width: 50px;
     text-align: right;
+}
+
+#recipe-prep-edit input {
+    width: 100px;
 }
