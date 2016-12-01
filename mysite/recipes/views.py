@@ -126,7 +126,7 @@ def add_recipe(request):
         ingredient_formset = IngredientFormSet(request.POST, prefix='ingr')
         steps_formset = StepFormSet(request.POST, prefix='steps')
 
-        if recipe_form.is_valid() and ingredient_formset.is_valid() and steps_formset.is_valid():
+        if recipe_form.is_valid() and category_form.is_valid() and ingredient_formset.is_valid() and steps_formset.is_valid():
             recipe = recipe_form.save(commit=False)
             recipe.userid = request.user.id
             recipe.created = datetime.now()
@@ -172,17 +172,25 @@ def edit(request, rid):
 
     steps = edit_recipe.step_set.all()
     steps_data = [{'description': s.description, 'order': s.order} for s in steps]
+	
+    categories = Category.objects.get(rid=rid)
+    category_data = {'breakfast': categories.breakfast, 'lunch': categories.lunch, 'dinner': categories.dinner}
 
     if request.POST:
         recipe_form = RecipeForm(request.POST, request.FILES, instance=edit_recipe)
+        category_form = CategoryForm(request.POST, instance=categories)
 
         ingredients_formset = IngredientFormSet(request.POST, prefix='ingr')
         steps_formset = StepFormSet(request.POST, prefix='steps')
 
-        if recipe_form.is_valid() and ingredients_formset.is_valid() and steps_formset.is_valid():
+        if recipe_form.is_valid() and category_form.is_valid() and ingredients_formset.is_valid() and steps_formset.is_valid():
             recipe = recipe_form.save()
             recipe.ingredient_set.all().delete()
             recipe.step_set.all().delete()
+			
+            category = category_form.save(commit=False)
+            category.rid_id = recipe.rid
+            category.save()
 
             for ingr_form in ingredients_formset.forms:
                 if ingr_form.is_valid() and ingr_form.has_changed():
@@ -201,15 +209,16 @@ def edit(request, rid):
             return HttpResponseRedirect('/recipes/' + str(rid))
 
         else:
-            context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_formset,
+            context = {'recipe_form': recipe_form, 'category_form': category_form, 'rid': rid, 'ingredients_form': ingredients_formset,
                        'steps_formset': steps_formset}
             return render(request, 'recipes/edit.html', context)
 
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
+        category_form = CategoryForm(instance=categories, initial=category_data)
         ingredients_formset = IngredientFormSet(initial=ingredient_data, prefix='ingr')
         steps_formset = StepFormSet(initial=steps_data, prefix='steps')
-        context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_formset': ingredients_formset,
+        context = {'recipe_form': recipe_form, 'category_form': category_form, 'rid': rid, 'ingredients_formset': ingredients_formset,
                    'steps_formset': steps_formset}
 
     return render(request, 'recipes/edit.html', context)
