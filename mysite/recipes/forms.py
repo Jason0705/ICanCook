@@ -17,7 +17,7 @@ class RecipeForm(forms.ModelForm):
 
     class Meta:
         model = Recipe
-        exclude = ('userid',)
+        exclude = ('userid', 'favourites', 'updated')
         fields = '__all__'
         # exclude = ['publish']
 

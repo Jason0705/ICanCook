@@ -4,6 +4,7 @@ from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db import transaction
 from django.forms import formset_factory
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
@@ -158,6 +159,7 @@ def add_recipe(request):
     return render(request, 'recipes/add.html', context)
 
 
+@transaction.atomic
 @login_required(login_url='/login/')
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
@@ -217,24 +219,25 @@ def edit(request, rid):
 def delete(request, rid):
     delete = Recipe.objects.filter(pk=rid).delete()
     return render(request, 'recipes/delete.html')
-	
+
+
 @login_required(login_url='/login/')
 def remove(request, rid):
     current_user = request.user
     user_id = current_user.id
     favourited_recipe = Recipe.objects.filter(favourites=user_id, pk=rid)
     for recipe in favourited_recipe:
-		recipe.favourites.remove(current_user)
+        recipe.favourites.remove(current_user)
     context = {'rid': rid}
     return render(request, 'recipes/remove.html', context)
-	
+
+
 @login_required(login_url='/login/')
 def favourite(request, rid):
     current_user = request.user
     user_id = current_user.id
     favourited_recipe = Recipe.objects.filter(pk=rid)
     for recipe in favourited_recipe:
-		recipe.favourites.add(current_user)
+        recipe.favourites.add(current_user)
     context = {'rid': rid}
     return render(request, 'recipes/favourite.html', context)
-	

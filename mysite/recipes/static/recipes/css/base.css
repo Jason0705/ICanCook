@@ -93,9 +93,11 @@ h1 {
 
 /*http://stackoverflow.com/questions/20743434/how-to-wrap-a-div-vertically-and-then-horizontally*/
 .ingredient-wrap {
-    max-width: 250px;
+    vertical-align: top;
+    width: 275px;
     float: left;
     clear: left;
+    margin-right: 15px;
 }
 
 .ingredient-tag {
@@ -114,4 +116,6 @@ h1 {
 
 #ingredient-quantity {
     font-family: Consolas;
+    min-width: 50px;
+    text-align: right;
 }
