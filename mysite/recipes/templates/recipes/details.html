@@ -29,8 +29,12 @@
                     </div>
                 </div>
             </div>
+
+<!-- Review of the author -->
+
             <div class="row">
                 <div class="col-md-12">
+                <h4>Recent review</h4>
                     <blockquote>
                         <p>I lliked this so much!</p>
                         <footer>Anonymous foodie
@@ -41,6 +45,7 @@
             </div>
         </div>
 
+<!-- Recipe Image on the right -->
 
             <div class="col-md-7 col-md-offset-1">
                 <div id="recipe-image-container" {% if recipe.recipe_pic %} style="background-image: url('{{ recipe.recipe_pic.url }}')" {% endif %}>
@@ -48,51 +53,79 @@
                 </div>
             </div>
         </div>
+
+<!-- List of ingredients -->
+
         <div class="row">
             <div class="col-md-12">
                 <h1>Ingredients</h1>
             </div>
         </div>
-        <div class="row">
-        <div id="ingredients-container">
-            {% for ingredient in recipe.ingredient_set.all %}
-                <div class="ingredient-wrap">
-                    <table width="100%">
-                        <tr>
-                            <td width="75%">
-                                <div class="ingredient-tag">
-                                    <div class="ingredient-piece">{{ ingredient.name }}</div>
-                                </div>
-                            </td>
-                            <td width="20%">
-                                <div id="ingredient-quantity" class="ingredient-piece">
-                                    {% load recipe_filters %}
-                                    {{ ingredient|format_quantity }} {{ ingredient.quantity_type.short_name }}
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            {% endfor %}
-        </div>
-        </div>
-        <div style="clear: both"></div>
 
-        <div id="description-container">
-            <span>{{ recipe.description }}</span>
-        </div>
+        <div class="row col-list">
+            <div id="ingredients-container" class="col-md-3">
+                <div class="ingredient-wrap">
+                <ul class="list-group">
+                    {% for ingredient in recipe.ingredient_set.all %}
+                    <li class="list-group-item list-group-item-info">
+                    <span class="badge">{% load recipe_filters %}
+                                    {{ ingredient|format_quantity }} {{ ingredient.quantity_type.short_name }}</span>
+                    {{ ingredient.name }}
+                    </li>
+                     {% endfor %}
+                    </ul>    
+                </div>
+             </div>
+<!-- My changes to make recipe steps panel -->
+                <div class="col-md-9 ingredient-steps">
+                    <div class="col-head text-center">
+                    <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                    <h2>Directions</h2>
+                    </div>
+
+            <ul class="list-unstyled">
+
+            {% for step in recipe.step_set.all %}
+                <li> <p>{{ step.description|linebreaks }}</p></li>
+            {% endfor %}
+             </ul>
+
+        {% if user.is_authenticated and user.id == recipe.userid %}
+            <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
+            <p><a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-default">delete recipe</a></p>
+        {% endif %}
+
+                </div>
+
+
+
+
+
+
+<!-- Recipe Description -->
+
+               <!--  <div class="col-md-9">
+                    <div id="description-container">
+                        <h1> RECIPE DESCRIPTION </h1>
+                        <span>{{ recipe.description }}</span>
+                    </div>
+                 </div>
+                 -->
+        </div> <!-- Close row ingredient-->        
 
         <small>{{ recipe.created }} by {{ user_full_name }}</small>
 
         <p>Prep Time: {{ recipe.prep_time }}</p>
-        
-        {% if user.is_authenticated %}
-            {% if favourited %}
-                <p><a href="/recipes/{{ recipe.rid }}/remove" class="btn btn-default">remove from favourites</a></p>
-            {% else %}
-                <p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
-            {% endif %}
-        {% endif %}
+		
+		{% if user.is_authenticated %}
+			{% if favourited %}
+				<p><a href="/recipes/{{ recipe.rid }}/remove" class="btn btn-default">remove from favourites</a></p>
+			{% else %}
+				<p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
+			{% endif %}
+		{% endif %}
+
+<!-- Recipe Details and Steps
 
         <p>Steps:</p>
         <ol>
@@ -105,9 +138,16 @@
             <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
             <p><a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-default">delete recipe</a></p>
         {% endif %}
+
+        -->
+
+<!-- Back Button -->
+
         <p><a href="/recipes/" class="btn btn-default">Back</a></p>
 
         <hr/>
+
+<!-- Social activities button and details-->
 
         <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like"
              data-size="small" data-show-faces="true"
