@@ -5,6 +5,7 @@ from .models import Recipe
 from .models import Step
 from .models import QuantityType
 from .models import Ingredient
+from .models import Category
 
 
 class RecipeForm(forms.ModelForm):
@@ -20,6 +21,17 @@ class RecipeForm(forms.ModelForm):
         fields = '__all__'
         # exclude = ['publish']
 
+class CategoryForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(CategoryForm, self).__init__(*args, **kwargs)
+        self.fields['breakfast'].widget.attrs = {'class': 'form-check-input'}
+        self.fields['lunch'].widget.attrs = {'class': 'form-check-input'}
+        self.fields['dinner'].widget.attrs = {'class': 'form-check-input'}
+
+    class Meta:
+        model = Category
+        exclude = ('rid',)
+        fields = '__all__'
 
 class StepForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):

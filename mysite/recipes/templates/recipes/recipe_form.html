@@ -17,8 +17,20 @@
             {{ recipe_form.recipe_pic.label_tag }}
             {{ recipe_form.recipe_pic }}
         </div>
+	<h3>Category</h3>
+		<div id="recipe-category-edit">
+            {{ category_form.breakfast.label_tag }}
+            {{ category_form.breakfast }}
+			|
+            {{ category_form.lunch.label_tag }}
+            {{ category_form.lunch }}
+			|
+            {{ category_form.dinner.label_tag }}
+            {{ category_form.dinner }}
+        </div>
     </div>
 </div>
+
 
 <div id="ingredients-container">
     <h2>Edit Ingredients</h2>

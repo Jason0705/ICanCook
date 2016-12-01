@@ -9,8 +9,8 @@ from django.forms import formset_factory
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 
-from .forms import RecipeForm, StepForm, IngredientForm, BaseIngredientFormSet, BaseStepsFormSet
-from .models import Recipe
+from .forms import RecipeForm, CategoryForm, StepForm, IngredientForm, BaseIngredientFormSet, BaseStepsFormSet
+from .models import Recipe, Category
 
 
 def index(request):
@@ -32,7 +32,63 @@ def index(request):
 
     return render(request, 'recipes/index.html', context)
 
+def breakfast(request):
+    breakfast_recipes = Category.objects.filter(breakfast=True)
 
+    paginator = Paginator(breakfast_recipes, 10)  # Show 10 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        recipe_names = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        recipe_names = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        recipe_names = paginator.page(paginator.num_pages)
+
+    context = {'recipe_names': recipe_names}
+
+    return render(request, 'recipes/breakfast.html', context)
+
+def lunch(request):
+    lunch_recipes = Category.objects.filter(lunch=True)
+
+    paginator = Paginator(lunch_recipes, 10)  # Show 10 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        recipe_names = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        recipe_names = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        recipe_names = paginator.page(paginator.num_pages)
+
+    context = {'recipe_names': recipe_names}
+
+    return render(request, 'recipes/lunch.html', context)
+	
+def dinner(request):
+    dinner_recipes = Category.objects.filter(dinner=True)
+
+    paginator = Paginator(dinner_recipes, 10)  # Show 10 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        recipe_names = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        recipe_names = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        recipe_names = paginator.page(paginator.num_pages)
+
+    context = {'recipe_names': recipe_names}
+
+    return render(request, 'recipes/dinner.html', context)
+	
 def details(request, rid):
     try:
         recipe = Recipe.objects.get(pk=rid)
@@ -65,15 +121,20 @@ def add_recipe(request):
 
     if request.POST:
         recipe_form = RecipeForm(request.POST)
+        category_form = CategoryForm(request.POST)
 
         ingredient_formset = IngredientFormSet(request.POST, prefix='ingr')
         steps_formset = StepFormSet(request.POST, prefix='steps')
 
-        if recipe_form.is_valid() and ingredient_formset.is_valid() and steps_formset.is_valid():
+        if recipe_form.is_valid() and category_form.is_valid() and ingredient_formset.is_valid() and steps_formset.is_valid():
             recipe = recipe_form.save(commit=False)
             recipe.userid = request.user.id
             recipe.created = datetime.now()
             recipe.save()
+			
+            category = category_form.save(commit=False)
+            category.rid_id = recipe.rid
+            category.save()
 
             for ingr_form in ingredient_formset.forms:
                 if ingr_form.is_valid() and ingr_form.has_changed():
@@ -90,10 +151,11 @@ def add_recipe(request):
             return HttpResponseRedirect('/recipes/' + str(recipe.rid))
 
     recipe_form = RecipeForm()
+    category_form = CategoryForm()
     ingredients_formset = IngredientFormSet(prefix='ingr')
     steps_formset = StepFormSet(prefix='steps')
 
-    context = {'recipe_form': recipe_form, 'ingredients_formset': ingredients_formset, 'steps_formset': steps_formset}
+    context = {'recipe_form': recipe_form, 'category_form': category_form, 'ingredients_formset': ingredients_formset, 'steps_formset': steps_formset}
     return render(request, 'recipes/add.html', context)
 
 
@@ -110,17 +172,25 @@ def edit(request, rid):
 
     steps = edit_recipe.step_set.all()
     steps_data = [{'description': s.description, 'order': s.order} for s in steps]
+	
+    categories = Category.objects.get(rid=rid)
+    category_data = {'breakfast': categories.breakfast, 'lunch': categories.lunch, 'dinner': categories.dinner}
 
     if request.POST:
         recipe_form = RecipeForm(request.POST, request.FILES, instance=edit_recipe)
+        category_form = CategoryForm(request.POST, instance=categories)
 
         ingredients_formset = IngredientFormSet(request.POST, prefix='ingr')
         steps_formset = StepFormSet(request.POST, prefix='steps')
 
-        if recipe_form.is_valid() and ingredients_formset.is_valid() and steps_formset.is_valid():
+        if recipe_form.is_valid() and category_form.is_valid() and ingredients_formset.is_valid() and steps_formset.is_valid():
             recipe = recipe_form.save()
             recipe.ingredient_set.all().delete()
             recipe.step_set.all().delete()
+			
+            category = category_form.save(commit=False)
+            category.rid_id = recipe.rid
+            category.save()
 
             for ingr_form in ingredients_formset.forms:
                 if ingr_form.is_valid() and ingr_form.has_changed():
@@ -139,15 +209,16 @@ def edit(request, rid):
             return HttpResponseRedirect('/recipes/' + str(rid))
 
         else:
-            context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_form': ingredients_formset,
+            context = {'recipe_form': recipe_form, 'category_form': category_form, 'rid': rid, 'ingredients_form': ingredients_formset,
                        'steps_formset': steps_formset}
             return render(request, 'recipes/edit.html', context)
 
     else:
         recipe_form = RecipeForm(instance=edit_recipe)
+        category_form = CategoryForm(instance=categories, initial=category_data)
         ingredients_formset = IngredientFormSet(initial=ingredient_data, prefix='ingr')
         steps_formset = StepFormSet(initial=steps_data, prefix='steps')
-        context = {'recipe_form': recipe_form, 'rid': rid, 'ingredients_formset': ingredients_formset,
+        context = {'recipe_form': recipe_form, 'category_form': category_form, 'rid': rid, 'ingredients_formset': ingredients_formset,
                    'steps_formset': steps_formset}
 
     return render(request, 'recipes/edit.html', context)
