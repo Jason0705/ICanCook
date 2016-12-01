@@ -133,7 +133,7 @@ def add_recipe(request):
             recipe.save()
 			
             category = category_form.save(commit=False)
-            catergory.rid_id = recipe.rid
+            category.rid_id = recipe.rid
             category.save()
 
             for ingr_form in ingredient_formset.forms:
