@@ -5,14 +5,42 @@
 {% endblock head_title %}
 
 {% block content %}
-    <div>
-        <div id="recipe-image-container" {% if recipe.recipe_pic %} style="background-image: url('{{ recipe.recipe_pic.url }}')" {% endif %}>
-            <div id="recipe-title">
-                <h1>{{ recipe.title }}</h1>
+    <div class="recipe-main">
+        <div class="row">
+        <div class="col-md-4">
+            <div id="recipe-title" class="row">
+                
+                <div class="col-md-12 ">
+                    <h2>{{ recipe.title }}</h2>
+                    <h4>By : {{ user_full_name }}</h4>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <blockquote>
+                        <p>I lliked this so much!</p>
+                        <footer>Anonymous foodie
+                            <cite title="Source Title">Source Title</cite>
+                        </footer>
+                    </blockquote>
+                </div>
             </div>
         </div>
 
-        <h1>Ingredients</h1>
+
+            <div class="col-md-7 col-md-offset-1">
+                <div id="recipe-image-container" {% if recipe.recipe_pic %} style="background-image: url('{{ recipe.recipe_pic.url }}')" {% endif %}>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Ingredients</h1>
+            </div>
+        </div>
+        <div class="row">
         <div id="ingredients-container">
             {% for ingredient in recipe.ingredient_set.all %}
                 <div class="ingredient-wrap">
@@ -34,6 +62,7 @@
                 </div>
             {% endfor %}
         </div>
+        </div>
         <div style="clear: both"></div>
 
         <div id="description-container">
@@ -43,14 +72,14 @@
         <small>{{ recipe.created }} by {{ user_full_name }}</small>
 
         <p>Prep Time: {{ recipe.prep_time }}</p>
-		
-		{% if user.is_authenticated %}
-			{% if favourited %}
-				<p><a href="/recipes/{{ recipe.rid }}/remove" class="btn btn-default">remove from favourites</a></p>
-			{% else %}
-				<p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
-			{% endif %}
-		{% endif %}
+        
+        {% if user.is_authenticated %}
+            {% if favourited %}
+                <p><a href="/recipes/{{ recipe.rid }}/remove" class="btn btn-default">remove from favourites</a></p>
+            {% else %}
+                <p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
+            {% endif %}
+        {% endif %}
 
         <p>Steps:</p>
         <ol>
