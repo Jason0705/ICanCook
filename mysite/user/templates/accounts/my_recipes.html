@@ -2,7 +2,13 @@
 
 {% block content %}
     <h1>My Recipes</h1>
+
     <hr>
+    <div>
+        <p>
+            <a href="/recipes/add/">Add a new recipe</a>
+        </p>
+    </div>
     {% for recipe in recipes %}
         <div class="media media-recipe">
             <div class="media-left">
@@ -21,5 +27,7 @@
             <a href="/recipes/{{ recipe.rid }}/delete/" class="delete">Delete</a>
         </div>
         <hr class="recipe-divider">
+
+
     {% endfor %}
 {% endblock %}
