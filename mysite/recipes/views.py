@@ -16,7 +16,7 @@ from .models import Recipe, Category
 def index(request):
     recipe_names_list = Recipe.objects.all()  # .order_by('-created')
 
-    paginator = Paginator(recipe_names_list, 10)  # Show 10 contacts per page
+    paginator = Paginator(recipe_names_list, 6)  # Show 10 contacts per page
 
     page = request.GET.get('page')
     try:
@@ -69,7 +69,7 @@ def lunch(request):
     context = {'recipe_names': recipe_names}
 
     return render(request, 'recipes/lunch.html', context)
-	
+
 def dinner(request):
     dinner_recipes = Category.objects.filter(dinner=True)
 
@@ -88,7 +88,7 @@ def dinner(request):
     context = {'recipe_names': recipe_names}
 
     return render(request, 'recipes/dinner.html', context)
-	
+
 def details(request, rid):
     try:
         recipe = Recipe.objects.get(pk=rid)
@@ -131,7 +131,7 @@ def add_recipe(request):
             recipe.userid = request.user.id
             recipe.created = datetime.now()
             recipe.save()
-			
+
             category = category_form.save(commit=False)
             category.rid_id = recipe.rid
             category.save()
@@ -172,7 +172,7 @@ def edit(request, rid):
 
     steps = edit_recipe.step_set.all()
     steps_data = [{'description': s.description, 'order': s.order} for s in steps]
-	
+
     categories = Category.objects.get(rid=rid)
     category_data = {'breakfast': categories.breakfast, 'lunch': categories.lunch, 'dinner': categories.dinner}
 
@@ -187,7 +187,7 @@ def edit(request, rid):
             recipe = recipe_form.save()
             recipe.ingredient_set.all().delete()
             recipe.step_set.all().delete()
-			
+
             category = category_form.save(commit=False)
             category.rid_id = recipe.rid
             category.save()
