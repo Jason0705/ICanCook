@@ -32,6 +32,7 @@ def index(request):
 
     return render(request, 'recipes/index.html', context)
 
+
 def breakfast(request):
     breakfast_recipes = Category.objects.filter(breakfast=True)
 
@@ -50,6 +51,7 @@ def breakfast(request):
     context = {'recipe_names': recipe_names}
 
     return render(request, 'recipes/breakfast.html', context)
+
 
 def lunch(request):
     lunch_recipes = Category.objects.filter(lunch=True)
@@ -70,6 +72,7 @@ def lunch(request):
 
     return render(request, 'recipes/lunch.html', context)
 
+
 def dinner(request):
     dinner_recipes = Category.objects.filter(dinner=True)
 
@@ -88,6 +91,7 @@ def dinner(request):
     context = {'recipe_names': recipe_names}
 
     return render(request, 'recipes/dinner.html', context)
+
 
 def details(request, rid):
     try:
@@ -119,14 +123,19 @@ def add_recipe(request):
     StepFormSet = formset_factory(StepForm, formset=BaseStepsFormSet)
     IngredientFormSet = formset_factory(IngredientForm, formset=BaseIngredientFormSet)
 
+    recipe_form = RecipeForm()
+    category_form = CategoryForm()
+    ingredients_formset = IngredientFormSet(prefix='ingr')
+    steps_formset = StepFormSet(prefix='steps')
+
     if request.POST:
         recipe_form = RecipeForm(request.POST)
         category_form = CategoryForm(request.POST)
 
-        ingredient_formset = IngredientFormSet(request.POST, prefix='ingr')
+        ingredients_formset = IngredientFormSet(request.POST, prefix='ingr')
         steps_formset = StepFormSet(request.POST, prefix='steps')
 
-        if recipe_form.is_valid() and category_form.is_valid() and ingredient_formset.is_valid() and steps_formset.is_valid():
+        if recipe_form.is_valid() and category_form.is_valid() and ingredients_formset.is_valid() and steps_formset.is_valid():
             recipe = recipe_form.save(commit=False)
             recipe.userid = request.user.id
             recipe.created = datetime.now()
@@ -136,7 +145,7 @@ def add_recipe(request):
             category.rid_id = recipe.rid
             category.save()
 
-            for ingr_form in ingredient_formset.forms:
+            for ingr_form in ingredients_formset.forms:
                 if ingr_form.is_valid() and ingr_form.has_changed():
                     ingr = ingr_form.save(commit=False)
                     ingr.rid_id = recipe.rid
@@ -149,11 +158,6 @@ def add_recipe(request):
                     step.save()
 
             return HttpResponseRedirect('/recipes/' + str(recipe.rid))
-
-    recipe_form = RecipeForm()
-    category_form = CategoryForm()
-    ingredients_formset = IngredientFormSet(prefix='ingr')
-    steps_formset = StepFormSet(prefix='steps')
 
     context = {'recipe_form': recipe_form, 'category_form': category_form, 'ingredients_formset': ingredients_formset, 'steps_formset': steps_formset}
     return render(request, 'recipes/add.html', context)
