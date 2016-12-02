@@ -82,11 +82,11 @@
             </ul>
 <!-- Edit and Delete Buttons-->
         {% if user.is_authenticated and user.id == recipe.userid %}
-            <a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i> EDIT</a>
+            <a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i> EDIT</a>
            <!-- <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
             <p><a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-default">delete recipe</a></p>
             -->
-            <a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-warning btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i> DELETE</a>
+            <a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-warning btn-circle btn-lg"><i class="glyphicon glyphicon-trash"></i> DELETE</a>
         {% endif %}
         </div> <!-- Close the recipe steps-->
 
@@ -144,9 +144,12 @@
 		
 		{% if user.is_authenticated %}
 			{% if favourited %}
-				<p><a href="/recipes/{{ recipe.rid }}/remove" class="btn btn-default">remove from favourites</a></p>
+            <p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i> Remove Favourite</a></p>
+				<!-- <p><a href="/recipes/{{ recipe.rid }}/remove" class="btn btn-default">remove from favourites</a></p>-->
 			{% else %}
-				<p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
+            <p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-heart"></i></a></p>
+				<!--<p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-default">add to favourites</a></p>
+                -->
 			{% endif %}
 		{% endif %}
 
@@ -167,13 +170,13 @@
         -->
 
 <!-- Back Button -->
-
-        <p><a href="/recipes/" class="btn btn-default">Back</a></p>
+<p><a href="/recipes/" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-hand-left"></i> Back </a></p>
+    <!--     <p><a href="/recipes/" class="btn btn-default">Back</a></p>
 
         <hr/>
 
-<!-- Social activities button and details-->
-
+Social activities button and details-->
+        <hr/>
         <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like"
              data-size="small" data-show-faces="true"
              data-share="true"></div>
