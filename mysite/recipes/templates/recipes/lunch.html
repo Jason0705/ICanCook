@@ -5,13 +5,15 @@
 {% endblock head_title %}
 
 {% block content %}
-
-    <div class="col-sm-8 col-sm-offset-2">
+<div class= "container">
+ 
         {% if recipe_names %}
+        <div class="jumbotron">
             <h1>Recipes</h1>
             <p><a href="/recipes/add/">Add a new recipe</a></p>
             <br/>
-            <br/>
+        </div>
+        <hr>
             <div class="row">
                 {% for recipe in recipe_names %}
                     <div class="col-sm-6 col-md-4">

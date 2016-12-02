@@ -61,7 +61,7 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return "NAME: %s, QUANTITY: %s" % (self.name, self.quantity)
-		
+
 class Category(models.Model):
     rid = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     breakfast = models.BooleanField()
