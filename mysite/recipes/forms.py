@@ -21,6 +21,7 @@ class RecipeForm(forms.ModelForm):
         fields = '__all__'
         # exclude = ['publish']
 
+
 class CategoryForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CategoryForm, self).__init__(*args, **kwargs)
@@ -32,6 +33,7 @@ class CategoryForm(forms.ModelForm):
         model = Category
         exclude = ('rid',)
         fields = '__all__'
+
 
 class StepForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -72,6 +74,8 @@ class BaseIngredientFormSet(BaseFormSet):
         if any(self.errors):
             return
 
+        validcount = 0
+
         for form in self.forms:
             if form.cleaned_data:
                 ingr_name = form.cleaned_data['name']
@@ -92,11 +96,25 @@ class BaseIngredientFormSet(BaseFormSet):
                 if 0 < field_count < 3:
                     raise forms.ValidationError('Please fill in all fields.')
 
+                validcount += 1
+
+        if validcount == 0:
+            raise forms.ValidationError('At least one ingredient required.')
+
 
 class BaseStepsFormSet(BaseFormSet):
     def clean(self):
         if any(self.errors):
             return
+
+        validforms = 0
+
+        for form in self.forms:
+            if len(form.cleaned_data) > 0:
+                validforms += 1
+
+        if validforms == 0:
+            raise forms.ValidationError('At least one step required.')
 
 # class ImageUploadForm(forms.Form):
 #     imagefile = forms.FileField(

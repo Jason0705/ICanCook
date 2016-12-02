@@ -1,30 +1,36 @@
 <div id="recipe-container">
     <h2>Basic Info</h2>
+    <hr>
     <div class="form-group">
         <div id="recipe-title-edit">
             {{ recipe_form.title.label_tag }}
             {{ recipe_form.title }}
+            {{ recipe_form.title.errors }}
         </div>
         <div id="recipe-description-edit">
             {{ recipe_form.description.label_tag }}
             {{ recipe_form.description }}
+            {{ recipe_form.description.errors }}
         </div>
         <div id="recipe-prep-edit">
             {{ recipe_form.prep_time.label_tag }}
             {{ recipe_form.prep_time }}
+            {{ recipe_form.prep_time.errors }}
         </div>
         <div id="recipe-pic-edit">
             {{ recipe_form.recipe_pic.label_tag }}
             {{ recipe_form.recipe_pic }}
+            {{ recipe_form.recipe_pic.errors }}
         </div>
-	<h3>Category</h3>
-		<div id="recipe-category-edit">
+        <h3>Category</h3>
+        <hr>
+        <div id="recipe-category-edit">
             {{ category_form.breakfast.label_tag }}
             {{ category_form.breakfast }}
-			|
+            |
             {{ category_form.lunch.label_tag }}
             {{ category_form.lunch }}
-			|
+            |
             {{ category_form.dinner.label_tag }}
             {{ category_form.dinner }}
         </div>
@@ -34,38 +40,54 @@
 
 <div id="ingredients-container">
     <h2>Edit Ingredients</h2>
+    <hr>
     {{ ingredients_formset.management_form }}
     <div class="ingredients">
         {% for form in ingredients_formset %}
             <div class="ingredient-container">
                 <div class="ingredient-field ingr-name">
                     {{ form.name }}
+                    {{ form.name.errors }}
                 </div>
                 <div class="ingredient-field ingr-quant">
                     {{ form.quantity }}
+                    {{ form.quantity.errors }}
                 </div>
-                <div class="ingredient-field ingr-quant-type">
+                <div class="ingredient-field ingr-quant-type {% if form.errors %} ingredient-error {% endif %}">
                     {{ form.quantity_type }}
+                    {{ form.quantity_type.errors }}
                 </div>
+                {% if form.errors %}
+                    {% for error in form.non_field_errors %}
+                        <span class="form-error">{{ error|escape }}</span>
+                    {% endfor %}
+                {% endif %}
             </div>
         {% endfor %}
     </div>
+    {{ ingredients_formset.non_form_errors }}
 </div>
 
 
 <div id="steps-container">
     <h2>Edit Steps</h2>
+    <hr>
     <div class="steps">
         {{ steps_formset.management_form }}
         {% for step_form in steps_formset %}
             <div class="step-container">
                 <div class="step-field step-order">
                     {{ step_form.order }}
+                    {{ step_form.order.errors }}
                 </div>
                 <div class="step-field step-description">
                     {{ step_form.description }}
+                    {{ step_form.description.errors }}
                 </div>
             </div>
         {% endfor %}
+        {{ steps_formset.non_form_errors }}
     </div>
 </div>
+
+<hr>
