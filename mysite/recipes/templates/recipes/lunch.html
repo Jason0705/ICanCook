@@ -6,10 +6,10 @@
 
 {% block content %}
 <div class= "container">
- 
+
         {% if recipe_names %}
         <div class="jumbotron">
-            <h1>Recipes</h1>
+            <h1>Lunch Recipes</h1>
             <p><a href="/recipes/add/">Add a new recipe</a></p>
             <br/>
         </div>
@@ -37,8 +37,8 @@
                 {% endfor %}
             </div>
         {% else %}
-            <h1>Recipes</h1>
-            <p>No recipes are available.</p>
+            <h1>Lunch Recipes</h1>
+            <p>No lunch recipes are available.</p>
             <p><a href="/recipes/add/">Add a new recipe</a></p>
         {% endif %}
 
@@ -58,5 +58,5 @@
             </span>
         </div>
     </div>
-	
+
 {% endblock content %}

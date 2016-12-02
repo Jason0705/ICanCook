@@ -9,6 +9,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^add/$', views.add_recipe, name='add'),
+    url(r'^quick/$', views.quick, name='quick'),
     url(r'^breakfast/$', views.breakfast, name='breakfast'),
     url(r'^lunch/$', views.lunch, name='lunch'),
     url(r'^dinner/$', views.dinner, name='dinner'),
@@ -17,4 +18,4 @@ urlpatterns = [
     url(r'(?P<rid>[0-9]+)/remove/$', views.remove, name='remove'),
     url(r'(?P<rid>[0-9]+)/favourite/$', views.favourite, name='favourite'),
     url(r'(?P<rid>[0-9]+)/$', views.details, name='details'),
-] 
+]
