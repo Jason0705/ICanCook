@@ -16,7 +16,7 @@ from .models import Recipe, Category
 def index(request):
     recipe_names_list = Recipe.objects.all()  # .order_by('-created')
 
-    paginator = Paginator(recipe_names_list, 6)  # Show 10 contacts per page
+    paginator = Paginator(recipe_names_list, 10)  # Show 10 contacts per page
 
     page = request.GET.get('page')
     try:
@@ -31,6 +31,26 @@ def index(request):
     context = {'recipe_names': recipe_names}
 
     return render(request, 'recipes/index.html', context)
+
+
+def quick(request):
+    quick_recipes = Recipe.objects.filter(prep_time__lte=0.25 )
+
+    paginator = Paginator(quick_recipes, 10)  # Show 10 contacts per page
+
+    page = request.GET.get('page')
+    try:
+        recipe_names = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        recipe_names = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        recipe_names = paginator.page(paginator.num_pages)
+
+    context = {'recipe_names': recipe_names}
+
+    return render(request, 'recipes/quick.html', context)
 
 
 def breakfast(request):
