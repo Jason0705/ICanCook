@@ -85,29 +85,7 @@ h1 {
 .ingredient-wrap {
     vertical-align: top;
     width: 275px;
-    float: left;
-    clear: left;
     margin-right: 15px;
-}
-
-.ingredient-tag {
-    display: inline-block;
-    margin: 8px;
-    color: #39739d;
-    background-color: #E1ECF4;
-    padding: 4px 6px 4px 6px;
-    font-family: Arial, serif;
-}
-
-.ingredient-piece {
-    display: inline-block;
-    text-transform: lowercase;
-}
-
-#ingredient-quantity {
-    font-family: Consolas;
-    min-width: 50px;
-    text-align: right;
 }
 
 #recipe-prep-edit input {
