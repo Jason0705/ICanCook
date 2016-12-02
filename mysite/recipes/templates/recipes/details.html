@@ -7,7 +7,7 @@
 {% block content %}
     <div class="recipe-main">
         <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div id="recipe-title" class="row">
                 
                 <div class="col-md-12 ">
@@ -34,17 +34,14 @@
 
             <div class="row">
                 <div class="col-md-12">
-                <h4>Recipe Description</h4>
-                    <blockquote>
                         <p>{{ recipe.description }}</p>
-                    </blockquote>
                 </div>
             </div>
         </div>
 
 <!-- Recipe Image on the right -->
 
-            <div class="col-md-7 col-md-offset-1">
+            <div class="col-md-7">
                 <div id="recipe-image-container" {% if recipe.recipe_pic %} style="background-image: url('{{ recipe.recipe_pic.url }}')" {% endif %}>
                     
                 </div>
@@ -83,28 +80,48 @@
                 <li> <p>{{ step.description|linebreaks }}</p></li>
                         {% endfor %}
             </ul>
-
+<!-- Edit and Delete Buttons-->
         {% if user.is_authenticated and user.id == recipe.userid %}
-            <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
+            <a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i> EDIT</a>
+           <!-- <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
             <p><a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-default">delete recipe</a></p>
+            -->
+            <a href="/recipes/{{ recipe.rid }}/delete/" class="btn btn-warning btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i> DELETE</a>
         {% endif %}
         </div> <!-- Close the recipe steps-->
-        <hr width="1" size="500">
 
-                    <div class="col-md-2 recipe-info">
+<!-- Cooking time, Servings and Other Recipe details -->
+                 <div class ="column-margin">
+
+                   <div class="col-md-1 recipe-info-t2">
                     <div class="col-head text-center">
-                    <h4>Cook Time</h4>
+                          <h4>Time</h4>
                     </div>
-                                        <div class="col-head text-center">
-                    <h4>Serving</h4>
+
+                    <div class="col-head text-center">
+                          <h4>Serving</h4>
                     </div>
-                                        <div class="col-head text-center">
-                    <h4>Calorie</h4>
+
+                    <div class="col-head text-center">
+                          <h4>Calorie</h4>
                     </div>
-                                        <div class="col-head text-center">
-                    <h4>Watch</h4>
+              </div><!-- Close recipe-info column-1-->
+
+                <div class="col-md-2 recipe-info-t3">
+                    <div class="col-head text-center">
+                          <h4>{{ recipe.prep_time }}</h4>
                     </div>
+
+                    <div class="col-head text-center">
+                          <h4>4 </h4>
                     </div>
+
+                    <div class="col-head text-center">
+                          <h4>150 cal</h4>
+                    </div>
+    
+                </div> <!-- Close recipe-info column-2-->
+                </div>
 
 
 
@@ -121,9 +138,9 @@
                  -->
         </div> <!-- Close row ingredient-->        
 
-        <small>{{ recipe.created }} by {{ user_full_name }}</small>
+         <!--<small>{{ recipe.created }} by {{ user_full_name }}</small>
 
-        <p>Prep Time: {{ recipe.prep_time }}</p>
+        <p>Prep Time: {{ recipe.prep_time }}</p> -->
 		
 		{% if user.is_authenticated %}
 			{% if favourited %}
