@@ -76,12 +76,12 @@ h1 {
 }
 
 #ingredients-container {
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     margin-bottom: 15px;
     list-style-type: none;
 }
 
-/*http://stackoverflow.com/questions/20743434/how-to-wrap-a-div-vertically-and-then-horizontally*/
+/* http://stackoverflow.com/questions/20743434/how-to-wrap-a-div-vertically-and-then-horizontally */
 .ingredient-wrap {
     vertical-align: top;
     width: 275px;
@@ -98,6 +98,8 @@ h1 {
     -webkit-box-shadow: 0px 2px 28px 0px rgba(50, 50, 50, 1);
     box-shadow: 0px 2px 28px 0px rgba(50, 50, 50, 1);
 }
+
+/* Ingredient styles  */
 
 .col-list .col-head {
     color: white;
@@ -127,14 +129,28 @@ h1 {
     background-color: #FFB748;
 }
 
+.col-list .ingredient-names .col-head {
+    background-color: #50A3C9;
+}
+
+.col-list .recipe-info .col-head {
+    color:black;
+    border-left-width: 2px;
+    border-left-color: #1BB732;
+    margin:0;
+    padding:25px;
+}
+
 .col-list .ingredient-steps li {
     border-bottom: 1px solid rgba(255, 183, 72, .4);
 }
 
 
-.col-list .ingredient-steps li:last-child {
+.col-list .ingredient-steps li:last-child
+/*.col-list .ingredient-names li:last-child{*/
+    {
     border-bottom: 0;
-}
+    }
 
 .col-list li p {
     font-size: 1.2em;
