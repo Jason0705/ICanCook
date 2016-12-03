@@ -34,7 +34,7 @@ def index(request):
 
 
 def quick(request):
-    quick_recipes = Recipe.objects.filter(prep_time__lte=0.15 )
+    quick_recipes = Recipe.objects.filter(prep_time__lte=0.15)
 
     paginator = Paginator(quick_recipes, 10)  # Show 10 contacts per page
 
