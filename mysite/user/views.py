@@ -66,13 +66,14 @@ def signup(request):
                 user.username = form.cleaned_data['username']
                 user.email = form.cleaned_data['email']
                 user.password = form.cleaned_data['password']
+                user.password_confirm = form.cleaned_data['password_confirm']
                 user.set_password(user.password)
                 user.save()
 
                 return HttpResponseRedirect('/user/login')
             else:
                 form.add_error(None, "Please enter all fields correctly")
-                
+
         except IntegrityError:
             form.add_error(None, "Username is already taken")
             return render(request, 'accounts/create.html', {'form': form})
@@ -87,7 +88,7 @@ def recipes(request):
     user_id = request.user.id
     my_recipes = Recipe.objects.filter(userid=user_id)
     return render(request, 'accounts/my_recipes.html', {'recipes': my_recipes})
-	
+
 @login_required()
 def favourites(request):
     user_id = request.user.id
@@ -103,6 +104,7 @@ def update(request):
         if form.is_valid():
             current_user = request.user
 
+            #current_user.profile_pic = form.cleaned_data['profile_pic']
             current_user.first_name = form.cleaned_data['first_name']
             current_user.last_name = form.cleaned_data['last_name']
             current_user.email = form.cleaned_data['email']
