@@ -15,7 +15,7 @@ def index(request):
             recipes_list = recipes_list.filter(
                 Q(title__icontains=query) |
                 Q(description__icontains=query) |
-                Q(ingredient__name__icontains=query))
+                Q(ingredient__name__icontains=query)).distinct()
 
         context = {'recipes_list': recipes_list}
         return render(request, 'home/search.html', context)
