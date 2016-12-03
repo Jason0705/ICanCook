@@ -84,7 +84,7 @@ h1 {
 /* http://stackoverflow.com/questions/20743434/how-to-wrap-a-div-vertically-and-then-horizontally */
 .ingredient-wrap {
     vertical-align: top;
-    width: 275px;
+    width: 100%;
     margin-right: 15px;
 }
 

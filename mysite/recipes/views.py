@@ -16,7 +16,7 @@ from .models import Recipe, Category
 def index(request):
     recipe_names_list = Recipe.objects.all()  # .order_by('-created')
 
-    paginator = Paginator(recipe_names_list, 10)  # Show 10 contacts per page
+    paginator = Paginator(recipe_names_list, 6)  # Show 10 recipes per page
 
     page = request.GET.get('page')
     try:
@@ -34,7 +34,7 @@ def index(request):
 
 
 def quick(request):
-    quick_recipes = Recipe.objects.filter(prep_time__lte=0.25 )
+    quick_recipes = Recipe.objects.filter(prep_time__lte=0.15 )
 
     paginator = Paginator(quick_recipes, 10)  # Show 10 contacts per page
 
