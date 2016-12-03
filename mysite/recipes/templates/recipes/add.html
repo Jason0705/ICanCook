@@ -5,31 +5,36 @@
 {% endblock head_title %}
 
 {% block content %}
-  <div class="recipe-main">
-    <div class="container">
-      <div class='row'>
-        <div class='col-sm-10 col-sm-offset-1'>
-          <div class="page-header">
-              <h1 class="text-center">Add a New Recipe</h1>
-              <img class="img-responsive" alt="Responsive image"  src="{% static "home/images/addimage.jpg" %}">
-          </div>
+    <div class="recipe-main">
+        <div class="container">
+            <div class='row'>
+                <div class='col-sm-10 col-sm-offset-1'>
+                    <div class="page-header">
+                        <h1 class="text-center">Add a New Recipe</h1>
+                        <img class="img-responsive" alt="Responsive image" src="{% static "home/images/addimage.jpg" %}">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div>
+            <div class='row'>
+                <div class='col-sm-8 col-sm-offset-2'>
+                    <form method='POST' action='/recipes/add/' enctype='multipart/form-data'>
+                        {% csrf_token %}
+
+                        {% include 'recipes/recipe_form.html' %}
+
+                        <button name="submit" type='submit' class="btn btn-success">Create Recipe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div>
-      <div class='row'>
-        <div class='col-sm-8 col-sm-offset-2'>
-          <form method='POST' action='/recipes/add/' enctype='multipart/form-data'>
-              {% csrf_token %}
+{% endblock content %}
 
-              {% include 'recipes/recipe_form.html' %}
-
-              <button name="submit" type='submit' class="btn btn-success">Create Recipe</button>
-          </form>
-        </div>
-      </div>
-    </div>
+{% block endbody %}
     <script>
         $(document).ready(function () {
             $('.ingredient-container').formset({
@@ -41,5 +46,4 @@
             });
         });
     </script>
-  </div>
-{% endblock content %}
+{% endblock endbody %}
