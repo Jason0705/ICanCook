@@ -13,7 +13,9 @@
         <div class="media media-recipe">
             <div class="media-left">
                 <a href="/recipes/{{ recipe.rid }}">
-                    <img class="media-object" src="http://placehold.it/150x150" alt="placeholder">
+                    <img class="media-object admin-recipe-pic"
+                         src="{% if recipe.recipe_pic %}{{ recipe.recipe_pic }}{% else %}/static/recipes/images/food-placeholder.png{% endif %}"
+                         alt="placeholder">
                 </a>
             </div>
             <div class="media-body recipe-media-body">

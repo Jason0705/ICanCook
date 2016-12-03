@@ -1,21 +1,21 @@
 from django.db.models import Q
 from django.shortcuts import render
 
-from recipes.models import Recipe
+from recipes.models import Recipe, Ingredient
 
 
 def index(request):
     query = request.GET.get("q")
+    recipes_list = Recipe.objects.all()
 
     if query and request.GET:
-        recipes_list = None
-
         if "," in query:
             recipes_list = get_by_ingredient_list(query)
         else:
-            recipes_list = Recipe.objects.filter(
+            recipes_list = recipes_list.filter(
                 Q(title__icontains=query) |
-                Q(description__icontains=query))
+                Q(description__icontains=query) |
+                Q(ingredient__name__icontains=query))
 
         context = {'recipes_list': recipes_list}
         return render(request, 'home/search.html', context)
@@ -30,6 +30,8 @@ def get_by_ingredient_list(ingredients_str):
     recipes = Recipe.objects.filter()
 
     for ingr in ingredients_list:
-        recipes = Recipe.objects.filter(ingredient__name__icontains=ingr)
+        recipes = recipes.filter(ingredient__name__icontains=unicode.strip(ingr))
 
-    return recipes.values().distinct()
+    recipes = recipes.distinct()
+
+    return recipes

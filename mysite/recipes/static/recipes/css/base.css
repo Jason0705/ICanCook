@@ -92,7 +92,7 @@ h1 {
     width: 100px;
 }
 
-.recipe-main{
+.recipe-main {
     border: 1px solid #ccc;
     -moz-box-shadow: 0px 2px 28px 0px rgba(50, 50, 50, 1);
     -webkit-box-shadow: 0px 2px 28px 0px rgba(50, 50, 50, 1);
@@ -133,25 +133,23 @@ h1 {
     background-color: #50A3C9;
 }
 
-
 .col-list .recipe-info .col-head {
-    color:black;
+    color: black;
     border-left-width: 2px;
     border-left-color: #1BB732;
-    margin:0;
-    padding:25px;
+    margin: 0;
+    padding: 25px;
 }
 
 .col-list .ingredient-steps li {
     border-bottom: 1px solid rgba(255, 183, 72, .4);
 }
 
-
 .col-list .ingredient-steps li:last-child
-/*.col-list .ingredient-names li:last-child{*/
-    {
+    /*.col-list .ingredient-names li:last-child{*/
+{
     border-bottom: 0;
-    }
+}
 
 .col-list li p {
     font-size: 1.2em;
@@ -173,14 +171,15 @@ h1 {
     padding: 15px 0px 15px 0px;
 }
 
-.recipe-info-t3{
- padding: 0px;
+.recipe-info-t3 {
+    padding: 0px;
 }
 
-.recipe-info-t2{
- padding: 0px;
+.recipe-info-t2 {
+    padding: 0px;
 }
-.column-margin{
+
+.column-margin {
     margin-top: 45px;
 }
 
@@ -195,11 +194,12 @@ h1 {
 .col-list .recipe-info-t3 .col-head {
     background-color: #05BF84;
     border-radius: 0px 0px 200px 40px;
-    //border-left-style:dashed;
-    margin:0px;
+/ / border-left-style: dashed;
+    margin: 0px;
     padding: 0px;
     max-width: 160px;
 }
+
 .col-list .recipe-info-t2 li {
     border-bottom: 1px solid rgba(22, 202, 200, .4);
 }
@@ -208,13 +208,13 @@ h1 {
     border-bottom: 1px solid rgba(248, 113, 82, .4)
 }
 
-<!-- Edit and Delete Buttons-->
-
+<!--
+Edit and Delete Buttons-- >
 .btn-circle.btn-lg {
-  width: 50px;
-  height: 50px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
 }

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/static/home/css/bootstrap.min.css">
 
     {% load static %}
-    <link rel="stylesheet" href="{% static "site.css" %}">
+    <link rel="stylesheet" href="{% static "admin.css" %}">
 
     {% block head %}
 
@@ -18,20 +18,23 @@
 {% block page %}
     {#    Content    #}
 {% endblock %}
-<!-- </body> -->
-    <div class="container marketing">
-      <hr class="featurette-divider">
-        <footer>
-            <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-        </footer>
-    </div>
 
-    <script src="/static/home/js/jquery.min.js"></script>
-    <script src="/static/home/js/bootstrap.min.js"></script>
-    <script src="/static/home/js/jquery.formset.js"></script>
-    <script src="/static/recipes/js/masonry.pkgd.min.js"></script>
-    <script src="/static/recipes/js/imagesloaded.pkgd.min.js"></script>
-    <script src="/static/recipes/js/mason.js"></script>
-    </body>
+<div class="container marketing">
+    <hr class="featurette-divider">
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+</div>
+
+<script src="/static/home/js/jquery.min.js"></script>
+<script src="/static/home/js/bootstrap.min.js"></script>
+<script src="/static/home/js/jquery.formset.js"></script>
+<script src="/static/recipes/js/masonry.pkgd.min.js"></script>
+<script src="/static/recipes/js/imagesloaded.pkgd.min.js"></script>
+<script src="/static/recipes/js/mason.js"></script>
+
+{% block endbody %}
+{% endblock %}
+</body>
 </html>

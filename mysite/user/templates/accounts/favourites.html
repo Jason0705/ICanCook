@@ -2,27 +2,29 @@
 
 {% block content %}
     <h1>Favourited Recipes</h1>
-	{% if recipes %}
-		<hr>
-		{% for recipe in recipes %}
-			<div class="media media-recipe">
-				<div class="media-left">
-					<a href="/recipes/{{ recipe.rid }}">
-						<img class="media-object" src="http://placehold.it/150x150" alt="placeholder">
-					</a>
-				</div>
-				<div class="media-body recipe-media-body">
-					<h4 class="media-heading"><a href="/recipes/{{ recipe.rid }}">{{ recipe.title }}</a></h4>
-					{{ recipe.description }}
-				</div>
-			</div>
-			<div class="recipe-actions">
-				<a href="/recipes/{{ recipe.rid }}">View</a> |
-				<a href="/recipes/{{ recipe.rid }}/remove ">Remove</a>
-			</div>
-			<hr class="recipe-divider">
-		{% endfor %}
-	{% else %}
-		<p>No favourited recipes.</p>
-	{% endif %}
+    {% if recipes %}
+        <hr>
+        {% for recipe in recipes %}
+            <div class="media media-recipe">
+                <div class="media-left">
+                    <a href="/recipes/{{ recipe.rid }}">
+                        <img class="media-object"
+                             src="{% if recipe.recipe_pic %}{{ recipe.recipe_pic }}{% else %}/static/recipes/images/food-placeholder.png{% endif %}"
+                             alt="placeholder">
+                    </a>
+                </div>
+                <div class="media-body recipe-media-body">
+                    <h4 class="media-heading"><a href="/recipes/{{ recipe.rid }}">{{ recipe.title }}</a></h4>
+                    {{ recipe.description }}
+                </div>
+            </div>
+            <div class="recipe-actions">
+                <a href="/recipes/{{ recipe.rid }}">View</a> |
+                <a href="/recipes/{{ recipe.rid }}/remove ">Remove</a>
+            </div>
+            <hr class="recipe-divider">
+        {% endfor %}
+    {% else %}
+        <p>No favourited recipes.</p>
+    {% endif %}
 {% endblock %}
