@@ -9,10 +9,10 @@
         <div class="row">
         <div class="col-md-5">
             <div id="recipe-title" class="row">
-                
+
                 <div class="col-md-12 ">
                     <h2>{{ recipe.title }}</h2>
-                    <h4>By : {{ user_full_name }}</h4>
+                    <h4>{{ recipe.created }}<br/> By : {{ user_full_name }}</h4>
                 </div>
                 <div class="col-md-12">
                      <div class="col-xs-12 col-md-6 text-center">
@@ -43,7 +43,7 @@
 
             <div class="col-md-7">
                 <div id="recipe-image-container" {% if recipe.recipe_pic %} style="background-image: url('{{ recipe.recipe_pic.url }}')" {% endif %}>
-                    
+
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
                     {{ ingredient.name }}
                     </li>
                      {% endfor %}
-                    </ul>    
+                    </ul>
                 </div>
              </div>
 <!-- My changes to make recipe steps panel -->
@@ -75,7 +75,7 @@
                     <h2>Directions</h2>
                     </div>
 
-            <ul class="list-unstyled"> 
+            <ul class="list-unstyled">
                         {% for step in recipe.step_set.all %}
                 <li> <p>{{ step.description|linebreaks }}</p></li>
                         {% endfor %}
@@ -119,7 +119,7 @@
                     <div class="col-head text-center">
                           <h4>150 cal</h4>
                     </div>
-    
+
                 </div> <!-- Close recipe-info column-2-->
                 </div>
 
@@ -136,12 +136,12 @@
                     </div>
                  </div>
                  -->
-        </div> <!-- Close row ingredient-->        
+        </div> <!-- Close row ingredient-->
 
          <!--<small>{{ recipe.created }} by {{ user_full_name }}</small>
 
         <p>Prep Time: {{ recipe.prep_time }}</p> -->
-		
+
 		{% if user.is_authenticated %}
 			{% if favourited %}
             <p><a href="/recipes/{{ recipe.rid }}/favourite" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i> Remove Favourite</a></p>
@@ -175,21 +175,13 @@
 
         <hr/>
 
-Social activities button and details-->
+Social medias share buttons and details-->
         <hr/>
-        <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like"
-             data-size="small" data-show-faces="true"
-             data-share="true"></div>
-
-        <p>
-            |<a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}">
-            Share on Twitter
-        </a>|
-
-            <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">
-                Share on Reddit
-            </a>|
-        </p>
+        | <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like"
+             data-size="large" data-show-faces="true"
+             data-share="true"></div> |
+        | <a class="twitter-share-button" href="{{ request.build_absolute_uri }}" data-size="large">Tweet</a> |
+        | <a href="{{ request.build_absolute_uri }}" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false"> <img src="//www.redditstatic.com/spreddit8.gif" alt="submit to reddit" border="0" /> </a> |
 
         <hr/>
 
