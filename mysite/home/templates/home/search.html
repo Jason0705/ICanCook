@@ -5,59 +5,67 @@
 {% endblock head_title %}
 
 {% block content %}
-    <div class="col-sm-8 col-sm-offset-2">
-		<h1>Search Results</h1>
-		<ul>
+<div class= "container main-container">
+
+		<!-- <ul> -->
 			{% if recipes_list or ingredients_list %}
-			
+      <div class="jumbotron">
+          <h1>Search Results</h1>
+      </div>
 			{% if recipes_list %}
-				{% for r in recipes_list %}
-				 <div class="row">
-                    <div class="col-sm-6 col-md-4">
+          <div class="row masonry-container">
+
+				      {% for r in recipes_list %}
+                    <div class="col-sm-6 col-md-4 item">
                         <div class="thumbnail">
-                            <!-- <img src="..." alt="..."> -->
+                            {% if r.recipe_pic %}
+                                <img src={{ r.recipe_pic.url }} class='img-responsive'>
+                            {% endif %}
                             <div class="caption">
                                 <h3><a href="/recipes/{{r.rid }}">{{ r.title }}</a></h3>
-								 <h5>
-                                    <small>Posted {{ r.created|timesince }} ago</small>
-                                </h5>
+								                <h5><small>Posted {{ r.created|timesince }} ago</small></h5>
                                 <p>{{ r.description|linebreaks|truncatechars:50 }}</p>
                                 <p><a href="/recipes/{{r.rid }}" class="btn btn-default" role="button">View</a></p>
                             </div>
                         </div>
                     </div>
-				{% endfor %}
+				      {% endfor %}
+          </div>
 			{% endif %}
-			
+
 			{% if ingredients_list %}
-				{% for i in ingredients_list %}
-					{% if i.rid in recipes_list %}
-						{# continue #}
-					{% else %}
-						<div class="row">
-						<div class="col-sm-6 col-md-4">
-							<div class="thumbnail">
-								<!-- <img src="..." alt="..."> -->
-								<div class="caption">
-									<h3><a href="/recipes/{{i.rid.rid }}">{{ i.rid.title }}</a></h3>
-									 <h5>
-										<small>Posted {{ i.rid.created|timesince }} ago</small>
-									</h5>
-									<p>{{ i.rid.description|linebreaks|truncatechars:50 }}</p>
-									<p><a href="/recipes/{{i.rid.rid }}" class="btn btn-default" role="button">View</a></p>
-								</div>
-							</div>
-						</div>
-					{% endif %}
-				{% endfor %}
+          <div class="row masonry-container">
+      				{% for i in ingredients_list %}
+      					{% if i.rid in recipes_list %}
+      						{# continue #}
+      					{% else %}
+                    <div class="col-sm-6 col-md-4 item">
+                        <div class="thumbnail">
+                          {% if r.recipe_pic %}
+                              <img src={{ r.recipe_pic.url }} class='img-responsive'>
+                          {% endif %}
+          								<div class="caption">
+          									<h3><a href="/recipes/{{i.rid.rid }}">{{ i.rid.title }}</a></h3>
+          									<h5><small>Posted {{ i.rid.created|timesince }} ago</small></h5>
+          									<p>{{ i.rid.description|linebreaks|truncatechars:50 }}</p>
+          									<p><a href="/recipes/{{i.rid.rid }}" class="btn btn-default" role="button">View</a></p>
+          								</div>
+          							</div>
+          					</div>
+      					{% endif %}
+      				{% endfor %}
+          </div>
 			{% endif %}
-		</ul>
+		<!-- </ul> -->
 			{% else %}
-				<p>No results</p>
+      <div class="jumbotron">
+          <h1>Search Results</h1>
+          <p>No results</p>
+      </div>
 		{% endif %}
 
-		
-        <div class="pagination">
+
+        <!-- <div class="pagination">
             <span class="step-links">
 			 {% if recipe_names.has_previous %}
                  <a href="?page={{ recipe_names.previous_page_number }}"><<</a>
@@ -71,7 +79,7 @@
                 <a href="?page={{ recipe_names.next_page_number }}">>></a>
             {% endif %}
             </span>
-        </div>
-    </div>
+        </div> -->
+</div>
 
 {% endblock content %}
