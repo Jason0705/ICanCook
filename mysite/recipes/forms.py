@@ -15,6 +15,7 @@ class RecipeForm(forms.ModelForm):
         self.fields['description'].widget.attrs = {'class': 'form-control', 'placeholder': 'Description'}
         self.fields['prep_time'].widget.attrs = {'class': 'form-control', 'placeholder': 'Prep Time'}
         self.fields['calorie'].widget.attrs = {'class': 'form-control', 'placeholder': 'Calorie'}
+        self.fields['serving'].widget.attrs = {'class': 'form-control', 'placeholder': 'Serving'}
 
     class Meta:
         model = Recipe

@@ -22,6 +22,7 @@ class Recipe(models.Model):
     prep_time = models.FloatField()
     recipe_pic = models.FileField(null=True, blank=True, upload_to=get_file_path)  # upload_to='recipes/static/recipes/images/',
     calorie = models.IntegerField(null=True, blank=True)
+    serving = models.IntegerField()
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
 

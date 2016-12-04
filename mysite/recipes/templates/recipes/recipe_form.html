@@ -12,6 +12,11 @@
             {{ recipe_form.description }}
             {{ recipe_form.description.errors }}
         </div>
+        <div id="recipe-serving-edit">
+            {{ recipe_form.serving.label_tag }}
+            {{ recipe_form.serving }}
+            {{ recipe_form.serving.errors }}
+        </div>
         <div id="recipe-prep-edit">
             {{ recipe_form.prep_time.label_tag }}
             {{ recipe_form.prep_time }}
