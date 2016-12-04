@@ -14,6 +14,7 @@ class RecipeForm(forms.ModelForm):
         self.fields['title'].widget.attrs = {'class': 'form-control', 'placeholder': 'Title'}
         self.fields['description'].widget.attrs = {'class': 'form-control', 'placeholder': 'Description'}
         self.fields['prep_time'].widget.attrs = {'class': 'form-control', 'placeholder': 'Prep Time'}
+        self.fields['calorie'].widget.attrs = {'class': 'form-control', 'placeholder': 'Calorie'}
 
     class Meta:
         model = Recipe
@@ -28,6 +29,8 @@ class CategoryForm(forms.ModelForm):
         self.fields['breakfast'].widget.attrs = {'class': 'form-check-input'}
         self.fields['lunch'].widget.attrs = {'class': 'form-check-input'}
         self.fields['dinner'].widget.attrs = {'class': 'form-check-input'}
+        self.fields['dessert'].widget.attrs = {'class': 'form-check-input'}
+        self.fields['holiday'].widget.attrs = {'class': 'form-check-input'}
 
     class Meta:
         model = Category

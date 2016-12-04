@@ -14,19 +14,19 @@ from .models import Recipe, Category
 
 
 def index(request):
-    recipe_names_list = Recipe.objects.all()  # .order_by('-created')
+    recipe_names = Recipe.objects.all()  # .order_by('-created')
 
-    paginator = Paginator(recipe_names_list, 6)  # Show 10 recipes per page
-
-    page = request.GET.get('page')
-    try:
-        recipe_names = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        recipe_names = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        recipe_names = paginator.page(paginator.num_pages)
+    # paginator = Paginator(recipe_names_list, 6)  # Show 10 recipes per page
+    #
+    # page = request.GET.get('page')
+    # try:
+    #     recipe_names = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     recipe_names = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver last page of results.
+    #     recipe_names = paginator.page(paginator.num_pages)
 
     context = {'recipe_names': recipe_names}
 
@@ -34,41 +34,64 @@ def index(request):
 
 
 def quick(request):
-    quick_recipes = Recipe.objects.filter(prep_time__lte=0.15)
+    quick_recipes = Recipe.objects.filter(prep_time__lte=0.25)
 
-    paginator = Paginator(quick_recipes, 10)  # Show 10 contacts per page
-
-    page = request.GET.get('page')
-    try:
-        recipe_names = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        recipe_names = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        recipe_names = paginator.page(paginator.num_pages)
-
-    context = {'recipe_names': recipe_names}
+    # paginator = Paginator(quick_recipes, 10)  # Show 10 contacts per page
+    #
+    # page = request.GET.get('page')
+    # try:
+    #     recipe_names = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     recipe_names = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver last page of results.
+    #     recipe_names = paginator.page(paginator.num_pages)
+    #
+    # context = {'recipe_names': recipe_names}
+    context = {'recipe_names': quick_recipes}
 
     return render(request, 'recipes/quick.html', context)
+
+
+def lowcal(request):
+    lowcal_recipes = Recipe.objects.filter(calorie__lte=350 )
+
+    # paginator = Paginator(lowcal_recipes, 10)  # Show 10 contacts per page
+    #
+    # page = request.GET.get('page')
+    # try:
+    #     recipe_names = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     recipe_names = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver last page of results.
+    #     recipe_names = paginator.page(paginator.num_pages)
+
+    #context = {'recipe_names': recipe_names}
+    context = {'recipe_names': lowcal_recipes}
+
+    return render(request, 'recipes/lowcal.html', context)
 
 
 def breakfast(request):
     breakfast_recipes = Category.objects.filter(breakfast=True)
 
-    paginator = Paginator(breakfast_recipes, 10)  # Show 10 contacts per page
-
-    page = request.GET.get('page')
-    try:
-        recipe_names = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        recipe_names = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        recipe_names = paginator.page(paginator.num_pages)
-
-    context = {'recipe_names': recipe_names}
+    # paginator = Paginator(breakfast_recipes, 10)  # Show 10 contacts per page
+    #
+    # page = request.GET.get('page')
+    # try:
+    #     recipe_names = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     recipe_names = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver last page of results.
+    #     recipe_names = paginator.page(paginator.num_pages)
+    #
+    # context = {'recipe_names': recipe_names}
+    context = {'recipe_names': breakfast_recipes}
 
     return render(request, 'recipes/breakfast.html', context)
 
@@ -76,19 +99,20 @@ def breakfast(request):
 def lunch(request):
     lunch_recipes = Category.objects.filter(lunch=True)
 
-    paginator = Paginator(lunch_recipes, 10)  # Show 10 contacts per page
-
-    page = request.GET.get('page')
-    try:
-        recipe_names = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        recipe_names = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        recipe_names = paginator.page(paginator.num_pages)
-
-    context = {'recipe_names': recipe_names}
+    # paginator = Paginator(lunch_recipes, 10)  # Show 10 contacts per page
+    #
+    # page = request.GET.get('page')
+    # try:
+    #     recipe_names = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     recipe_names = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver last page of results.
+    #     recipe_names = paginator.page(paginator.num_pages)
+    #
+    # context = {'recipe_names': recipe_names}
+    context = {'recipe_names': lunch_recipes}
 
     return render(request, 'recipes/lunch.html', context)
 
@@ -96,21 +120,64 @@ def lunch(request):
 def dinner(request):
     dinner_recipes = Category.objects.filter(dinner=True)
 
-    paginator = Paginator(dinner_recipes, 10)  # Show 10 contacts per page
-
-    page = request.GET.get('page')
-    try:
-        recipe_names = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        recipe_names = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        recipe_names = paginator.page(paginator.num_pages)
-
-    context = {'recipe_names': recipe_names}
+    # paginator = Paginator(dinner_recipes, 10)  # Show 10 contacts per page
+    #
+    # page = request.GET.get('page')
+    # try:
+    #     recipe_names = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     recipe_names = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver last page of results.
+    #     recipe_names = paginator.page(paginator.num_pages)
+    #
+    # context = {'recipe_names': recipe_names}
+    context = {'recipe_names': dinner_recipes}
 
     return render(request, 'recipes/dinner.html', context)
+
+
+def dessert(request):
+    dessert_recipes = Category.objects.filter(dessert=True)
+
+    # paginator = Paginator(dessert_recipes, 10)  # Show 10 contacts per page
+    #
+    # page = request.GET.get('page')
+    # try:
+    #     recipe_names = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     recipe_names = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver last page of results.
+    #     recipe_names = paginator.page(paginator.num_pages)
+
+    #context = {'recipe_names': recipe_names}
+    context = {'recipe_names': dessert_recipes}
+
+    return render(request, 'recipes/dessert.html', context)
+
+
+def holiday(request):
+    holiday_recipes = Category.objects.filter(holiday=True)
+
+    # paginator = Paginator(holiday_recipes, 10)  # Show 10 contacts per page
+    #
+    # page = request.GET.get('page')
+    # try:
+    #     recipe_names = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     recipe_names = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver last page of results.
+    #     recipe_names = paginator.page(paginator.num_pages)
+
+    #context = {'recipe_names': recipe_names}
+    context = {'recipe_names': holiday_recipes}
+
+    return render(request, 'recipes/holiday.html', context)
 
 
 def details(request, rid):
@@ -136,6 +203,16 @@ def details(request, rid):
         'user_full_name': name
     }
     return render(request, 'recipes/details.html', context)
+
+
+def tips(request):
+
+    return render(request, 'recipes/tips.html')
+
+
+def healthy_living(request):
+
+    return render(request, 'recipes/healthy_living.html')
 
 
 @login_required(login_url='/login/')
@@ -198,7 +275,7 @@ def edit(request, rid):
     steps_data = [{'description': s.description, 'order': s.order} for s in steps]
 
     categories = Category.objects.get(rid=rid)
-    category_data = {'breakfast': categories.breakfast, 'lunch': categories.lunch, 'dinner': categories.dinner}
+    category_data = {'breakfast': categories.breakfast, 'lunch': categories.lunch, 'dinner': categories.dinner, 'dessert': categories.dessert, 'holiday': categories.holiday}
 
     if request.POST:
         recipe_form = RecipeForm(request.POST, request.FILES, instance=edit_recipe)

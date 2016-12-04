@@ -1,26 +1,22 @@
 {% extends "recipes/base.html" %}
 
 {% block head_title %}
-    Recipes
+    Low Calorie Recipes
 {% endblock head_title %}
 
 {% block content %}
-<div class= "container main-container">
+<div class= "container">
 
         {% if recipe_names %}
         <div class="jumbotron">
-            <h1>Recipes</h1>
+            <h1>Healthy Recipes</h1>
             <p><a href="/recipes/add/">Add a new recipe</a></p>
             <br/>
         </div>
         <hr>
-
-<!-- Recipes panels -->
-
-            <div class="row masonry-container">
-
+            <div class="row">
                 {% for recipe_name in recipe_names %}
-                    <div class="col-sm-6 col-md-4 item">
+                    <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
                             {% if recipe_name.recipe_pic %}
                                 <img src={{ recipe_name.recipe_pic.url }} class='img-responsive'>
@@ -35,23 +31,16 @@
                                 <p><a href="{{ recipe_name.get_absolute_url }}" class="btn btn-default" role="button">View</a></p>
                             </div>
                         </div>
-                    </div> <!-- close masonry-container -->
+                    </div>
 
                     <!-- {% cycle "" "</div><div class='row'>" %} -->
                 {% endfor %}
-            </div> <!-- End of Row-->
-
- <!-- If no recipes were found -->
-
+            </div>
         {% else %}
-            <h1>Recipes</h1>
-            <p>No recipes are available.</p>
+            <h1>Healthy Recipes</h1>
+            <p>No healthy recipes are available.</p>
             <p><a href="/recipes/add/">Add a new recipe</a></p>
         {% endif %}
-
-
-
- <!-- Page Numbering -->
 
         <!-- <div class="pagination">
             <span class="step-links">

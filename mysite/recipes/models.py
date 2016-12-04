@@ -21,6 +21,7 @@ class Recipe(models.Model):
     favourites = models.ManyToManyField(User)
     prep_time = models.FloatField()
     recipe_pic = models.FileField(null=True, blank=True, upload_to=get_file_path)  # upload_to='recipes/static/recipes/images/',
+    calorie = models.IntegerField(null=True, blank=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
 
@@ -67,6 +68,8 @@ class Category(models.Model):
     breakfast = models.BooleanField()
     lunch = models.BooleanField()
     dinner = models.BooleanField()
+    dessert = models.BooleanField()
+    holiday = models.BooleanField()
 
     def __str__(self):
-        return "BREAKFAST: %s, LUNCH: %s, DINNER: %s" % (self.breakfast, self.lunch, self.dinner)
+        return "BREAKFAST: %s, LUNCH: %s, DINNER: %s, DESSERT: %s, HOLIDAY: %s" % (self.breakfast, self.lunch, self.dinner, self.dessert, self.holiday)

@@ -17,6 +17,11 @@
             {{ recipe_form.prep_time }}
             {{ recipe_form.prep_time.errors }}
         </div>
+        <div id="recipe-calorie-edit">
+            {{ recipe_form.calorie.label_tag }}
+            {{ recipe_form.calorie }}
+            {{ recipe_form.calorie.errors }}
+        </div>
         <div id="recipe-pic-edit">
             {{ recipe_form.recipe_pic.label_tag }}
             {{ recipe_form.recipe_pic }}
@@ -33,6 +38,12 @@
             |
             {{ category_form.dinner.label_tag }}
             {{ category_form.dinner }}
+            |
+            {{ category_form.dessert.label_tag }}
+            {{ category_form.dessert }}
+            |
+            {{ category_form.holiday.label_tag }}
+            {{ category_form.holiday }}
         </div>
     </div>
 </div>
