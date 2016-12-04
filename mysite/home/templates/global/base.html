@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/static/home/css/bootstrap.min.css">
 
     {% load static %}
-    <link rel="stylesheet" href="{% static "admin.css" %}">
+    <link rel="stylesheet" href="{% static " admin.css
+    " %}">
 
     {% block head %}
 
@@ -16,15 +17,116 @@
 <body>
 {% include "global/navbar.html" %}
 {% block page %}
-    {#    Content    #}
+{# Content #}
 {% endblock %}
 
 <div class="container marketing">
     <hr class="featurette-divider">
     <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2016 Company, Inc. &middot; <a href="" data-toggle="modal" data-target="#privacyModal">Privacy</a> &middot;
+            <a href="" data-toggle="modal" data-target="#termsModal">Terms</a>
+        </p>
     </footer>
+</div>
+
+<div id="termsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Terms & Conditions</h4>
+            </div>
+            <div class="modal-body">
+                <p> <br>
+                    <b>Welcome to ICanCook. <br>
+                    Thank you for using our website. </b><br><br>
+
+                    <b>Using our Services</b><br>
+
+                    You must follow any policies made available to you within the Services.
+                    Don’t misuse our Services. For example, don’t interfere with our Services or try to
+                    access them using a method other than the interface and the instructions that we provide.
+                    You may use our Services only as permitted by law, including applicable export and re-export control laws and regulations.
+                    We may suspend or stop providing our Services to you if you do not comply with our terms or policies or if we are investigating suspected misconduct.
+                    Using our Services does not give you ownership of any intellectual property rights in our Services or the content you access.
+                    You may not use content from our Services unless you obtain permission from its owner or are otherwise permitted by law. These terms do not
+                    grant you the right to use any branding or logos used in our Services. Don’t remove, obscure, or alter any legal notices displayed in or along with our Services.
+
+                    <br><br>
+                    <b>Your  Account </b> <br>
+                    You may need a ICanCook Account in order to use some of our Services.
+                    To protect your ICanCook Account, keep your password confidential.
+                    You are responsible for the activity that happens on or through your Google Account.
+
+                    <br><br>
+                    <b>Your Content, Out Service</b><br>
+                    Some of our Services allow you to upload, submit, store, send or receive content.
+                    You retain ownership of any intellectual property rights that you hold in that content. In short, what belongs to you stays yours.
+
+                    When you upload, submit, store, send or receive content to or through our Services, you give Google (and those we work with) a worldwide license to use,
+                    host, store, reproduce, modify, create derivative works
+                    (such as those resulting from translations, adaptations or other changes we make so that your content works better with our Services),
+                    communicate, publish, publicly perform, publicly display and distribute such content. The rights you grant in this license are for the limited purpose of operating,
+                    promoting, and improving our Services, and to develop new ones. This license continues even if you stop using our Services.
+                    Some Services may offer you ways to access and remove content that has been provided to that Service. Also, in some of our Services, there are
+                    terms or settings that narrow the scope of our use of the content submitted in those Services. Make sure you have the necessary rights to grant
+                    us this license for any content that you submit to our Services.<br>
+                    <br>
+                    <b>These Terms and You</b><br>
+                    We may modify these terms or any additional terms that apply to a Service to, for example, reflect changes to the law or changes to our Services.
+                    You should look at the terms regularly. We’ll post notice of modifications to these terms on this page. We’ll post notice of modified additional terms in
+                    the applicable Service. Changes will not apply retroactively and will become effective no sooner than fourteen days after they are posted. However, changes
+                    addressing new functions for a Service or changes made for legal reasons will be effective immediately. If you do not agree to the modified terms for a Service,
+                    you should discontinue your use of that Service.
+                    If there is a conflict between these terms and the additional terms, the additional terms will control for that conflict.
+                    These terms control the relationship between ICanCook and you.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="privacyModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Privacy Policy</h4>
+            </div>
+            <div class="modal-body">
+                <p> <br>
+                    <b>Information Shared</b> <br>
+                    We do not share personal information such as passwords and emails with companies, organizations and individuals outside of ICanCook.
+                    Many of our services let you share information with others.
+                    Remember that when you share information publicly, it may be indexable by search engines,
+                    including Facebook. Our services provide you with different options on sharing and removing your
+                    content.
+                    <br><br>
+                    <b>Accessing and updating your Personal Informatino</b><br>
+                    Whenever you use our services, we aim to provide you with access to your personal information. If
+                    that information is wrong, we strive to give you ways to update it quickly or to delete it
+                    We do not share personal information with companies, organizations and individuals outside
+                    of ICanCook.
+                    <br><br>
+                    <b>Changes</b><br>
+                    Our Privacy Policy may change from time to time. We will not reduce your rights under this Privacy Policy without your
+                    explicit consent. We will post any privacy policy changes on this page and, if the changes are significant,
+                    we will provide a more prominent notice
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <script src="/static/home/js/jquery.min.js"></script>
