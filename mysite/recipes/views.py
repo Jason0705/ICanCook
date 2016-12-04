@@ -215,6 +215,11 @@ def healthy_living(request):
     return render(request, 'recipes/healthy_living.html')
 
 
+def nutrition_guide(request):
+
+    return render(request, 'recipes/nutrition_guide.html')
+
+
 @login_required(login_url='/login/')
 def add_recipe(request):
     StepFormSet = formset_factory(StepForm, formset=BaseStepsFormSet)

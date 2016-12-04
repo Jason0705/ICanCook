@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^tips/$', views.tips, name='tips'),
     url(r'^lowcal/$', views.lowcal, name='lowcal'),
     url(r'^healthy_living/$', views.healthy_living, name='healthy_living'),
+    url(r'^nutrition_guide/$', views.nutrition_guide, name='nutrition_guide'),
     url(r'^breakfast/$', views.breakfast, name='breakfast'),
     url(r'^lunch/$', views.lunch, name='lunch'),
     url(r'^dinner/$', views.dinner, name='dinner'),
