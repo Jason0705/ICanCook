@@ -1,1 +1,35 @@
+{% extends "recipes/base.html" %}
+{% load static from staticfiles %}
+{% block head_title %}
+Tips
+{% endblock head_title %}
+
+{% block content %}
 <h1>Tips</h1>
+<hr class="colorhr">
+<div id="tip-intro" class="card card-outline-info text-xs-center">
+    <div class="card-block">
+        <blockquote class="card-blockquote">
+            Maybe you want to start cooking more at home, but don't know where to start. Or maybe you feel intimidated
+            because you don't have the best knife or have never turned on the oven in your life. Well, we spent some
+            time this year putting together cooking tutorials, recommending tools. Whether you're looking for knife
+            skills basics or a good recipe for roast chicken, this is a good place to start.
+        </blockquote>
+    </div>
+</div>
+
+<div id="youtube-tip-videos">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/wHRXUeVsAQQ" frameborder="0"
+            allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-av6cz9upO0" frameborder="0"
+            allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/cMmEvCNTEgM" frameborder="0"
+            allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/NlnOsnr94qM" frameborder="0"
+            allowfullscreen></iframe>
+</div>
+{% endblock content %}
+
+{% block endbody %}
+
+{% endblock endbody %}
