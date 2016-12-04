@@ -7,17 +7,16 @@ BOOTSTRAP_PASS_INPUT = PasswordInput(attrs={'class': 'form-control'})
 
 
 class UserForm(ModelForm):
-
-    first_name = CharField(required=False)
-    last_name = CharField(required=False)
-    username = CharField(required=True)
-    email = EmailField(required=True)
+    first_name = CharField(widget=BOOTSTRAP_TEXT_INPUT, label='First Name', required=True)
+    last_name = CharField(widget=BOOTSTRAP_TEXT_INPUT, label='Last Name', required=True)
+    username = CharField(widget=BOOTSTRAP_TEXT_INPUT, label='Username', max_length=32, min_length=6, required=True)
+    email = EmailField(widget=BOOTSTRAP_TEXT_INPUT, label='Email', max_length=64, required=True)
     password = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Password', min_length=6, max_length=32, required=True)
     password_confirm = CharField(widget=BOOTSTRAP_PASS_INPUT, label='Confirm Password', min_length=6, max_length=32, required=True)
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password', 'password_confirm']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password', 'password_confirm']
 
     def clean(self):
         form_data = self.cleaned_data
