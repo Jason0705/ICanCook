@@ -4,7 +4,9 @@
     <div id="login-container" class="card">
         <h1>Login</h1>
         <div id="login-form">
-            <form name="LoginForm" action="/user/login/" method="post">{% csrf_token %}
+            <form name="LoginForm" action="/user/login/" method="post">
+            <hr class="colorhr">
+            {% csrf_token %}
                 {{ form.next }}
 
                 <div class="form-group">
@@ -22,14 +24,12 @@
                         <span class="form-error">{{ error|escape }}</span>
                     {% endfor %}
                 {% endif %}
-
+            <hr class="colorhr">
                 <div class="form-group">
-                    <button type="submit" class="btn pull-right">Login</button>
-                    <button type="button" class="btn btn-default"><a href="/user/signup">Create Account</a></button>
+                    <button type="submit" class="btn btn-lg btn-success btn-block">Sign In</button>
+                    <a href="/user/signup" class ="btn btn-lg btn-primary btn-block">Create Account</a>
                 </div>
-                <div class="modal-footer">
-                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                 </div>
+                
             </form>
         </div>
     </div>
