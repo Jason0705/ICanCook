@@ -69,7 +69,9 @@
                             </ul>
                         {% else %}
                             <ul class="nav navbar-nav pull-right">
-                                <li><a href="/user/login/?next={{ request.path }}">Login</a></li>
+                              <!--  <li><a href="/user/login/?next={{ request.path }}">Login</a></li> -->
+                             <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+
                             </ul>
                         {% endif %}
 
