@@ -1,32 +1,12 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/home/css/bootstrap.min.css">
-
-    {% load static %}
-    <link rel="stylesheet" href="{% static "admin.css" %}">
-
-    {% block head %}
-
-    {% endblock %}
-</head>
-<body>
-{% include "global/navbar.html" %}
-{% block page %}
-{# Content #}
-{% endblock %}
-
-<!-- <div class="container marketing">
-    <hr class="featurette-divider">
-    <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2016 Company, Inc. &middot; <a href="" data-toggle="modal" data-target="#privacyModal">Privacy</a> &middot;
-            <a href="" data-toggle="modal" data-target="#termsModal">Terms</a>
-        </p>
-    </footer>
-</div>
+<!-- <div class="container marketing"> -->
+<hr class="featurette-divider">
+<footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; CMPT470 Group-13 - Fall 2016 All Rights Reserved. &middot; <a href="" data-toggle="modal" data-target="#privacyModal">Privacy</a> &middot;
+        <a href="" data-toggle="modal" data-target="#termsModal">Terms</a>
+    </p>
+</footer>
+<!-- </div> -->
 
 <div id="termsModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -125,19 +105,4 @@
         </div>
 
     </div>
-</div> -->
-<div class="container marketing">
-  {% include "global/footer.html" %}
 </div>
-
-<script src="/static/home/js/jquery.min.js"></script>
-<script src="/static/home/js/bootstrap.min.js"></script>
-<script src="/static/home/js/jquery.formset.js"></script>
-<script src="/static/recipes/js/masonry.pkgd.min.js"></script>
-<script src="/static/recipes/js/imagesloaded.pkgd.min.js"></script>
-<script src="/static/recipes/js/mason.js"></script>
-
-{% block endbody %}
-{% endblock %}
-</body>
-</html>
