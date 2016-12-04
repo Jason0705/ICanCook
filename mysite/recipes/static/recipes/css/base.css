@@ -218,3 +218,9 @@ Edit and Delete Buttons-- >
     line-height: 1.33;
     border-radius: 25px;
 }
+
+/* Nutrition */
+
+#navbar-nutrition{
+    width: 260px;
+}
