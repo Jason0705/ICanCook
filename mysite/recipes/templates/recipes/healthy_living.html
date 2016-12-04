@@ -2,7 +2,6 @@
 {% load static from staticfiles %}
 {% block head_title %}
 Healthy Living
-
 {% endblock head_title %}
 
 {% block content %}
@@ -24,12 +23,12 @@ Healthy Living
 </div>
 <hr class="featurette-divider">
 
-<h2 class="alert-success">Here are 9 Tips to Help Promote a Healthy Living</h2>
+<h2 class="alert-success" align="center">Here are 9 Tips to Help Promote a Healthy Living</h2>
 <div class="row">
 
     <div class="col-md-4">
         <div id="tip1">
-            <img src="http://placehold.it/350x150">
+            <img class="img-container" src="{% static " home/images/cookfromscratch.jpg" %}">
             <div class="caption">
                 <h3>Cook From Scratch</h3>
                 <p>This is one of the most important life skills you can learn. It allows you to have
@@ -42,7 +41,7 @@ Healthy Living
 
     <div class="col-md-4">
         <div id="tip2">
-            <img src="http://placehold.it/350x150">
+            <img class="img-container" src="{% static " home/images/diet.jpg" %}">
             <div class="caption">
                 <h3>Eat a Balanced Diet</h3>
                 <p>Aim to eat a balanced diet that contains each of the food groups in the correct
@@ -53,7 +52,7 @@ Healthy Living
 
     <div class="col-md-4">
         <div id="tip3">
-            <img src="http://placehold.it/350x150">
+            <img class="img-container" src="{% static " home/images/variety.jpg" %}">
             <div class="caption">
                 <h3>Variety Is Key</h3>
                 <p>Fill your diet with a wide range of fruits, vegetables, lean meats, fish, eggs, pulses, nuts, seeds,
@@ -70,7 +69,7 @@ Healthy Living
 
     <div class="col-md-4">
         <div id="tip4">
-            <img src="http://placehold.it/350x150">
+            <img class="img-container" src="{% static " home/images/understand.jpg" %}">
             <div class="caption">
                 <h3>Understand What You're Eating</h3>
                 <p>Make an effort to learn about the food you're eating – we all need to understand where food comes
@@ -81,7 +80,7 @@ Healthy Living
 
     <div class="col-md-4">
         <div id="tip5">
-            <img src="http://placehold.it/350x150">
+            <img class="img-container" src="{% static " home/images/calories.jpg" %}">
             <div class="caption">
                 <h3>Eat Nutritious Calories</h3>
                 <p>Make sure the majority of your energy intake comes from nutritious calories that also provide your
@@ -92,7 +91,7 @@ Healthy Living
 
     <div class="col-md-4">
         <div id="tip6">
-            <img src="http://placehold.it/350x150">
+            <img class="img-container" src="{% static " home/images/breakfasttip.jpg" %}">
             <div class="caption">
                 <h3>Don't Skip Breakfast</h3>
                 <p>Breakfast kick-starts your metabolism and helps you to be alert and awake throughout the day.
@@ -107,19 +106,19 @@ Healthy Living
 
     <div class="col-md-4">
         <div id="tip7">
-            <img src="http://placehold.it/350x150">
+            <img class="img-container" src="{% static " home/images/water.jpg" %}">
             <div class="caption">
                 <h3>Drink More Water</h3>
                 <p>Water is an essential part of your diet. Drink plenty of water and avoid empty calories from things
-                   such as fizzy drinks, energy drinks or juices with added sugar.
-                   Eat your calories don't drink them.</p>
+                    such as fizzy drinks, energy drinks or juices with added sugar.
+                    Eat your calories don't drink them.</p>
             </div>
         </div>
     </div>
 
     <div class="col-md-4">
         <div id="tip8">
-            <img src="http://placehold.it/350x150">
+            <img class="img-container" src="{% static " home/images/active.jpg" %}">
             <div class="caption">
                 <h3>Keep Active</h3>
                 <p>Exercise is an extremely important factor in staying healthy so try to be as active as you can</p>
@@ -129,12 +128,12 @@ Healthy Living
 
     <div class="col-md-4">
         <div id="tip9">
-            <img src="http://placehold.it/350x150">
+            <img class="img-container" src="{% static " home/images/sleep.jpg" %}">
             <div class="caption">
                 <h3>Sleep Well</h3>
                 <p>Make sure you get enough sleep – it's an essential part of being healthy and directly affects how
-                   well we are able to learn, grow and act in life. While we're asleep, our bodies have that
-                   all-important time to repair.</p>
+                    well we are able to learn, grow and act in life. While we're asleep, our bodies have that
+                    all-important time to repair.</p>
             </div>
         </div>
     </div>
