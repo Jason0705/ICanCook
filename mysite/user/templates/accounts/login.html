@@ -1,11 +1,6 @@
 {% extends "accounts/base.html" %}
 
 {% block page %}
-    <style>
-        html, body {
-            height: 100%;
-        }
-    </style>
     <div id="login-container" class="card">
         <h1>Login</h1>
         <div id="login-form">
@@ -30,8 +25,11 @@
 
                 <div class="form-group">
                     <button type="submit" class="btn pull-right">Login</button>
-                    <a href="/user/signup">Create Account</a>
+                    <button type="button" class="btn btn-default"><a href="/user/signup">Create Account</a></button>
                 </div>
+                <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                 </div>
             </form>
         </div>
     </div>
