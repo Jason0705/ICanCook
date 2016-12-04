@@ -1,1 +1,549 @@
-<h1>Nutrition</h1>
+{% extends "recipes/base.html" %}
+
+{% block head_title %}
+		Holiday
+{% endblock head_title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Nutrition Guide</h1>
+                    <p>Our Nutrition Guide will tell you about the nutrition of a particular product. This information includes serving size, calories per serving and the amount of various nutrients contained in the product. Once you have an understanding about these products you can follow a healthy diet and it is comparatively easier to choose the most nutritious foods.</p>
+
+                    <h2> Importance of Nutrition Guide </h2>
+
+                    <p><span class="glyphicon glyphicon-ok icon-check" aria-hidden="true"></span> Nutrition facts is needed to make healthy food choices.</p>
+					<p><span class="glyphicon glyphicon-ok icon-check" aria-hidden="true"></span> Standardized serving sizes to be able to make nutritional comparisons.</p>
+					<p><span class="glyphicon glyphicon-ok icon-check" aria-hidden="true"></span> Information about the amount per serving of nutrients such as saturated fat, cholesterol, sodium, sugar, and fiber; these are very important for people with different health concerns.</p>
+					<p><span class="glyphicon glyphicon-ok icon-check" aria-hidden="true"></span> Nutrient reference values or the percent daily values help you see how a particular food item fits into your daily meal plan. It also shows how much of these nutrients you are getting to meet your daily requirements.</p>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary panel-black">
+                        <div class="panel-heading vegetable-panel">
+                            <h4 id="header-vegetables">VEGETABLES</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped table-hover table-condensed">
+                                <thead>
+                                    <th>FOOD GROUPS</th>
+                                    <th>SERVING</th>
+                                    <th>CALORIES</th>
+                                    <th>CARBOHYDRATES</th>
+                                    <th>DIETARY FIBRE</th>
+                                    <th>A SOURCE OF</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Artichoke</td>
+                                        <td>125 mL cooked</td>
+                                        <td> 45</td>
+                                        <td> 10</td>
+                                        <td> 3</td>
+                                        <td> Magnesium, Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Asparagus</td>
+                                        <td>125 mL cooked</td>
+                                        <td> 21</td>
+                                        <td> 4 </td>
+                                        <td>2 </td>
+                                        <td>Vitamin C, Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bok Choy</td>
+                                        <td>125 mL cooked</td>
+                                        <td> 11</td>
+                                        <td> 2 </td>
+                                        <td>1 </td>
+                                        <td>Vitamin A, Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Broccoli</td>
+                                        <td>125 mL raw</td>
+                                        <td> 16</td>
+                                        <td> 3</td>
+                                        <td>1</td>
+                                        <td>Vitamin C, Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carrots</td>
+                                        <td>125 mL raw</td>
+                                        <td> 28</td>
+                                        <td> 8</td>
+                                        <td>2</td>
+                                        <td>Vitamin A, Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cauliflower</td>
+                                        <td>125 mL raw</td>
+                                        <td> 13</td>
+                                        <td> 3</td>
+                                        <td>1</td>
+                                        <td>Vitamin C,Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Corn</td>
+                                        <td>125 mL cooked</td>
+                                        <td> 70</td>
+                                        <td> 17</td>
+                                        <td> 2</td>
+                                        <td> Vitamin C, Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cucumbers Field Greenhouse</td>
+                                        <td>125 mL</td>
+                                        <td>9</td>
+                                        <td>2</td>
+                                        <td>1</td>
+                                        <td>Vitamin C, Folate </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lettuce Assorted Greenhouse
+                                            <td>250 mL</td>
+                                            <td>9</td>
+                                            <td>2</td>
+                                            <td>1</td>
+                                            <td>Vitamin A,Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mushrooms</td>
+                                        <td>125 mL raw</td>
+                                        <td> 11</td>
+                                        <td> 2</td>
+                                        <td>1</td>
+                                        <td>Niacin</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Onions</td>
+                                        <td>125 mL raw</td>
+                                        <td> 36</td>
+                                        <td> 9</td>
+                                        <td>1</td>
+                                        <td>Vitamin C,Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Potatoes</td>
+                                        <td>125 mL cooked</td>
+                                        <td> 63</td>
+                                        <td> 15</td>
+                                        <td> 2</td>
+                                        <td> Vitamin C, Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rutabaga</td>
+                                        <td>125 mL cooked</td>
+                                        <td> 35</td>
+                                        <td> 8 </td>
+                                        <td>2 </td>
+                                        <td>Vitamin C, Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tomatoes Field Greenhouse</td>
+                                        <td>125 mL raw</td>
+                                        <td> 17</td>
+                                        <td> 4</td>
+                                        <td>1</td>
+                                        <td>Vitamin C,Folate </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                       <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary panel-black">
+                        <div class="panel-heading fruits-panel">
+                            <h4 id="header-fruits">FRUITS</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped table-hover table-condensed">
+                                <thead>
+                                    <th>FOOD GROUPS</th>
+                                    <th>SERVING</th>
+                                    <th>CALORIES</th>
+                                    <th>CARBOHYDRATES</th>
+                                    <th>DIETARY FIBRE</th>
+                                    <th>A SOURCE OF</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Apples</td>
+                                        <td> 1 med</td>
+                                        <td>72</td>
+                                        <td> 19</td>
+                                        <td>3</td>
+                                        <td>Vitamin C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Blueberries</td>
+                                        <td> 125 mL</td>
+                                        <td> 44</td>
+                                        <td> 11</td>
+                                        <td>2</td>
+                                        <td>Vitamin C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cherries</td>
+                                        <td> 125 mL</td>
+                                        <td> 78</td>
+                                        <td>20</td>
+                                        <td>3</td>
+                                        <td>Vitamin C </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Grapes</td>
+                                        <td> 125 mL</td>
+                                        <td> 55</td>
+                                        <td> 15</td>
+                                        <td>1</td>
+                                        <td>Vitamin C </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nectarines</td>
+                                        <td> 1 fruit</td>
+                                        <td>60</td>
+                                        <td> 14</td>
+                                        <td>2</td>
+                                        <td>Vitamin C </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Peaches</td>
+                                        <td> 1 med</td>
+                                        <td> 38</td>
+                                        <td>9</td>
+                                        <td>2</td>
+                                        <td>Vitamin C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pears</td>
+                                        <td> 1 med</td>
+                                        <td>96</td>
+                                        <td>26</td>
+                                        <td>5</td>
+                                        <td>Vitamin C,Folate</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Plums</td>
+                                        <td> 1 fruit</td>
+                                        <td> 30</td>
+                                        <td>8</td>
+                                        <td>1</td>
+                                        <td>Vitamin C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Raspberries</td>
+                                        <td> 125 mL</td>
+                                        <td> 34</td>
+                                        <td>8</td>
+                                        <td>4</td>
+                                        <td>Vitamin C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rhubarb</td>
+                                        <td> 125 mL</td>
+                                        <td> 14</td>
+                                        <td>3</td>
+                                        <td>1</td>
+                                        <td>Vitamin K Vitamin C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Strawberries</td>
+                                        <td> 125 mL</td>
+                                        <td> 28</td>
+                                        <td>7</td>
+                                        <td>2</td>
+                                        <td>Vitamin C </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Watermelon</td>
+                                        <td> 125 mL</td>
+                                        <td> 24</td>
+                                        <td>6</td>
+                                        <td>N/A</td>
+                                        <td>Lycopene</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary panel-black">
+                        <div class="panel-heading meats-panel">
+                            <h4 id="header-meats">MEATS</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped table-hover table-condensed">
+                                <thead>
+                                    <th>FOOD GROUPS</th>
+                                    <th>SERVING</th>
+                                    <th>CALORIES</th>
+                                    <th>PROTEINS</th>
+                                    <th>FAT</th>
+                                    <th>IRON</th>
+                                    <th>VITAMIN B12</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Beef Inside Top Round Roast </td>
+                                        <td>75 g</td>
+                                        <td>123</td>
+                                        <td>24</td>
+                                        <td>2</td>
+                                        <td>2.0</td>
+                                        <td>1.71</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pork Tenderloin </td>
+                                        <td>75 g</td>
+                                        <td>108</td>
+                                        <td> 21</td>
+                                        <td>2</td>
+                                        <td>1.0</td>
+                                        <td>0.41</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Veal Leg </td>
+                                        <td>75 g</td>
+                                        <td>112</td>
+                                        <td>21</td>
+                                        <td>3</td>
+                                        <td>1.0</td>
+                                        <td>0.88</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lamb Leg </td>
+                                        <td>75 g</td>
+                                        <td>184</td>
+                                        <td>19</td>
+                                        <td>12</td>
+                                        <td>2.0</td>
+                                        <td>1.95</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Turkey Dark Meat Cooked(Skinless) </td>
+                                        <td>75 g</td>
+                                        <td>140
+                                            <td>21</td>
+                                            <td>6</td>
+                                            <td>2.0</td>
+                                            <td>0.28</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Light Meat Cooked (Skinless) </td>
+                                        <td>75 g</td>
+                                        <td>118</td>
+                                        <td>22</td>
+                                        <td>2</td>
+                                        <td>1.0</td>
+                                        <td>0.28</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chicken(Skinless) </td>
+                                        <td>75 g</td>
+                                        <td>119
+                                            <td>25</td>
+                                            <td>2</td>
+                                            <td>0.5</td>
+                                            <td>0.26</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fish Fresh Trout </td>
+                                        <td>75 g</td>
+                                        <td>127
+                                            <td>18</td>
+                                            <td>5</td>
+                                            <td>0.3</td>
+                                            <td>3.73</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary panel-black">
+                        <div class="panel-heading dairy-panel">
+                            <h4 id="header-dairy">DAIRY</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped table-hover table-condensed">
+                                <thead>
+                                    <th>FOOD GROUPS</th>
+                                    <th>SERVING</th>
+                                    <th>CALORIES</th>
+                                    <th>PROTEINS</th>
+                                    <th>FAT</th>
+                                    <th>IRON</th>
+                                    <th>VITAMIN B12</th>
+                                    <th>CARBOHYDRATES</th>
+                                    <th>CALCIUM</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Reduced Cheddar Fat</td>
+                                        <td>50 g</td>
+                                        <td>141</td>
+                                        <td>14</td>
+                                        <td>9</td>
+                                        <td>N/A</td>
+                                        <td>0.83</td>
+                                        <td>N/A</td>
+                                        <td>452</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cheese Cheddar</td>
+                                        <td>50 g</td>
+                                        <td> 202</td>
+                                        <td> 12</td>
+                                        <td> 17</td>
+                                        <td>N/A</td>
+                                        <td> 0.42</td>
+                                        <td>N/A</td>
+                                        <td> 360</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Eggs </td>
+                                        <td>2 large</td>
+                                        <td> 155</td>
+                                        <td> 13</td>
+                                        <td>11</td>
+                                        <td>1.0</td>
+                                        <td>1.11</td>
+                                        <td>N/A</td>
+                                        <td>N/A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Milk 2%</td>
+                                        <td>250 mL</td>
+                                        <td>129</td>
+                                        <td> 9</td>
+                                        <td>5</td>
+                                        <td>N/A</td>
+                                        <td>1.19</td>
+                                        <td>12</td>
+                                        <td>302</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>          <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary panel-black">
+                        <div class="panel-heading grains-panel">
+                            <h4 id="header-grains">GRAINS</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped table-hover table-condensed">
+                                <thead>
+                                    <th>FOOD GROUPS</th>
+                                    <th>SERVING</th>
+                                    <th>CALORIES</th>
+                                    <th>PROTEINS</th>
+                                    <th>FAT</th>
+                                    <th>IRON</th>
+                                    <th>VITAMIN B12</th>
+                                    <th>CARBOHYDRATES</th>
+                                    <th>CALCIUM</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Bread Whole Grain</td>
+                                        <td> 1 slice</td>
+                                        <td> 88</td>
+                                        <td> 4</td>
+                                        <td> 1</td>
+                                        <td> 1.0</td>
+                                        <td>N/A</td>
+                                        <td> 16</td>
+                                        <td>N/A</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary panel-black">
+                        <div class="panel-heading legumes-panel">
+                            <h4 id="header-legumes">LEGUMES</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped table-hover table-condensed">
+                                <thead>
+                                    <th>FOOD GROUPS</th>
+                                    <th>SERVING</th>
+                                    <th>CALORIES</th>
+                                    <th>PROTEINS</th>
+                                    <th>FAT</th>
+                                    <th>IRON</th>
+                                    <th>VITAMIN B12</th>
+                                    <th>CARBOHYDRATES</th>
+                                    <th>CALCIUM</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Beans Lentils</td>
+                                        <td> 175 mL</td>
+                                        <td> 135</td>
+                                        <td> 11</td>
+                                        <td> 1</td>
+                                        <td> 4.0</td>
+                                        <td>N/A</td>
+                                        <td> 23</td>
+                                        <td>N/A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Beans Kidney </td>
+                                        <td>175 mL </td>
+                                        <td>161 </td>
+                                        <td>10 </td>
+                                        <td>1 </td>
+                                        <td>2.0 </td>
+                                        <td>N/A</td>
+                                        <td>30</td>
+                                        <td>N/A</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<!-- Navagation Bar -->
+        <div class="col-md-3">
+        	<nav id="navbar-nutrition" data-spy="affix" data-offset-top="60" data-offset-bottom="200" class="bs-docs-sidebar hidden-print hidden-sm hidden-xs affix-top">
+				<ul class="nav bs-docs-sidenav">
+					<li> <a href="#header-vegetables">Vegetables</a> </li>
+					<li><a href="#header-fruits">Fruits</a></li>
+					<li> <a href="#header-meats">Meats</a> </li>
+					<li> <a href="#header-dairy">Dairy</a> </li>
+					<li> <a href="#header-grains">Grains</a> </li>
+					<li> <a href="#header-legumes">Legumes</a> </li>
+				</ul>
+			</nav>
+
+        </div>		
+</div>
+</div>
+
+
+
+{% endblock content %}
