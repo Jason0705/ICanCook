@@ -1,57 +1,46 @@
 {% extends "recipes/base.html" %}
 
 {% block head_title %}
-    Recipes
+		Dessert
 {% endblock head_title %}
 
 {% block content %}
-<div class= "container main-container">
+<div class= "container">
 
         {% if recipe_names %}
         <div class="jumbotron">
-            <h1>Recipes</h1>
+            <h1>Dessert Recipes</h1>
             <p><a href="/recipes/add/">Add a new recipe</a></p>
             <br/>
         </div>
         <hr>
-
-<!-- Recipes panels -->
-
-            <div class="row masonry-container">
-
-                {% for recipe_name in recipe_names %}
-                    <div class="col-sm-6 col-md-4 item">
+            <div class="row">
+                {% for recipe in recipe_names %}
+                    <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            {% if recipe_name.recipe_pic %}
-                                <img src={{ recipe_name.recipe_pic.url }} class='img-responsive'>
+                            {% if recipe.rid.recipe_pic %}
+                                <img src={{ recipe.rid.recipe_pic.url }} class='img-responsive'>
                             {% endif %}
                             <!-- <img src="..." alt="..."> -->
                             <div class="caption">
-                                <h3><a href="{{ recipe_name.get_absolute_url }}">{{ recipe_name.title }}</a></h3>
+                                <h3><a href="{{ recipe.rid.get_absolute_url }}">{{ recipe.rid.title }}</a></h3>
                                 <h5>
-                                    <small>Posted {{ recipe_name.created|timesince }} ago</small>
+                                    <small>Posted {{ recipe.rid.created|timesince }} ago</small>
                                 </h5>
-                                <p>{{ recipe_name.description|linebreaks|truncatechars:150 }}</p>
-                                <p><a href="{{ recipe_name.get_absolute_url }}" class="btn btn-default" role="button">View</a></p>
+                                <p>{{ recipe.rid.description|linebreaks|truncatechars:50 }}</p>
+                                <p><a href="{{ recipe.rid.get_absolute_url }}" class="btn btn-default" role="button">View</a></p>
                             </div>
                         </div>
-                    </div> <!-- close masonry-container -->
+                    </div>
 
                     <!-- {% cycle "" "</div><div class='row'>" %} -->
                 {% endfor %}
-            </div> <!-- End of Row-->
-
- <!-- If no recipes were found -->
-
+            </div>
         {% else %}
-            <h1>Recipes</h1>
-            <p>No recipes are available.</p>
+            <h1>Dessert Recipes</h1>
+            <p>No dessert recipes are available.</p>
             <p><a href="/recipes/add/">Add a new recipe</a></p>
         {% endif %}
-
-
-
- <!-- Page Numbering -->
 
         <!-- <div class="pagination">
             <span class="step-links">
