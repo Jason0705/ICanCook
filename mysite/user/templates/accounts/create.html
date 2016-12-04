@@ -1,9 +1,10 @@
 {% extends "accounts/manage_base.html" %}
 
 {% block content %}
-    <div id="signup-container" class="card">
+    <div id="signup-container">
         <h1>Sign Up</h1>
         <form name="UserForm" action="/user/signup/" method="post" enctype="multipart/form-data">
+        <hr class="colorhr">
         {% csrf_token %}
             {{form.next}}
 
@@ -43,9 +44,10 @@
             {% endfor %}
             {% endif %}
 
+        <hr class="colorhr">
             <div class="row">
                 <div class="col-md-1">
-                <button type="submit" class="btn">Create Account</button>
+                <button type="submit" class="btn btn-success">Create Account</button>
                 </div>
             </div>
         </form>
