@@ -55,7 +55,7 @@ def quick(request):
 
 
 def lowcal(request):
-    lowcal_recipes = Recipe.objects.filter(calorie__lte=350 )
+    lowcal_recipes = Recipe.objects.filter(calorie__lte=350)
 
     # paginator = Paginator(lowcal_recipes, 10)  # Show 10 contacts per page
     #
@@ -69,7 +69,7 @@ def lowcal(request):
     #     # If page is out of range (e.g. 9999), deliver last page of results.
     #     recipe_names = paginator.page(paginator.num_pages)
 
-    #context = {'recipe_names': recipe_names}
+    # context = {'recipe_names': recipe_names}
     context = {'recipe_names': lowcal_recipes}
 
     return render(request, 'recipes/lowcal.html', context)
@@ -153,7 +153,7 @@ def dessert(request):
     #     # If page is out of range (e.g. 9999), deliver last page of results.
     #     recipe_names = paginator.page(paginator.num_pages)
 
-    #context = {'recipe_names': recipe_names}
+    # context = {'recipe_names': recipe_names}
     context = {'recipe_names': dessert_recipes}
 
     return render(request, 'recipes/dessert.html', context)
@@ -174,7 +174,7 @@ def holiday(request):
     #     # If page is out of range (e.g. 9999), deliver last page of results.
     #     recipe_names = paginator.page(paginator.num_pages)
 
-    #context = {'recipe_names': recipe_names}
+    # context = {'recipe_names': recipe_names}
     context = {'recipe_names': holiday_recipes}
 
     return render(request, 'recipes/holiday.html', context)
@@ -206,12 +206,10 @@ def details(request, rid):
 
 
 def tips(request):
-
     return render(request, 'recipes/tips.html')
 
 
 def healthy_living(request):
-
     return render(request, 'recipes/healthy_living.html')
 
 
@@ -270,6 +268,9 @@ def add_recipe(request):
 def edit(request, rid):
     edit_recipe = Recipe.objects.get(pk=rid)
 
+    if request.user.id != edit_recipe.userid:
+        return render(request, 'global/not_authorized.html')
+
     StepFormSet = formset_factory(StepForm, formset=BaseStepsFormSet)
     IngredientFormSet = formset_factory(IngredientForm, formset=BaseIngredientFormSet)
 
@@ -280,7 +281,8 @@ def edit(request, rid):
     steps_data = [{'description': s.description, 'order': s.order} for s in steps]
 
     categories = Category.objects.get(rid=rid)
-    category_data = {'breakfast': categories.breakfast, 'lunch': categories.lunch, 'dinner': categories.dinner, 'dessert': categories.dessert, 'holiday': categories.holiday}
+    category_data = {'breakfast': categories.breakfast, 'lunch': categories.lunch, 'dinner': categories.dinner, 'dessert': categories.dessert,
+                     'holiday': categories.holiday}
 
     if request.POST:
         recipe_form = RecipeForm(request.POST, request.FILES, instance=edit_recipe)
