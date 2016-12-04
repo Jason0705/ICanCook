@@ -2,7 +2,6 @@ from django.contrib.auth import authenticate, login as dlogin, logout as dlogout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib.auth.models import User
 from django.db import IntegrityError
 
 # Create your views her.
