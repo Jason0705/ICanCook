@@ -61,8 +61,8 @@ def signup(request):
 
             if form.is_valid():
                 user = form.save()
-                # user.first_name = form.cleaned_data['first_name']
-                # user.last_name = form.cleaned_data['last_name']
+                user.first_name = form.cleaned_data['first_name']
+                user.last_name = form.cleaned_data['last_name']
                 user.username = form.cleaned_data['username']
                 user.email = form.cleaned_data['email']
                 user.password = form.cleaned_data['password']
