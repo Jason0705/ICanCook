@@ -219,8 +219,40 @@ Edit and Delete Buttons-- >
     border-radius: 25px;
 }
 
-/* Nutrition */
+/* Nutrition-Guide */
 
 #navbar-nutrition{
     width: 260px;
+}
+
+.icon-check{
+    color: #00C60D;
+}
+
+.panel-primary .vegetable-panel{
+    background-color: #3EA045;
+}
+
+.panel-black{
+      border-color: #D3D3D3;
+}
+
+.panel-primary .fruits-panel{
+    background-color: #DB021B;
+}
+
+.panel-primary .meats-panel{
+    background-color: #B50054;
+}
+
+.panel-primary .dairy-panel{
+    background-color: #D6CFD0;
+}
+
+.panel-primary .grains-panel{
+    background-color: #EFAA15;
+}
+
+.panel-primary .legumes-panel{
+    background-color: #77560F;
 }
