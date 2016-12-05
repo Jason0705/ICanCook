@@ -90,7 +90,9 @@
                     </ul>
                 </div>
              </div>
+
 <!-- My changes to make recipe steps panel -->
+
                 <div class="col-md-6 ingredient-steps">
                     <div class="col-head text-center">
                     <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
@@ -99,10 +101,12 @@
 
             <ul class="list-unstyled">
                         {% for step in recipe.step_set.all %}
-                <li> <p>{{ step.description|linebreaks }}</p></li>
+                <li> {{ step.description|linebreaks }} </li>
                         {% endfor %}
             </ul>
+
 <!-- Edit and Delete Buttons-->
+
         {% if user.is_authenticated and user.id == recipe.userid %}
             <a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i> EDIT</a>
            <!-- <p><a href="/recipes/{{ recipe.rid }}/edit/" class="btn btn-default">edit recipe</a></p>
@@ -113,6 +117,7 @@
         </div> <!-- Close the recipe steps-->
 
 <!-- Cooking time, Servings and Other Recipe details -->
+
                  <div class ="column-margin">
 
                    <div class="col-md-1 recipe-info-t2">
@@ -191,6 +196,6 @@
                     </div>
                     
                 </div>
-            </div>
+           
 
 {% endblock content %}

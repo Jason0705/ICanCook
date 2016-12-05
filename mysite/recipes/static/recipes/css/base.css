@@ -147,6 +147,7 @@ h1 {
 
 .col-list .ingredient-steps li {
     border-bottom: 1px solid rgba(255, 183, 72, .4);
+    padding: 10px;
 }
 
 .col-list .ingredient-steps li:last-child {
