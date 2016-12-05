@@ -5,7 +5,7 @@
 {% endblock head_title %}
 
 {% block content %}
-<div class= "container main-container">
+<div class= "main-container">
 
         {% if recipe_names %}
         <div class="jumbotron">
@@ -29,7 +29,7 @@
                             <div class="caption">
                                 <h3><a href="{{ recipe_name.get_absolute_url }}">{{ recipe_name.title }}</a></h3>
                                 <h5><small>Posted {{ recipe_name.created|timesince }} ago</small></h5>
-                                <p>{{ recipe_name.description|linebreaks|truncatechars:150 }}</p>
+                                 <p>{{ recipe_name.description|linebreaks|truncatechars:150 }}</p>
                                 <p><a href="{{ recipe_name.get_absolute_url }}" class="btn btn-default" role="button">View</a></p>
                             </div>
                         </div>
