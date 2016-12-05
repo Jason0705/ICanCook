@@ -14,9 +14,12 @@
             <br/>
         </div>
         <hr>
-            <div class="row">
+
+<!-- Breakfast panels -->
+
+            <div class="row masonry-container">
                 {% for recipe in recipe_names %}
-                    <div class="col-sm-6 col-md-4">
+                    <div class="col-sm-6 col-md-4 item">
                         <div class="thumbnail">
                             {% if recipe.rid.recipe_pic %}
                                 <img src={{ recipe.rid.recipe_pic.url }} class='img-responsive'>
@@ -27,7 +30,7 @@
                                 <h5>
                                     <small>Posted {{ recipe.rid.created|timesince }} ago</small>
                                 </h5>
-                                <p>{{ recipe.rid.description|linebreaks|truncatechars:50 }}</p>
+                                <div>{{ recipe.rid.description|linebreaks|truncatechars:50 }}</div>
                                 <p><a href="{{ recipe.rid.get_absolute_url }}" class="btn btn-default" role="button">View</a></p>
                             </div>
                         </div>

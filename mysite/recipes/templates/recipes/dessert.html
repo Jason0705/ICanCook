@@ -17,10 +17,10 @@
 
 				<!-- Recipes panels -->
 
-				    <div class="row masonry-container">
+			 <div class="row masonry-container">
 							
                 {% for recipe in recipe_names %}
-                    <div class="col-sm-6 col-md-4">
+                    <div class="col-sm-6 col-md-4 item">
                         <div class="thumbnail">
                             {% if recipe.rid.recipe_pic %}
                                 <img src={{ recipe.rid.recipe_pic.url }} class='img-responsive'>
