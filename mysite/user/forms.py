@@ -18,19 +18,19 @@ class UserForm(ModelForm):
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password', 'password_confirm']
 
-    def clean(self):
-        form_data = self.cleaned_data
-
-        password = form_data['password']
-        password_confirm = form_data['password_confirm']
-
-        if password != password_confirm:
-            del form_data["password"]
-            del form_data["password_confirm"]
-
-            self.add_error("password_confirm", "Passwords do not match")
-
-        return form_data
+    # def clean(self):
+    #     form_data = self.cleaned_data
+    #
+    #     password = form_data['password']
+    #     password_confirm = form_data['password_confirm']
+    #
+    #     if password != password_confirm:
+    #         del form_data["password"]
+    #         del form_data["password_confirm"]
+    #
+    #         self.add_error("password_confirm", "Passwords do not match")
+    #
+    #     return form_data
 
 
 class LoginForm(Form):
