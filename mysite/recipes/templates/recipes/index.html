@@ -28,9 +28,7 @@
                             <!-- <img src="..." alt="..."> -->
                             <div class="caption">
                                 <h3><a href="{{ recipe_name.get_absolute_url }}">{{ recipe_name.title }}</a></h3>
-                                <h5>
-                                    <small>Posted {{ recipe_name.created|timesince }} ago</small>
-                                </h5>
+                                <h5><small>Posted {{ recipe_name.created|timesince }} ago</small></h5>
                                 <p>{{ recipe_name.description|linebreaks|truncatechars:150 }}</p>
                                 <p><a href="{{ recipe_name.get_absolute_url }}" class="btn btn-default" role="button">View</a></p>
                             </div>
@@ -44,9 +42,11 @@
  <!-- If no recipes were found -->
 
         {% else %}
+        <div class="jumbotron">
             <h1>Recipes</h1>
             <p>No recipes are available.</p>
             <p><a href="/recipes/add/">Add a new recipe</a></p>
+        </div>
         {% endif %}
 
 
@@ -68,6 +68,6 @@
             {% endif %}
             </span>
         </div> -->
-    </div>
+</div>
 
 {% endblock content %}

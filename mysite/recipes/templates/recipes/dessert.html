@@ -14,7 +14,11 @@
             <br/>
         </div>
         <hr>
-            <div class="row">
+
+				<!-- Recipes panels -->
+
+				    <div class="row masonry-container">
+							
                 {% for recipe in recipe_names %}
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
@@ -37,9 +41,11 @@
                 {% endfor %}
             </div>
         {% else %}
+				<div class="jumbotron">
             <h1>Dessert Recipes</h1>
             <p>No dessert recipes are available.</p>
             <p><a href="/recipes/add/">Add a new recipe</a></p>
+				</div>
         {% endif %}
 
         <!-- <div class="pagination">
