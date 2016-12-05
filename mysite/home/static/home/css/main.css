@@ -105,6 +105,10 @@ body {
 /* Featurettes
 ------------------------- */
 
+a {
+  color: #5A5A5A;
+}
+
 .featurette-divider {
   margin: 50px 0; /* Space out the Bootstrap <hr> more */
 }
@@ -155,4 +159,69 @@ body {
   .featurette-heading {
     margin-top: 120px;
   }
+}
+
+
+
+/* INGREDIENT EFFECTS
+-------------------------------------------------- */
+
+.main {
+    position:relative;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+}
+.main .wrapper {
+    width: 230px;
+    height: 230px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #353434 #19C9E8 #19C9E8 #353434;
+    border-radius: 50%;
+    transition: all 0.8s ease-in-out 0s;
+    posistion:absolute;
+    top:0;
+    left:0;
+}
+
+.main img, .main .info {
+    position:absolute;
+    top:10px;
+    right:0;
+    bottom:0;
+    left:10px;
+    border-radius:50%;
+    width:210px;
+    height:210px;
+    transition: all 0.8s ease-in-out 0s;
+}
+
+.main .info {
+    text-align:center;
+    padding:10px;
+    padding-top:50px;
+    background:#ccc;
+    opacity:0;
+    transition: all 0.8s ease-in-out 0s;
+    backface-visibility:hidden;
+}
+
+.main a:hover  .wrapper {
+    transform:rotate(180deg);
+    transition: all 0.8s ease-in-out 0s;
+}
+
+.main a:hover img {
+    opacity:0;
+    transition: all 0.8s ease-in-out 0s;
+}
+
+.main a:hover .info {
+    opacity:1;
+    transition: all 0.8s ease-in-out 0s;
+}
+
+.ingredient-padding{
+  padding: 20px;
 }
