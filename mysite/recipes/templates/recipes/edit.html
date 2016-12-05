@@ -24,11 +24,9 @@
                         {% csrf_token %}
 
                         {% include 'recipes/recipe_form.html' %}
-
-                        <input type='submit'>
-                        <div class="cancel_button">
-                            <a href="/recipes/{{ rid }}">cancel</a>
-                        </div>
+                        <input type='submit' class="btn btn-success" value="Submit">
+                        <a href="/recipes/{{ rid }}" class="btn btn-danger">Cancel</a>
+                       
                     </form>
                 </div>
             </div>
