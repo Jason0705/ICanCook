@@ -146,7 +146,6 @@ h1 {
 }
 
 .col-list .ingredient-steps li:last-child
-    /*.col-list .ingredient-names li:last-child{*/
 {
     border-bottom: 0;
 }
@@ -208,8 +207,7 @@ h1 {
     border-bottom: 1px solid rgba(248, 113, 82, .4)
 }
 
-<!--
-Edit and Delete Buttons-- >
+/* Edit and Delete Buttons */
 .btn-circle.btn-lg {
     width: 50px;
     height: 50px;
