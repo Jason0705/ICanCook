@@ -81,7 +81,9 @@ h1 {
     list-style-type: none;
 }
 
+
 /* http://stackoverflow.com/questions/20743434/how-to-wrap-a-div-vertically-and-then-horizontally */
+
 .ingredient-wrap {
     vertical-align: top;
     width: 100%;
@@ -99,6 +101,7 @@ h1 {
     -webkit-box-shadow: 0px 2px 28px 0px rgba(50, 50, 50, 1);
     box-shadow: 0px 2px 28px 0px rgba(50, 50, 50, 1);
 }
+
 
 /* Ingredient styles  */
 
@@ -146,8 +149,7 @@ h1 {
     border-bottom: 1px solid rgba(255, 183, 72, .4);
 }
 
-.col-list .ingredient-steps li:last-child
-{
+.col-list .ingredient-steps li:last-child {
     border-bottom: 0;
 }
 
@@ -162,6 +164,7 @@ h1 {
     margin-left: 7px;
     margin-right: 7px;
 }
+
 
 /* Recipe Info changes */
 
@@ -194,7 +197,7 @@ h1 {
 .col-list .recipe-info-t3 .col-head {
     background-color: #05BF84;
     border-radius: 0px 0px 200px 40px;
-/ / border-left-style: dashed;
+    / / border-left-style: dashed;
     margin: 0px;
     padding: 0px;
     max-width: 160px;
@@ -208,7 +211,9 @@ h1 {
     border-bottom: 1px solid rgba(248, 113, 82, .4)
 }
 
+
 /* Edit and Delete Buttons */
+
 .btn-circle.btn-lg {
     padding: 10px 16px;
     font-size: 18px;
@@ -216,43 +221,45 @@ h1 {
     border-radius: 25px;
 }
 
+
 /* Nutrition-Guide */
 
-#navbar-nutrition{
+#navbar-nutrition {
     width: 260px;
 }
 
-.icon-check{
+.icon-check {
     color: #00C60D;
 }
 
-.panel-primary .vegetable-panel{
+.panel-primary .vegetable-panel {
     background-color: #3EA045;
 }
 
-.panel-black{
-      border-color: #D3D3D3;
+.panel-black {
+    border-color: #D3D3D3;
 }
 
-.panel-primary .fruits-panel{
+.panel-primary .fruits-panel {
     background-color: #DB021B;
 }
 
-.panel-primary .meats-panel{
+.panel-primary .meats-panel {
     background-color: #B50054;
 }
 
-.panel-primary .dairy-panel{
+.panel-primary .dairy-panel {
     background-color: #D6CFD0;
 }
 
-.panel-primary .grains-panel{
+.panel-primary .grains-panel {
     background-color: #EFAA15;
 }
 
-.panel-primary .legumes-panel{
+.panel-primary .legumes-panel {
     background-color: #77560F;
 }
+
 
 /* Social Activities */
 
@@ -262,69 +269,86 @@ h1 {
         margin-left: 25%;
     }
 }
+
 .onl_login .onl_authTitle {
     text-align: center;
     line-height: 300%;
 }
-    
+
 .onl_login .onl_socialButtons a {
     color: white;
-    opacity:0.9;
-}
-.onl_login .onl_socialButtons a:hover {
-    color: white;
-    opacity:1;      
+    opacity: 0.9;
 }
 
-.onl_login .onl_socialButtons .onl_btn-twitter {background: #00aced;border-color:#043d52}
-.onl_login .onl_socialButtons .onl_btn-github {background: #666666;border-color:#333333}
-.onl_login .onl_socialButtons .onl_btn-pinterest {background: #cc2127;border-color:#780004}
-          
+.onl_login .onl_socialButtons a:hover {
+    color: white;
+    opacity: 1;
+}
+
+.onl_login .onl_socialButtons .onl_btn-twitter {
+    background: #00aced;
+    border-color: #043d52
+}
+
+.onl_login .onl_socialButtons .onl_btn-github {
+    background: #666666;
+    border-color: #333333
+}
+
+.onl_login .onl_socialButtons .onl_btn-pinterest {
+    background: #cc2127;
+    border-color: #780004
+}
+
 
 /* Review of the author */
 
 .quote-card {
-  background: #fff;
-  color: #222222;
-  padding: 20px;
-  padding-left: 50px;
-  box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(34, 34, 34, 0.12);
-  position: relative;
-  overflow: hidden;
-  min-height: 120px;
+    background: #fff;
+    color: #222222;
+    padding: 20px;
+    padding-left: 50px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(34, 34, 34, 0.12);
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
 }
+
 .quote-card p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0;
-  max-width: 75%;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 75%;
 }
+
 .quote-card cite {
-  font-size: 16px;
-  margin-top: 10px;
-  display: block;
-  font-weight: 200;
-  opacity: 0.8;
+    font-size: 16px;
+    margin-top: 10px;
+    display: block;
+    font-weight: 200;
+    opacity: 0.8;
 }
+
 .quote-card:before {
-  font-family: Georgia, serif;
-  content: "“";
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 5em;
-  color: rgba(238, 238, 238, 0.8);
-  font-weight: normal;
+    font-family: Georgia, serif;
+    content: "“";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 5em;
+    color: rgba(238, 238, 238, 0.8);
+    font-weight: normal;
 }
+
 .quote-card:after {
-  font-family: Georgia, serif;
-  content: "”";
-  position: absolute;
-  bottom: -110px;
-  line-height: 100px;
-  right: -32px;
-  font-size: 25em;
-  color: rgba(238, 238, 238, 0.8);
-  font-weight: normal;
+    font-family: Georgia, serif;
+    content: "”";
+    position: absolute;
+    bottom: -110px;
+    line-height: 100px;
+    right: -32px;
+    font-size: 25em;
+    color: rgba(238, 238, 238, 0.8);
+    font-weight: normal;
 }

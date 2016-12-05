@@ -23,13 +23,13 @@
                     <div class="col-sm-6 col-md-4 item">
                         <div class="thumbnail">
                             {% if recipe_name.recipe_pic %}
-                                <img src={{ recipe_name.recipe_pic.url }} class='img-responsive'>
+                                <img src={{ recipe_name.recipe_pic.url }} alt="Generic placeholder image" class='img-responsive'>
                             {% endif %}
                             <!-- <img src="..." alt="..."> -->
                             <div class="caption">
                                 <h3><a href="{{ recipe_name.get_absolute_url }}">{{ recipe_name.title }}</a></h3>
                                 <h5><small>Posted {{ recipe_name.created|timesince }} ago</small></h5>
-                                 <p>{{ recipe_name.description|linebreaks|truncatechars:150 }}</p>
+                                 <div>{{ recipe_name.description|linebreaks|truncatechars:150 }}</div>
                                 <p><a href="{{ recipe_name.get_absolute_url }}" class="btn btn-default" role="button">View</a></p>
                             </div>
                         </div>
