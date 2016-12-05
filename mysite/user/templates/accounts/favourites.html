@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Favourited Recipes</h1>
+     <hr class="colorhr">
     {% if recipes %}
         <hr>
         {% for recipe in recipes %}
@@ -25,6 +26,10 @@
             <hr class="recipe-divider">
         {% endfor %}
     {% else %}
-        <p>No favourited recipes.</p>
+    <div id="no-favourites">
+        <h3>No favourited recipes.</h3>
+        <a href="/recipes/">Find Some Favourites</a>
+    </div>
+
     {% endif %}
 {% endblock %}
