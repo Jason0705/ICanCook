@@ -105,6 +105,10 @@ body {
 /* Featurettes
 ------------------------- */
 
+a {
+  color: #5A5A5A;
+}
+
 .featurette-divider {
   margin: 50px 0; /* Space out the Bootstrap <hr> more */
 }
