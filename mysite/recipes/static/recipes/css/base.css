@@ -93,6 +93,7 @@ h1 {
 }
 
 .recipe-main {
+    padding: 10px;
     border: 1px solid #ccc;
     -moz-box-shadow: 0px 2px 28px 0px rgba(50, 50, 50, 1);
     -webkit-box-shadow: 0px 2px 28px 0px rgba(50, 50, 50, 1);
@@ -209,8 +210,6 @@ h1 {
 
 /* Edit and Delete Buttons */
 .btn-circle.btn-lg {
-    width: 50px;
-    height: 50px;
     padding: 10px 16px;
     font-size: 18px;
     line-height: 1.33;
@@ -253,4 +252,79 @@ h1 {
 
 .panel-primary .legumes-panel{
     background-color: #77560F;
+}
+
+/* Social Activities */
+
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web&subset=latin,latin-ext);
+@media (min-width: 768px) {
+    .onl_row-sm-offset-3 div:first-child[class*="col-"] {
+        margin-left: 25%;
+    }
+}
+.onl_login .onl_authTitle {
+    text-align: center;
+    line-height: 300%;
+}
+    
+.onl_login .onl_socialButtons a {
+    color: white;
+    opacity:0.9;
+}
+.onl_login .onl_socialButtons a:hover {
+    color: white;
+    opacity:1;      
+}
+
+.onl_login .onl_socialButtons .onl_btn-twitter {background: #00aced;border-color:#043d52}
+.onl_login .onl_socialButtons .onl_btn-github {background: #666666;border-color:#333333}
+.onl_login .onl_socialButtons .onl_btn-pinterest {background: #cc2127;border-color:#780004}
+          
+
+/* Review of the author */
+
+.quote-card {
+  background: #fff;
+  color: #222222;
+  padding: 20px;
+  padding-left: 50px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(34, 34, 34, 0.12);
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+}
+.quote-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 75%;
+}
+.quote-card cite {
+  font-size: 16px;
+  margin-top: 10px;
+  display: block;
+  font-weight: 200;
+  opacity: 0.8;
+}
+.quote-card:before {
+  font-family: Georgia, serif;
+  content: "“";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 5em;
+  color: rgba(238, 238, 238, 0.8);
+  font-weight: normal;
+}
+.quote-card:after {
+  font-family: Georgia, serif;
+  content: "”";
+  position: absolute;
+  bottom: -110px;
+  line-height: 100px;
+  right: -32px;
+  font-size: 25em;
+  color: rgba(238, 238, 238, 0.8);
+  font-weight: normal;
 }
